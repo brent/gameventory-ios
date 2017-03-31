@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */; };
-		7BB9AA5F1E8DFE0F00FBCC68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5E1E8DFE0F00FBCC68 /* ViewController.swift */; };
 		7BB9AA621E8DFE0F00FBCC68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */; };
 		7BB9AA641E8DFE0F00FBCC68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */; };
 		7BB9AA671E8DFE0F00FBCC68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */; };
 		7BB9AA721E8DFE0F00FBCC68 /* GameventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA711E8DFE0F00FBCC68 /* GameventoryTests.swift */; };
 		7BB9AA7D1E8DFE1000FBCC68 /* GameventoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA7C1E8DFE1000FBCC68 /* GameventoryUITests.swift */; };
+		7BB9AA8D1E8DFF5900FBCC68 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */; };
+		7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8E1E8E001500FBCC68 /* Game.swift */; };
+		7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC18AB71E8E0933009EF825 /* GameStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		7BB9AA591E8DFE0F00FBCC68 /* Gameventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7BB9AA5E1E8DFE0F00FBCC68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7BB9AA611E8DFE0F00FBCC68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BB9AA661E8DFE0F00FBCC68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		7BB9AA781E8DFE1000FBCC68 /* GameventoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameventoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB9AA7C1E8DFE1000FBCC68 /* GameventoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameventoryUITests.swift; sourceTree = "<group>"; };
 		7BB9AA7E1E8DFE1000FBCC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		7BB9AA8E1E8E001500FBCC68 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7BC18AB71E8E0933009EF825 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */,
-				7BB9AA5E1E8DFE0F00FBCC68 /* ViewController.swift */,
+				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
+				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
+				7BC18AB71E8E0933009EF825 /* GameStore.swift */,
 				7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */,
 				7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BB9AA5F1E8DFE0F00FBCC68 /* ViewController.swift in Sources */,
+				7BB9AA8D1E8DFF5900FBCC68 /* GamesViewController.swift in Sources */,
+				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
+				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +524,7 @@
 				7BB9AA831E8DFE1000FBCC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BB9AA841E8DFE1000FBCC68 /* Build configuration list for PBXNativeTarget "GameventoryTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +533,7 @@
 				7BB9AA861E8DFE1000FBCC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BB9AA871E8DFE1000FBCC68 /* Build configuration list for PBXNativeTarget "GameventoryUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +542,7 @@
 				7BB9AA891E8DFE1000FBCC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

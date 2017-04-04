@@ -1,0 +1,6 @@
+framework module Pods_GameventoryUITests {
+  umbrella header "Pods-GameventoryUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,6 +11,10 @@ import UIKit
 class GamesViewController: UITableViewController {
   var gameStore: GameStore!
   
+  override func viewDidLoad() {
+    let games = gameStore.searchForGame(withName: "Sonic")
+  }
+  
   override func numberOfSections(in tableView: UITableView) -> Int {
     return gameStore.sections.count
   }

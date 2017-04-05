@@ -10,15 +10,11 @@ import UIKit
 
 class Game: NSObject {
   var name: String
-  var coverImg: UIImage?
   var platforms: [String]
-  var summary: String?
   
-  init(name: String, coverImg: UIImage?, summary: String?, platforms: [String]) {
+  init(name: String, platforms: [String]) {
     self.name = name
     self.platforms = platforms
-    self.coverImg = coverImg
-    self.summary = summary
     
     super.init()
   }
@@ -52,9 +48,9 @@ class Game: NSObject {
       rand = arc4random_uniform(UInt32(platforms.count))
       let randomPlatform = platforms[Int(rand)]
       
-      self.init(name: randomName, coverImg: nil, summary: nil, platforms: [randomPlatform])
+      self.init(name: randomName, platforms: [randomPlatform])
     } else {
-      self.init(name: "", coverImg: nil, summary: nil, platforms: [])
+      self.init(name: "", platforms: [])
     }
   }
 }

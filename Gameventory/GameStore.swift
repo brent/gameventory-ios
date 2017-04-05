@@ -15,8 +15,10 @@ enum GamesResult {
 }
 
 class GameStore {
-  var allGames = [[Game]]()
-  var sections = ["Now Playing", "Up Next", "On Ice", "Finished", "Abandoned"]
+  var gamesInBacklog = [[Game]]()
+  var sectionsInBacklog = ["Now Playing", "Up Next", "On Ice", "Finished", "Abandoned"]
+  
+  var gamesFromSearch = [Game]()
 		
   init() {
     for _ in 0..<10 {
@@ -29,52 +31,33 @@ class GameStore {
       return
     }
     
-    let movedGame = allGames[fromSection][fromIndex]
-    allGames[fromSection].remove(at: fromIndex)
-    allGames[toSection].insert(movedGame, at: toIndex)
+    let movedGame = gamesInBacklog[fromSection][fromIndex]
+    gamesInBacklog[fromSection].remove(at: fromIndex)
+    gamesInBacklog[toSection].insert(movedGame, at: toIndex)
   }
   
-  func searchForGame(withName query: String) -> [Game] {
+  func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
+    // format query for inclusion in URL
     var searchString = query.lowercased()
     searchString = searchString.replacingOccurrences(of: " ", with: "+")
     
-    let searchURL = "\(MobyGamesAPI.gameSearchURL)\(searchString)"
+    let searchURL = MobyGamesAPI.searchURL(for: searchString)
     
-    var gameSearchResults = [Game]()
-    
-    // perform URL request and parse JSON from response
     Alamofire.request(searchURL).responseJSON { response in
-      // print(response.result.value!)
-      
-      do {
-        let json = try JSONSerialization.jsonObject(with: response.data!, options: [])
-        let dictionary = json as! [AnyHashable:Any]
-        let games = dictionary["games"] as! [[String: Any]]
-        
-        for game in games {
-          let gameObj = Game(name: game["gameTitle"] as! String, coverImg: nil, summary: nil, platforms: game["gamePlatforms"] as! [String])
-          gameSearchResults.append(gameObj)
-          print(gameObj.name)
-          print(gameObj.platforms)
-          print("---")
-        }
-        
-      } catch let error {
-        print(error)
-      }
+      let result = MobyGamesAPI.games(fromJSON: response.data!)
+      completion(result)
     }
-
-    return gameSearchResults
   }
+  
   
   @discardableResult func createGame() -> Game {
     let newGame = Game.init(random: true)
 
-    let rand = arc4random_uniform(UInt32(sections.count))
-    if allGames.count < 5 {
-      allGames.append([newGame])
+    let rand = arc4random_uniform(UInt32(sectionsInBacklog.count))
+    if gamesInBacklog.count < 5 {
+      gamesInBacklog.append([newGame])
     } else {
-      allGames[Int(rand)].append(newGame)
+      gamesInBacklog[Int(rand)].append(newGame)
     }
     
     return newGame

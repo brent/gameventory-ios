@@ -29,6 +29,10 @@ class MobyGamesAPI {
   }
   
   class func searchURL(for name: String) -> String {
+    // format query for inclusion in URL
+    var searchString = name.lowercased()
+    searchString = searchString.replacingOccurrences(of: " ", with: "+")
+    
     return "\(gameSearchURL)\(name)"
   }
   
@@ -61,6 +65,11 @@ class MobyGamesAPI {
       let name = json["gameTitle"] as? String,
       let platforms = json["gamePlatforms"] as? [String] else {
         return nil
+    }
+    
+    // filters out collections or fan releases
+    if platforms.count == 0 {
+      return nil
     }
     
     var platformsWithoutDates = [String]()

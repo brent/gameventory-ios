@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
+		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
+		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B7518111E930CC6005EB6E1 /* MobyGamesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */; };
 		7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */; };
 		7BB9AA621E8DFE0F00FBCC68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameventoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobyGamesAPI.swift; sourceTree = "<group>"; };
 		7BB9AA591E8DFE0F00FBCC68 /* Gameventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				7BC18AB71E8E0933009EF825 /* GameStore.swift */,
 				7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */,
 				7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */,
+				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
+				7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */,
 				7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
 				7BB9AA681E8DFE0F00FBCC68 /* Info.plist */,
@@ -458,11 +464,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */,
 				7B7518111E930CC6005EB6E1 /* MobyGamesAPI.swift in Sources */,
 				7BB9AA8D1E8DFF5900FBCC68 /* GamesViewController.swift in Sources */,
 				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
+				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

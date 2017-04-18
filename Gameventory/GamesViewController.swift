@@ -11,21 +11,6 @@ import UIKit
 class GamesViewController: UITableViewController {
   var gameStore: GameStore!
   
-  override func viewDidLoad() {
-    gameStore.searchForGame(withTitle: "Legend of Zelda") { (result) in
-      switch result {
-      case let .success(games):
-        for game in games {
-          print(game.name)
-          print(game.platforms)
-          print("---")
-        }
-      case let .failure(error):
-        print(error)
-      }
-    }
-  }
-  
   override func numberOfSections(in tableView: UITableView) -> Int {
     return gameStore.sectionsInBacklog.count
   }
@@ -55,5 +40,15 @@ class GamesViewController: UITableViewController {
     super.init(coder: aDecoder)
     
     navigationItem.leftBarButtonItem = editButtonItem
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case "showSearch"?:
+      let viewController = segue.destination as! SearchViewController
+      viewController.gameStore = gameStore
+    default:
+      preconditionFailure("Unexpected segue identifier")
+    }
   }
 }

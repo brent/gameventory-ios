@@ -37,18 +37,29 @@ class GameStore {
   }
   
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
-    // format query for inclusion in URL
-    var searchString = query.lowercased()
-    searchString = searchString.replacingOccurrences(of: " ", with: "+")
     
-    let searchURL = MobyGamesAPI.searchURL(for: searchString)
+    let searchURL = MobyGamesAPI.searchURL(for: query)
     
-    Alamofire.request(searchURL).responseJSON { response in
+    processRequest(URLstring: searchURL) { (response) in
       let result = MobyGamesAPI.games(fromJSON: response.data!)
-      completion(result)
+      
+      switch result {
+      case let .success(games):
+        self.gamesFromSearch = games
+        completion(.success(games))
+      case let .failure(error):
+        print("Error fetching games: \(error)")
+      }
+      
+      //completion(result)
     }
   }
   
+  func processRequest(URLstring: String, completion: @escaping (DataResponse<Any>) -> Void) {
+    Alamofire.request(URLstring).responseJSON { response in
+      completion(response)
+    }
+  }
   
   @discardableResult func createGame() -> Game {
     let newGame = Game.init(random: true)

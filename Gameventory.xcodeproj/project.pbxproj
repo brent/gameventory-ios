@@ -10,7 +10,6 @@
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
-		7B7518111E930CC6005EB6E1 /* MobyGamesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */; };
 		7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */; };
 		7BB9AA621E8DFE0F00FBCC68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */; };
 		7BB9AA641E8DFE0F00FBCC68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */; };
@@ -20,6 +19,7 @@
 		7BB9AA8D1E8DFF5900FBCC68 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */; };
 		7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8E1E8E001500FBCC68 /* Game.swift */; };
 		7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC18AB71E8E0933009EF825 /* GameStore.swift */; };
+		7BFA0B1A1EA6DB8700C7319E /* IgdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA0B191EA6DB8700C7319E /* IgdbAPI.swift */; };
 		7DED25E46F725DE3EEC5F7E9 /* Pods_GameventoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */; };
 		89A36945383FBB9627247550 /* Pods_GameventoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6462824D9DE074369C15B22 /* Pods_GameventoryTests.framework */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,6 @@
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
-		7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobyGamesAPI.swift; sourceTree = "<group>"; };
 		7BB9AA591E8DFE0F00FBCC68 /* Gameventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BB9AA611E8DFE0F00FBCC68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		7BB9AA8E1E8E001500FBCC68 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7BC18AB71E8E0933009EF825 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		7BFA0B191EA6DB8700C7319E /* IgdbAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgdbAPI.swift; sourceTree = "<group>"; };
 		96D35584FF421D2DA37CEEA5 /* Pods-Gameventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory.debug.xcconfig"; sourceTree = "<group>"; };
 		BEF7E1607C253C9F6EC7B7C5 /* Pods-GameventoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gameventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
 				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
 				7BC18AB71E8E0933009EF825 /* GameStore.swift */,
-				7B7518101E930CC6005EB6E1 /* MobyGamesAPI.swift */,
+				7BFA0B191EA6DB8700C7319E /* IgdbAPI.swift */,
 				7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */,
 				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
 				7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */,
@@ -464,8 +464,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFA0B1A1EA6DB8700C7319E /* IgdbAPI.swift in Sources */,
 				7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */,
-				7B7518111E930CC6005EB6E1 /* MobyGamesAPI.swift in Sources */,
 				7BB9AA8D1E8DFF5900FBCC68 /* GamesViewController.swift in Sources */,
 				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,

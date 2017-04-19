@@ -38,10 +38,12 @@ class GameStore {
   
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
     
-    let searchURL = MobyGamesAPI.searchURL(for: query)
+    // let searchURL = MobyGamesAPI.searchURL(for: query)
+    let searchURL = IgdbAPI.searchURL(for: query)
     
     processRequest(URLstring: searchURL) { (response) in
-      let result = MobyGamesAPI.games(fromJSON: response.data!)
+      // let result = MobyGamesAPI.games(fromJSON: response.data!)
+      let result = IgdbAPI.games(fromJSON: response.data!)
       
       switch result {
       case let .success(games):

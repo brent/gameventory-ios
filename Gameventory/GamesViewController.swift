@@ -20,10 +20,12 @@ class GamesViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-    cell.textLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].name
-    cell.detailTextLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].platforms.first!
-    
+//    let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+//    cell.textLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].name
+//    cell.detailTextLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].platforms.first!
+    let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
+    cell.gameNameLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].name
+    cell.coverImage?.image = UIImage(named: "227x320")
     return cell
   }
   
@@ -34,6 +36,10 @@ class GamesViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
                        toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row)
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 96
   }
   
   required init?(coder aDecoder: NSCoder) {

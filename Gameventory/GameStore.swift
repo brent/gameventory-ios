@@ -14,6 +14,11 @@ enum GamesResult {
   case failure(Error)
 }
 
+enum GameImgResult {
+  case succes(UIImage)
+  case failure(Error)
+}
+
 class GameStore {
   var gamesInBacklog = [[Game]]()
   var sectionsInBacklog = ["Now Playing", "Up Next", "On Ice", "Finished", "Abandoned"]
@@ -38,11 +43,9 @@ class GameStore {
   
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
     
-    // let searchURL = MobyGamesAPI.searchURL(for: query)
     let searchURL = IgdbAPI.searchURL(for: query)
     
     processRequest(URLstring: searchURL) { (response) in
-      // let result = MobyGamesAPI.games(fromJSON: response.data!)
       let result = IgdbAPI.games(fromJSON: response.data!)
       
       switch result {
@@ -52,8 +55,6 @@ class GameStore {
       case let .failure(error):
         print("Error fetching games: \(error)")
       }
-      
-      //completion(result)
     }
   }
   

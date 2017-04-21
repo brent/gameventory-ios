@@ -10,11 +10,13 @@ import UIKit
 
 class Game: NSObject {
   var name: String
-  var platforms: [String]
+  var coverImgURL: String
+  // var platforms: [String]
   
-  init(name: String, platforms: [String]) {
+  init(name: String, coverImgURL: String) {
     self.name = name
-    self.platforms = platforms
+    self.coverImgURL = coverImgURL
+    // self.platforms = platforms
     
     super.init()
   }
@@ -24,7 +26,7 @@ class Game: NSObject {
       let adjectives = ["Super", "Hyper", "Ultra", "Maximum"]
       let noun1 = ["Chef", "Attack", "Battle"]
       let noun2 = ["Bros", "Friends", "Squad", "Team"]
-      let platforms = ["Xbox One", "Playstation 4", "Switch", "Playstation 3", "Xbox 360", "Wii U", "PC"]
+      // let platforms = ["Xbox One", "Playstation 4", "Switch", "Playstation 3", "Xbox 360", "Wii U", "PC"]
       
       var rand = arc4random_uniform(UInt32(adjectives.count))
       let randomAdjective = adjectives[Int(rand)]
@@ -44,13 +46,13 @@ class Game: NSObject {
       }
       
       let randomName = "\(randomAdjective) \(randomNoun1) \(randomNoun2) \(sequelNum)"
+
+      // rand = arc4random_uniform(UInt32(platforms.count))
+      // let randomPlatform = platforms[Int(rand)]
       
-      rand = arc4random_uniform(UInt32(platforms.count))
-      let randomPlatform = platforms[Int(rand)]
-      
-      self.init(name: randomName, platforms: [randomPlatform])
+      self.init(name: randomName, coverImgURL: "http://placehold.it/227x320")
     } else {
-      self.init(name: "", platforms: [])
+      self.init(name: "", coverImgURL: "http://placehold.it/227x320")
     }
   }
 }

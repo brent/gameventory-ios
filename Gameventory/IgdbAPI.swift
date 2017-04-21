@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brent. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Method: String {
   case gameSearch = "/search"
@@ -65,11 +65,15 @@ class IgdbAPI {
   
   private class func game(fromJSON json: [String: Any]) -> Game? {
     guard
-      let name = json["name"] as? String else {
+      let name = json["name"] as? String,
+      let cover = json["cover"] as? [String: Any],
+      var coverImgURL = cover["url"] as? String else {
         return nil
     }
     
-    let game = Game(name: name, platforms: [""])
+    coverImgURL = "https:\(coverImgURL)"
+    let game = Game(name: name, coverImgURL: coverImgURL)
     return game
   }
+
 }

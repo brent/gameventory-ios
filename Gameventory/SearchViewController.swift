@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate {
   var gameStore: GameStore!
   let searchDataSource = SearchDataSource()
   
@@ -36,10 +36,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     sender.resignFirstResponder()
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 96
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.dataSource = searchDataSource
+    tableView.delegate = self
   }
 }

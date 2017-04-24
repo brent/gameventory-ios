@@ -39,6 +39,14 @@ class GameStore {
     backlog[toSection].insert(movedGame, at: toIndex)
   }
   
+  func addGame(game: Game, to section: Int) {
+    if gamesInBacklog == nil {
+      gamesInBacklog = [[], [], [], [], []]
+    }
+    
+    gamesInBacklog![section].append(game)  
+  }
+  
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
     
     let searchURL = IgdbAPI.searchURL(for: query)

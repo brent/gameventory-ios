@@ -18,15 +18,25 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidLoad() {
     tableView.dataSource = self
     tableView.delegate = self
-        
+  }
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
     if gameStore.gamesInBacklog == nil {
       tableView.isHidden = true
+      zeroStateStackView.isHidden = false
       navigationItem.leftBarButtonItem = nil
     } else {
       zeroStateStackView.isHidden = true
+      tableView.isHidden = false
+      navigationItem.leftBarButtonItem = editButtonItem
     }
+    
+    tableView.reloadData()
   }
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return gameStore.sectionsInBacklog.count
   }
@@ -41,8 +51,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
     if let backlog = gameStore.gamesInBacklog {
-      cell.gameNameLabel?.text = backlog[indexPath.section][indexPath.row].name
-      cell.coverImage?.image = UIImage(named: "227x320")
+      let game = backlog[indexPath.section][indexPath.row]
+      cell.gameNameLabel?.text = game.name
+      cell.coverImage?.image = imageStore.image(forKey: String(game.igdbId))
     } else {
       cell.gameNameLabel?.text = ""
       cell.coverImage?.image = UIImage()
@@ -61,6 +72,11 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 96
+  }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    self.tableView.setEditing(editing, animated: animated)
   }
   
   required init?(coder aDecoder: NSCoder) {

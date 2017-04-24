@@ -32,5 +32,7 @@ class GameDetailViewController: UIViewController {
     releaseDateLabel.text = dateFormatter.string(from: game.firstReleaseDate)
     summaryLabel.text = game.summary
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
+    
+    print("game: ", game)
   }
 }

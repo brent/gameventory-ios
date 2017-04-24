@@ -61,14 +61,22 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     switch segue.identifier {
     case "showGameDetail"?:
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        let destinationVC = segue.destination as! GameDetailViewController
         let game = gameStore.gamesFromSearch[selectedIndexPath.row]
-        
+        let destinationVC = segue.destination as! GameDetailViewController
         destinationVC.game = game
         destinationVC.imageStore = imageStore
+      }
+    case "showBacklogSectionSelector"?:
+      if let button = sender as? UIButton {
+        let selectedIndex = button.tag
+        let game = gameStore.gamesFromSearch[selectedIndex]
+        let destinationVC = segue.destination as! BacklogSectionPickerViewController
+        destinationVC.game = game
+        destinationVC.gameStore = gameStore
       }
     default:
       preconditionFailure("Could not find segue with identifier")

@@ -7,15 +7,10 @@
 //
 
 import UIKit
-import Alamofire
-
-enum CoverImgFetchResult {
-  case success(UIImage)
-  case failure(Error)
-}
 
 class SearchDataSource: NSObject, UITableViewDataSource {
   var games: [Game] = []
+  var imageStore: ImageStore!
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
@@ -23,31 +18,15 @@ class SearchDataSource: NSObject, UITableViewDataSource {
     let game = games[indexPath.row]
     cell.gameNameLabel?.text = game.name
     
-    fetchCoverImg(url: games[indexPath.row].coverImgURL) { (result) in
-      switch result {
-      case let .success(img):
-        cell.coverImage?.image = img
-      case let .failure(error):
-        print("\(error)")
-      }
-    }
+    let coverImg = imageStore.image(forKey: String(game.igdbId))
+    cell.coverImage.image = coverImg
+    
+    cell.selectionStyle = .none
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return games.count
-  }
-  
-  
-  private func fetchCoverImg(url: String, completion: @escaping (CoverImgFetchResult) -> Void) {
-    Alamofire.request(url).response { response in
-      guard let imageData = response.data else {
-        print("Could not get image from URL")
-        return
-      }
-      let image = UIImage(data: imageData)!
-      completion(.success(image))
-    }
   }
 }

@@ -14,8 +14,8 @@ enum GamesResult {
   case failure(Error)
 }
 
-enum GameImgResult {
-  case succes(UIImage)
+enum CoverImgResult {
+  case success(UIImage)
   case failure(Error)
 }
 

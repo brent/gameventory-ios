@@ -10,6 +10,7 @@ import UIKit
 
 class GamesViewController: UITableViewController {
   var gameStore: GameStore!
+  var imageStore: ImageStore!
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return gameStore.sectionsInBacklog.count
@@ -51,8 +52,10 @@ class GamesViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case "showSearch"?:
-      let viewController = segue.destination as! SearchViewController
+      let navController = segue.destination as! UINavigationController
+      let viewController = navController.topViewController as! SearchViewController
       viewController.gameStore = gameStore
+      viewController.imageStore = imageStore
     default:
       preconditionFailure("Unexpected segue identifier")
     }

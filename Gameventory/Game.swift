@@ -9,13 +9,19 @@
 import UIKit
 
 class Game: NSObject {
-  var name: String
-  var coverImgURL: String
+  let name: String
+  let coverImgURL: String
+  let firstReleaseDate: Date
+  let summary: String
+  let igdbId: Int
   // var platforms: [String]
   
-  init(name: String, coverImgURL: String) {
+  init(name: String, coverImgURL: String, firstReleaseDate: Date, summary: String, igdbId: Int) {
     self.name = name
     self.coverImgURL = coverImgURL
+    self.firstReleaseDate = firstReleaseDate
+    self.summary = summary
+    self.igdbId = igdbId
     // self.platforms = platforms
     
     super.init()
@@ -50,9 +56,9 @@ class Game: NSObject {
       // rand = arc4random_uniform(UInt32(platforms.count))
       // let randomPlatform = platforms[Int(rand)]
       
-      self.init(name: randomName, coverImgURL: "http://placehold.it/227x320")
+      self.init(name: randomName, coverImgURL: "http://placehold.it/227x320", firstReleaseDate: Date(), summary: "", igdbId: 0)
     } else {
-      self.init(name: "", coverImgURL: "http://placehold.it/227x320")
+      self.init(name: "", coverImgURL: "http://placehold.it/227x320", firstReleaseDate: Date(), summary: "", igdbId: 0)
     }
   }
 }

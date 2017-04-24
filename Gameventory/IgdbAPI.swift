@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum Method: String {
   case gameSearch = "/search"
@@ -65,15 +66,44 @@ class IgdbAPI {
   
   private class func game(fromJSON json: [String: Any]) -> Game? {
     guard
+      let id = json["id"] as? Int,
       let name = json["name"] as? String,
       let cover = json["cover"] as? [String: Any],
-      var coverImgURL = cover["url"] as? String else {
+      let firstReleaseDate = json["first_release_date"] as? TimeInterval,
+      let summary = json["summary"] as? String,
+      let coverImgId = cover["cloudinary_id"] as? String else {
         return nil
     }
     
-    coverImgURL = "https:\(coverImgURL)"
-    let game = Game(name: name, coverImgURL: coverImgURL)
+    let coverImgURL = self.coverImgURL(for: coverImgId)
+    
+    let releaseDate = Date(timeIntervalSince1970: (firstReleaseDate/1000))
+    
+    let game = Game(name: name, coverImgURL: coverImgURL, firstReleaseDate: releaseDate, summary: summary, igdbId: id)
     return game
   }
-
+  
+  private class func coverImgURL(for coverImgId: String) -> String {
+    var coverImgURL = ""
+    
+    let igdbImageBaseURL = "https://images.igdb.com/igdb/image/upload/t_"
+    let coverSize = "cover_big/"
+    let imgFormat = ".png"
+    
+    coverImgURL = "\(igdbImageBaseURL)\(coverSize)\(coverImgId)\(imgFormat)"
+    
+    return coverImgURL
+  }
+  
+  
+  class func coverImg(url: String, completion: @escaping (CoverImgResult) -> Void) {
+    Alamofire.request(url).response { response in
+      guard let imageData = response.data else {
+        print("Could not get image from URL")
+        return
+      }
+      let image = UIImage(data: imageData)!
+      completion(.success(image))
+    }
+  }
 }

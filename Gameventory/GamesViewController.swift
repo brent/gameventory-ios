@@ -8,38 +8,58 @@
 
 import UIKit
 
-class GamesViewController: UITableViewController {
+class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   var gameStore: GameStore!
   var imageStore: ImageStore!
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  @IBOutlet var zeroStateStackView: UIStackView!
+  @IBOutlet var tableView: UITableView!
+
+  override func viewDidLoad() {
+    tableView.dataSource = self
+    tableView.delegate = self
+        
+    if gameStore.gamesInBacklog == nil {
+      tableView.isHidden = true
+      navigationItem.leftBarButtonItem = nil
+    } else {
+      zeroStateStackView.isHidden = true
+    }
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
     return gameStore.sectionsInBacklog.count
   }
   
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return gameStore.gamesInBacklog[section].count
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let backlog = gameStore.gamesInBacklog {
+      return backlog[section].count
+    }
+    return 0
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-//    cell.textLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].name
-//    cell.detailTextLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].platforms.first!
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
-    cell.gameNameLabel?.text = gameStore.gamesInBacklog[indexPath.section][indexPath.row].name
-    cell.coverImage?.image = UIImage(named: "227x320")
+    if let backlog = gameStore.gamesInBacklog {
+      cell.gameNameLabel?.text = backlog[indexPath.section][indexPath.row].name
+      cell.coverImage?.image = UIImage(named: "227x320")
+    } else {
+      cell.gameNameLabel?.text = ""
+      cell.coverImage?.image = UIImage()
+    }
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return gameStore.sectionsInBacklog[section]
   }
   
-  override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
                        toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row)
   }
   
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 96
   }
   

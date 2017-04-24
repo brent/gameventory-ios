@@ -20,25 +20,23 @@ enum CoverImgResult {
 }
 
 class GameStore {
-  var gamesInBacklog = [[Game]]()
+  var gamesInBacklog: [[Game]]?
   var sectionsInBacklog = ["Now Playing", "Up Next", "On Ice", "Finished", "Abandoned"]
   
   var gamesFromSearch = [Game]()
-		
-  init() {
-    for _ in 0..<10 {
-      createGame()
-    }
-  }
   
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
       return
     }
     
-    let movedGame = gamesInBacklog[fromSection][fromIndex]
-    gamesInBacklog[fromSection].remove(at: fromIndex)
-    gamesInBacklog[toSection].insert(movedGame, at: toIndex)
+    guard var backlog = gamesInBacklog else {
+      return
+    }
+    
+    let movedGame = backlog[fromSection][fromIndex]
+    backlog[fromSection].remove(at: fromIndex)
+    backlog[toSection].insert(movedGame, at: toIndex)
   }
   
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
@@ -62,18 +60,5 @@ class GameStore {
     Alamofire.request(URLstring).responseJSON { response in
       completion(response)
     }
-  }
-  
-  @discardableResult func createGame() -> Game {
-    let newGame = Game.init(random: true)
-
-    let rand = arc4random_uniform(UInt32(sectionsInBacklog.count))
-    if gamesInBacklog.count < 5 {
-      gamesInBacklog.append([newGame])
-    } else {
-      gamesInBacklog[Int(rand)].append(newGame)
-    }
-    
-    return newGame
   }
 }

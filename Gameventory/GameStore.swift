@@ -64,6 +64,22 @@ class GameStore {
     }
   }
   
+  func hasGame(_ game: Game) -> Bool {
+    guard let backlog = gamesInBacklog else {
+      return false
+    }
+    
+    for section in backlog {
+      for backlogGame in section {
+        if backlogGame == game {
+          return true
+        }
+      }
+    }
+    
+    return false
+  }
+  
   func processRequest(URLstring: String, completion: @escaping (DataResponse<Any>) -> Void) {
     Alamofire.request(URLstring).responseJSON { response in
       completion(response)

@@ -10,11 +10,14 @@ import UIKit
 
 class SearchDataSource: NSObject, UITableViewDataSource {
   var games: [Game] = []
+  var gameStore: GameStore!
   var imageStore: ImageStore!
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameSearchResultCell", for: indexPath) as! GameSearchResultCell
     
+    // indexPath changes as cells are dequeued and reused
+    // this needs to match the game in the table cell
     let game = games[indexPath.row]
     cell.gameNameLabel?.text = game.name
     
@@ -22,6 +25,12 @@ class SearchDataSource: NSObject, UITableViewDataSource {
     cell.coverImage.image = coverImg
     
     cell.selectionStyle = .none
+    
+    /*
+    if gameStore.hasGame(game) {
+      cell.addGameBtn.superview!.isHidden = true
+    }
+    */
     
     cell.addGameBtn.tag = indexPath.row
     

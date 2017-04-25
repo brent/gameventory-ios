@@ -12,6 +12,9 @@
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
 		7B93F5641EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */; };
+		7B93F5671EAEF0BA00CF3360 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */; };
+		7B93F5681EAEF0BA00CF3360 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B93F5661EAEF0BA00CF3360 /* SourceSansPro-Regular.ttf */; };
+		7B93F56B1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B93F56A1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf */; };
 		7B9770761EA840BD008A78DC /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9770751EA840BD008A78DC /* GameCell.swift */; };
 		7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */; };
 		7BB9AA621E8DFE0F00FBCC68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchResultCell.swift; sourceTree = "<group>"; };
 		7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacklogSectionPickerViewController.swift; sourceTree = "<group>"; };
+		7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		7B93F5661EAEF0BA00CF3360 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		7B93F56A1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		7B9770751EA840BD008A78DC /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		7BB9AA591E8DFE0F00FBCC68 /* Gameventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B93F5691EAEF0C100CF3360 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */,
+				7B93F5661EAEF0BA00CF3360 /* SourceSansPro-Regular.ttf */,
+				7B93F56A1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		7BB9AA501E8DFE0F00FBCC68 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +164,7 @@
 				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
 				7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */,
 				7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */,
+				7B93F5691EAEF0C100CF3360 /* Resources */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
 				7BB9AA681E8DFE0F00FBCC68 /* Info.plist */,
 			);
@@ -314,9 +331,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B93F5681EAEF0BA00CF3360 /* SourceSansPro-Regular.ttf in Resources */,
 				7BB9AA671E8DFE0F00FBCC68 /* LaunchScreen.storyboard in Resources */,
 				7BB9AA641E8DFE0F00FBCC68 /* Assets.xcassets in Resources */,
 				7BB9AA621E8DFE0F00FBCC68 /* Main.storyboard in Resources */,
+				7B93F5671EAEF0BA00CF3360 /* SourceSansPro-Light.ttf in Resources */,
+				7B93F56B1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         case let .success(games):
           self.gameStore.gamesFromSearch = games
           self.searchDataSource.games = games
+          self.searchDataSource.gameStore = self.gameStore
           self.searchDataSource.imageStore = self.imageStore
           self.fetchCoverImgs(for: games)
         case let .failure(error):
@@ -58,6 +59,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     tableView.dataSource = searchDataSource
     tableView.delegate = self
+
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row % 2 == 1 {
+      cell.backgroundColor = UIColor(red: 249, green: 249, blue: 249, alpha: 1)
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,8 +81,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
         let game = gameStore.gamesFromSearch[selectedIndexPath.row]
         let destinationVC = segue.destination as! GameDetailViewController
+        
         destinationVC.game = game
         destinationVC.imageStore = imageStore
+        destinationVC.gameStore = gameStore
+        destinationVC.buttonTitle = "Add"
       }
     case "showBacklogSectionSelector"?:
       if let button = sender as? UIButton {

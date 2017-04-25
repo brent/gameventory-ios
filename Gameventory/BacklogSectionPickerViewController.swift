@@ -20,12 +20,13 @@ class BacklogSectionPickerViewController: UIViewController {
   var game: Game!
   var gameStore: GameStore!
   
+  @IBOutlet var modalView: UIView!
+  
   @IBAction func dissmissView(_ sender: Any) {
     presentingViewController?.dismiss(animated: false, completion: nil)
   }
   
   @IBAction func addToBacklogSection(_ sender: UIButton) {
-    print("tag: ", sender.tag)
     switch sender.tag {
     case BacklogSectionButtonTags.NowPlaying.rawValue:
       gameStore.addGame(game: game, to: BacklogSectionButtonTags.NowPlaying.rawValue)
@@ -44,9 +45,9 @@ class BacklogSectionPickerViewController: UIViewController {
     presentingViewController?.dismiss(animated: false, completion: nil)
   }
   
-  
   override func viewDidLoad() {
     view.backgroundColor = UIColor.clear
     view.isOpaque = false
+    modalView.layer.cornerRadius = 3
   }
 }

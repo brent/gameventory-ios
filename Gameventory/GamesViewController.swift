@@ -18,6 +18,13 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidLoad() {
     tableView.dataSource = self
     tableView.delegate = self
+    
+    let imageView = UIImageView(image: UIImage(named: "navBarLogo"))
+    imageView.contentMode = .scaleAspectFit
+    imageView.clipsToBounds = true
+    navigationItem.titleView = imageView
+    
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
   
   
@@ -101,6 +108,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
       destinationVC.game = backlog[section][row]
       destinationVC.imageStore = imageStore
+      destinationVC.gameStore = gameStore
+      destinationVC.buttonTitle = "Move"
     default:
       preconditionFailure("Unexpected segue identifier")
     }

@@ -48,8 +48,5 @@ class BacklogSectionPickerViewController: UIViewController {
   override func viewDidLoad() {
     view.backgroundColor = UIColor.clear
     view.isOpaque = false
-    
-    print("game: ", game)
-    print("gameStore: ", gameStore)
   }
 }

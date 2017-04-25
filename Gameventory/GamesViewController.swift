@@ -92,6 +92,15 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let viewController = navController.topViewController as! SearchViewController
       viewController.gameStore = gameStore
       viewController.imageStore = imageStore
+    case "showGameDetail"?:
+      let destinationVC = segue.destination as! GameDetailViewController
+      guard let section = tableView.indexPathForSelectedRow?.section,
+        let row = tableView.indexPathForSelectedRow?.row,
+        let backlog = gameStore.gamesInBacklog else {
+          return
+      }
+      destinationVC.game = backlog[section][row]
+      destinationVC.imageStore = imageStore
     default:
       preconditionFailure("Unexpected segue identifier")
     }

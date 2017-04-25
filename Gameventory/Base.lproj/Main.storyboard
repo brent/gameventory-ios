@@ -73,6 +73,7 @@
                                                 <connections>
                                                     <outlet property="coverImage" destination="xJC-Sa-0Sa" id="l7J-CK-diJ"/>
                                                     <outlet property="gameNameLabel" destination="6f8-8a-d4j" id="HBL-4v-fqu"/>
+                                                    <segue destination="Sa7-qX-d9u" kind="show" identifier="showGameDetail" id="0Io-Xj-w4g"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -207,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="du5-gw-Cnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="-73.313343328335833"/>
+            <point key="canvasLocation" x="1602" y="-458"/>
         </scene>
         <!--Backlog Section Picker View Controller-->
         <scene sceneID="IYQ-WU-5PY">
@@ -413,7 +414,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBg-Ad-Duh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696.79999999999995" y="-73.313343328335833"/>
+            <point key="canvasLocation" x="663" y="-458"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NEo-AX-gIt">
@@ -434,4 +435,7 @@
             <point key="canvasLocation" x="-1062" y="-73"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0Io-Xj-w4g"/>
+    </inferredMetricsTieBreakers>
 </document>

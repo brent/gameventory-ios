@@ -27,7 +27,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
   
-  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -51,8 +50,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let backlog = gameStore.gamesInBacklog {
       return backlog[section].count
+    } else {
+      return 0
     }
-    return 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,9 +72,42 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     return gameStore.sectionsInBacklog[section]
   }
   
+  /*
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let view = UIView()
+    view.backgroundColor = UIColor.clear
+    
+    let label = UILabel()
+    label.text = gameStore.sectionsInBacklog[section].uppercased()
+    label.textAlignment = .center
+    label.font = UIFont(name: "SourceSansPro-Light", size: 16)
+    label.textColor = UIColor.darkText
+    
+    view.addSubview(label)
+    
+    return view
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 44
+  }
+  */
+  
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
                        toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row)
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      guard let backlog = gameStore.gamesInBacklog else {
+        return
+      }
+      
+      let game = backlog[indexPath.section][indexPath.row]
+      gameStore.removeGame(game: game)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

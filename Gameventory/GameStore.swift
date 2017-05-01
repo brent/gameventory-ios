@@ -26,6 +26,7 @@ class GameStore {
   var gamesFromSearch = [Game]()
   
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int) {
+    debugPrint("fromSection: \(sectionsInBacklog[fromSection])", "fromIndex: \(fromIndex)", "toSection: \(sectionsInBacklog[toSection])", "toIndex \(toIndex)", gamesInBacklog!, separator: "\n")
     if (fromSection == toSection) && (fromIndex == toIndex) {
       return
     }
@@ -45,6 +46,23 @@ class GameStore {
     }
     
     gamesInBacklog![section].append(game)  
+  }
+  
+  func removeGame(game: Game) {
+    guard let backlog = gamesInBacklog else {
+      return
+    }
+    
+    var newBacklog = [[Game]]()
+    for var section in backlog {
+      for backlogGame in section {
+        if backlogGame == game {
+          section.remove(at: section.index(of: backlogGame)!)
+        }
+      }
+      newBacklog.append(section)
+    }
+    gamesInBacklog = newBacklog
   }
   
   func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {

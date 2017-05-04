@@ -26,18 +26,19 @@ class GameStore {
   var gamesFromSearch = [Game]()
   
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int) {
-    debugPrint("fromSection: \(sectionsInBacklog[fromSection])", "fromIndex: \(fromIndex)", "toSection: \(sectionsInBacklog[toSection])", "toIndex \(toIndex)", gamesInBacklog!, separator: "\n")
     if (fromSection == toSection) && (fromIndex == toIndex) {
       return
     }
     
-    guard var backlog = gamesInBacklog else {
+    guard var newBacklog = gamesInBacklog else {
       return
     }
     
-    let movedGame = backlog[fromSection][fromIndex]
-    backlog[fromSection].remove(at: fromIndex)
-    backlog[toSection].insert(movedGame, at: toIndex)
+    let movedGame = newBacklog[fromSection][fromIndex]
+    newBacklog[fromSection].remove(at: fromIndex)
+    newBacklog[toSection].insert(movedGame, at: toIndex)
+    
+    gamesInBacklog = newBacklog
   }
   
   func addGame(game: Game, to section: Int) {

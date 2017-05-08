@@ -66,11 +66,11 @@ class IgdbAPI {
   
   private class func game(fromJSON json: [String: Any]) -> Game? {
     guard
-      let id = json["id"] as? Int,
-      let name = json["name"] as? String,
-      let cover = json["cover"] as? [String: Any],
-      let firstReleaseDate = json["first_release_date"] as? TimeInterval,
-      let summary = json["summary"] as? String,
+      let id = json["igdb_id"] as? Int,
+      let name = json["igdb_name"] as? String,
+      let cover = json["igdb_cover"] as? [String: Any],
+      let firstReleaseDate = json["igdb_first_release_date"] as? TimeInterval,
+      let summary = json["igdb_summary"] as? String,
       let coverImgId = cover["cloudinary_id"] as? String else {
         return nil
     }

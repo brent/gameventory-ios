@@ -11,6 +11,7 @@ import UIKit
 class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   var gameStore: GameStore!
   var imageStore: ImageStore!
+  var user: User!
   
   @IBOutlet var zeroStateStackView: UIStackView!
   @IBOutlet var tableView: UITableView!
@@ -25,6 +26,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     navigationItem.titleView = imageView
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    
+    print(user.token)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -132,6 +135,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let viewController = navController.topViewController as! SearchViewController
       viewController.gameStore = gameStore
       viewController.imageStore = imageStore
+      viewController.user = user
     case "showGameDetail"?:
       let destinationVC = segue.destination as! GameDetailViewController
       guard let section = tableView.indexPathForSelectedRow?.section,
@@ -143,6 +147,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       destinationVC.imageStore = imageStore
       destinationVC.gameStore = gameStore
       destinationVC.buttonTitle = "Move"
+      destinationVC.user = user
     default:
       preconditionFailure("Unexpected segue identifier")
     }

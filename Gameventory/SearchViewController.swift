@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate {
   var gameStore: GameStore!
   var imageStore: ImageStore!
+  var user: User!
   let searchDataSource = SearchDataSource()
   
   @IBOutlet var tableView: UITableView!
@@ -24,7 +25,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   @IBAction func performSearch(_ sender: UITextField) {
     if var searchString = sender.text {
       searchString = searchString.trimmingCharacters(in: .whitespacesAndNewlines)
-      gameStore.searchForGame(withTitle: searchString, completion: { (gamesResult) in
+      gameStore.searchForGame(withTitle: searchString, withToken: user.token, completion: { (gamesResult) in
         switch gamesResult {
         case let .success(games):
           self.gameStore.gamesFromSearch = games
@@ -42,7 +43,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   
   func fetchCoverImgs(for games: [Game]) {
     for game in games {
-      IgdbAPI.coverImg(url: game.coverImgURL, completion: { (result) in
+      GameventoryAPI.coverImg(url: game.coverImgURL, completion: { (result) in
         switch result {
         case let .success(coverImg):
           self.imageStore.setImage(coverImg, forKey: String(game.igdbId))

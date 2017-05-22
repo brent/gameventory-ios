@@ -19,6 +19,7 @@ enum BacklogSectionButtonTags: Int {
 class BacklogSectionPickerViewController: UIViewController {
   var game: Game!
   var gameStore: GameStore!
+  var user: User!
   
   @IBOutlet var modalView: UIView!
   

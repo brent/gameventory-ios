@@ -17,6 +17,7 @@ class GameDetailViewController: UIViewController {
   
   var imageStore: ImageStore!
   var gameStore: GameStore!
+  var user: User!
   
   var buttonTitle: String!
   

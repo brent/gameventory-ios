@@ -1,5 +1,5 @@
 //
-//  IgdbAPI.swift
+//  GameventoryAPI.swift
 //  Gameventory
 //
 //  Created by Brent on 4/18/17.
@@ -13,20 +13,21 @@ enum Method: String {
   case gameSearch = "/search"
 }
 
-enum IgdbAPIError: Error {
+enum GameventoryAPIError: Error {
   case invalidJSONData
 }
 
-class IgdbAPI {
+class GameventoryAPI {
   private static let baseURLString = "http://localhost:3000"
+  //private static let baseURLString = "https://inventory.games"
   private static let apiVersion = "/api/v1"
   
-  private class func igdbApiUrl(method: Method) -> String {
+  private class func gameventoryApiUrl(method: Method) -> String {
     return "\(baseURLString)\(apiVersion)\(method.rawValue)"
   }
   
   private class var gameSearchURL: String {
-    return igdbApiUrl(method: .gameSearch)
+    return gameventoryApiUrl(method: .gameSearch)
   }
   
   class func searchURL(for gameTitle: String) -> String {
@@ -46,7 +47,7 @@ class IgdbAPI {
       
       guard
         let jsonDictionary = jsonObj["games"] as? [[String: Any]] else {
-          return .failure(IgdbAPIError.invalidJSONData)
+          return .failure(GameventoryAPIError.invalidJSONData)
       }
       
       // print(jsonDictionary[0]["name"])
@@ -62,6 +63,18 @@ class IgdbAPI {
     }
     
     return .success(allGames)
+  }
+  
+  class func user(fromJSON json: [String: Any]) -> User? {
+    guard
+      let token = json["token"] as? String,
+      let userId = json["userId"] as? String,
+      let username = json["username"] as? String else {
+        return nil
+    }
+    
+    let user = User(id: userId, username: username, token: token)
+    return user
   }
   
   private class func game(fromJSON json: [String: Any]) -> Game? {

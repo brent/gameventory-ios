@@ -19,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gameStore = GameStore()
     let imageStore = ImageStore()
     
+    let logInSignUpController = window!.rootViewController as! LogInSignUpViewController
+    logInSignUpController.gameStore = gameStore
+    logInSignUpController.imageStore = imageStore
+    
+    /*
     let navController = window!.rootViewController as! UINavigationController
     let gamesController = navController.topViewController as! GamesViewController
     gamesController.gameStore = gameStore
     gamesController.imageStore = imageStore
-    
+    */
     return true
   }
 

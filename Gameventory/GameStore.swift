@@ -66,12 +66,12 @@ class GameStore {
     gamesInBacklog = newBacklog
   }
   
-  func searchForGame(withTitle query: String, completion: @escaping (GamesResult) -> Void) {
+  func searchForGame(withTitle query: String, withToken token: String, completion: @escaping (GamesResult) -> Void) {
     
-    let searchURL = IgdbAPI.searchURL(for: query)
+    let searchURL = GameventoryAPI.searchURL(for: query)
     
-    processRequest(URLstring: searchURL) { (response) in
-      let result = IgdbAPI.games(fromJSON: response.data!)
+    processRequest(URLstring: searchURL, withToken: token) { (response) in
+      let result = GameventoryAPI.games(fromJSON: response.data!)
       
       switch result {
       case let .success(games):
@@ -99,8 +99,12 @@ class GameStore {
     return false
   }
   
-  func processRequest(URLstring: String, completion: @escaping (DataResponse<Any>) -> Void) {
-    Alamofire.request(URLstring).responseJSON { response in
+  func processRequest(URLstring: String, withToken token: String, completion: @escaping (DataResponse<Any>) -> Void) {
+    let headers: HTTPHeaders = [
+      "Authorization": "JWT \(token)"
+    ]
+    
+    Alamofire.request(URLstring, headers: headers).responseJSON { response in
       completion(response)
     }
   }

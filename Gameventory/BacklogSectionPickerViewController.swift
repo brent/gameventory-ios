@@ -30,15 +30,15 @@ class BacklogSectionPickerViewController: UIViewController {
   @IBAction func addToBacklogSection(_ sender: UIButton) {
     switch sender.tag {
     case BacklogSectionButtonTags.NowPlaying.rawValue:
-      gameStore.addGame(game: game, to: BacklogSectionButtonTags.NowPlaying.rawValue)
+      gameStore.addGame(game: game, to: BacklogSectionButtonTags.NowPlaying.rawValue, for: user)
     case BacklogSectionButtonTags.UpNext.rawValue:
-      gameStore.addGame(game: game, to: BacklogSectionButtonTags.UpNext.rawValue)
+      gameStore.addGame(game: game, to: BacklogSectionButtonTags.UpNext.rawValue, for: user)
     case BacklogSectionButtonTags.OnIce.rawValue:
-      gameStore.addGame(game: game, to: BacklogSectionButtonTags.OnIce.rawValue)
+      gameStore.addGame(game: game, to: BacklogSectionButtonTags.OnIce.rawValue, for: user)
     case BacklogSectionButtonTags.Finished.rawValue:
-      gameStore.addGame(game: game, to: BacklogSectionButtonTags.Finished.rawValue)
+      gameStore.addGame(game: game, to: BacklogSectionButtonTags.Finished.rawValue, for: user)
     case BacklogSectionButtonTags.Abandoned.rawValue:
-      gameStore.addGame(game: game, to: BacklogSectionButtonTags.Abandoned.rawValue)
+      gameStore.addGame(game: game, to: BacklogSectionButtonTags.Abandoned.rawValue, for: user)
     default:
       return
     }

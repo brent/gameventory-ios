@@ -41,8 +41,7 @@ class LogInSignUpViewController: UIViewController {
     let params: Parameters = ["username": username, "password": password]
     
     if signUpMode {
-      let signUpUrl = "http://localhost:3000/api/v1/signup"
-      // let signUpUrl = "https://inventory.games/api/v1/signup"
+      let signUpUrl = GameventoryAPI.signUpURL()
       
       Alamofire.request(signUpUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
         switch response.result {
@@ -56,7 +55,6 @@ class LogInSignUpViewController: UIViewController {
           }
           
           self.user = User(id: id, username: username, token: token)
-          print("\(self.user.username) signed up successfully")
           self.performSegue(withIdentifier: "showGameventory", sender: self)
         case let .failure(error):
           print(error)
@@ -64,8 +62,7 @@ class LogInSignUpViewController: UIViewController {
       }
       
     } else {
-      let loginUrl = "http://localhost:3000/api/v1/login"
-      // let loginUrl = "https://inventory.games/api/v1/login"
+      let loginUrl = GameventoryAPI.logInURL()
       
       Alamofire.request(loginUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
         switch response.result {
@@ -79,7 +76,6 @@ class LogInSignUpViewController: UIViewController {
           }
           
           self.user = User(id: id, username: username, token: token)
-          print("\(self.user.username) logged in successfully")
           self.performSegue(withIdentifier: "showGameventory", sender: self)
         case let .failure(error):
           print(error)
@@ -92,12 +88,10 @@ class LogInSignUpViewController: UIViewController {
     signUpMode = !signUpMode
     
     if signUpMode {
-      print("signUpMode", signUpMode)
       logInSignUpSubmitBtn.setTitle("Sign up", for: [])
       logInSignUpSwitchLabel.text = "Already have an account?"
       logInSignUpSwitchBtn.setTitle("Log in", for: [])
     } else {
-      print("signUpMode", signUpMode)
       logInSignUpSubmitBtn.setTitle("Log in", for: [])
       logInSignUpSwitchLabel.text = "Don't have an account?"
       logInSignUpSwitchBtn.setTitle("Sign up", for: [])      

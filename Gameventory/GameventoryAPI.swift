@@ -11,6 +11,9 @@ import Alamofire
 
 enum Method: String {
   case gameSearch = "/search"
+  case gameventory = "/gameventory"
+  case logIn = "/login"
+  case signUp = "/signUp"
 }
 
 enum GameventoryAPIError: Error {
@@ -39,6 +42,18 @@ class GameventoryAPI {
     return "\(gameSearchURL)\(searchString)"
   }
   
+  class func gameventoryURL() -> String {
+    return "\(gameventoryApiUrl(method: .gameventory))"
+  }
+  
+  class func logInURL() -> String {
+    return "\(gameventoryApiUrl(method: .logIn))"
+  }
+  
+  class func signUpURL() -> String {
+    return "\(gameventoryApiUrl(method: .signUp))"
+  }
+  
   class func games(fromJSON data: Data) -> GamesResult {
     var allGames = [Game]()
     
@@ -49,8 +64,6 @@ class GameventoryAPI {
         let jsonDictionary = jsonObj["games"] as? [[String: Any]] else {
           return .failure(GameventoryAPIError.invalidJSONData)
       }
-      
-      // print(jsonDictionary[0]["name"])
       
       for gameJSON in jsonDictionary {
         if let game = game(fromJSON: gameJSON) {
@@ -65,6 +78,7 @@ class GameventoryAPI {
     return .success(allGames)
   }
   
+  /*
   class func user(fromJSON json: [String: Any]) -> User? {
     guard
       let token = json["token"] as? String,
@@ -76,23 +90,75 @@ class GameventoryAPI {
     let user = User(id: userId, username: username, token: token)
     return user
   }
+  */
+  
+  class func gameventory(fromJSON data: Data) -> GameventoryResult {
+    do {
+      let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+      guard
+        let jsonDictionary = jsonObj["games"] as? [String: Any] else {
+          //print("failure creating jsonDictionary")
+          return .failure(GameventoryAPIError.invalidJSONData)
+      }
+      
+      var gvGames: [String: [Game]] = [:]
+      
+      for (key, _) in jsonDictionary {
+        guard let gamesArray = jsonDictionary[key] as? [[String: Any]] else {
+          //print("failure creating gamesArray")
+          continue
+        }
+        
+        var gamesInSection: [Game] = []
+        
+        for gameData in gamesArray {
+          guard
+            let name = gameData["igdb_name"] as? String,
+            let coverImgUrl = gameData["coverImgURL"] as? String,
+            let firstReleaseDate = gameData["igdb_first_release_date"] as? Int,
+            let summary = gameData["igdb_summary"] as? String,
+            let id = gameData["igdb_id"] as? Int else {
+              //print("failure creating gameData")
+              continue
+          }
+          
+          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
+          
+          gamesInSection.append(game)
+        }
+        
+        gvGames[key] = gamesInSection
+      }
+      
+      let gameventory = Gameventory()
+      
+      for (key, value) in gvGames {
+        if value != [] {
+          gameventory.setValue(value, forKey: key)
+        }
+      }
+      
+      return .success(gameventory)
+      
+    } catch let error {
+      return .failure(error)
+    }
+  }
   
   private class func game(fromJSON json: [String: Any]) -> Game? {
     guard
       let id = json["igdb_id"] as? Int,
       let name = json["igdb_name"] as? String,
       let cover = json["igdb_cover"] as? [String: Any],
-      let firstReleaseDate = json["igdb_first_release_date"] as? TimeInterval,
+      let firstReleaseDate = json["igdb_first_release_date"] as? Int,
       let summary = json["igdb_summary"] as? String,
       let coverImgId = cover["cloudinary_id"] as? String else {
         return nil
     }
     
     let coverImgURL = self.coverImgURL(for: coverImgId)
-    
-    let releaseDate = Date(timeIntervalSince1970: (firstReleaseDate/1000))
-    
-    let game = Game(name: name, coverImgURL: coverImgURL, firstReleaseDate: releaseDate, summary: summary, igdbId: id)
+        
+    let game = Game(name: name, coverImgURL: coverImgURL, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
     return game
   }
   

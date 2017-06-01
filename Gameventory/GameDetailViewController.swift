@@ -34,7 +34,8 @@ class GameDetailViewController: UIViewController {
     let dateFormatter = DateFormatter()
     dateFormatter.dateStyle = .medium
     
-    releaseDateLabel.text = dateFormatter.string(from: game.firstReleaseDate)
+    //releaseDateLabel.text = dateFormatter.string(from: game.firstReleaseDate)
+    releaseDateLabel.text = game.firstReleaseDate.description
     summaryLabel.text = game.summary
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
     
@@ -55,6 +56,7 @@ class GameDetailViewController: UIViewController {
       let destinationVC = segue.destination as! BacklogSectionPickerViewController
       destinationVC.game = game
       destinationVC.gameStore = gameStore
+      destinationVC.user = user
     default:
       preconditionFailure("Could not find segue with identifier")
     }

@@ -87,6 +87,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         destinationVC.imageStore = imageStore
         destinationVC.gameStore = gameStore
         destinationVC.buttonTitle = "Add"
+        destinationVC.user = user
       }
     case "showBacklogSectionSelector"?:
       if let button = sender as? UIButton {
@@ -95,6 +96,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         let destinationVC = segue.destination as! BacklogSectionPickerViewController
         destinationVC.game = game
         destinationVC.gameStore = gameStore
+        destinationVC.user = user
       }
     default:
       preconditionFailure("Could not find segue with identifier")

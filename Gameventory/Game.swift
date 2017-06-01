@@ -11,12 +11,12 @@ import UIKit
 class Game: NSObject {
   let name: String
   let coverImgURL: String
-  let firstReleaseDate: Date
+  let firstReleaseDate: Int
   let summary: String
   let igdbId: Int
   // var platforms: [String]
   
-  init(name: String, coverImgURL: String, firstReleaseDate: Date, summary: String, igdbId: Int) {
+  init(name: String, coverImgURL: String, firstReleaseDate: Int, summary: String, igdbId: Int) {
     self.name = name
     self.coverImgURL = coverImgURL
     self.firstReleaseDate = firstReleaseDate

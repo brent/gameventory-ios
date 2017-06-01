@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
+		7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
@@ -57,6 +58,7 @@
 		3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameventoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B162F101EDE3F10005312BA /* Gameventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameventory.swift; sourceTree = "<group>"; };
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchResultCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B162F121EDE3F2C005312BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BF02F3F1ED29E7A00AD93B0 /* User.swift */,
+				7B162F101EDE3F10005312BA /* Gameventory.swift */,
+				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		7B93F5691EAEF0C100CF3360 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,18 @@
 				7B93F56A1EAEF9A000CF3360 /* SourceSansPro-Semibold.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		7B9FDBAA1EDFC49B004FD987 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */,
+				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
+				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
+				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
+				7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		7BB9AA501E8DFE0F00FBCC68 = {
@@ -155,20 +179,15 @@
 			isa = PBXGroup;
 			children = (
 				7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */,
-				7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */,
-				7BF02F3F1ED29E7A00AD93B0 /* User.swift */,
 				7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */,
-				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
-				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
+				7B162F121EDE3F2C005312BA /* Models */,
+				7B9FDBAA1EDFC49B004FD987 /* Controllers */,
 				7BC18AB71E8E0933009EF825 /* GameStore.swift */,
 				7BC4E1431EAD5571000CEDBB /* ImageStore.swift */,
 				7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */,
 				7B9770751EA840BD008A78DC /* GameCell.swift */,
 				7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */,
-				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
 				7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */,
-				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
-				7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */,
 				7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */,
 				7B93F5691EAEF0C100CF3360 /* Resources */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
@@ -517,6 +536,7 @@
 				7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */,
 				7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */,
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
+				7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
 				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
 			);

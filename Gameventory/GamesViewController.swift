@@ -27,12 +27,31 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     
-    print(user.token)
+    //print(user.token)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    gameStore.getGameventory(for: user) { (result) in
+      switch result {
+      case let .success(gameventory):
+        if gameventory.isEmpty {
+          self.tableView.isHidden = true
+          self.zeroStateStackView.isHidden = false
+          self.navigationItem.leftBarButtonItem = nil
+        } else {
+          self.zeroStateStackView.isHidden = true
+          self.tableView.isHidden = false
+          self.navigationItem.leftBarButtonItem = self.editButtonItem
+          self.tableView.reloadData()
+        }
+      case let .failure(error):
+        print(error)
+      }
+    }
+    
+    /*
     if gameStore.gamesInBacklog == nil {
       tableView.isHidden = true
       zeroStateStackView.isHidden = false
@@ -42,8 +61,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       tableView.isHidden = false
       navigationItem.leftBarButtonItem = editButtonItem
     }
-    
-    tableView.reloadData()
+    */
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,6 +79,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
     if let backlog = gameStore.gamesInBacklog {
+      //print("indexPath section: \(indexPath.section)", "indexPath row: \(indexPath.row)", separator: "\n", terminator: "\n\n")
       let game = backlog[indexPath.section][indexPath.row]
       cell.gameNameLabel?.text = game.name
       cell.coverImage?.image = imageStore.image(forKey: String(game.igdbId))
@@ -97,8 +116,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   */
   
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    //print("backlog: \(gameStore.gamesInBacklog!)")
+    //print("sourceIndexPath section: \(sourceIndexPath.section)", "sourceIndexPath row: \(sourceIndexPath.row)", "destinationIndexPath section: \(destinationIndexPath.section)", "destinationIndexPath row: \(destinationIndexPath.row)", separator: "\n", terminator: "\n\n")
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
-                       toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row)
+                       toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row, for: user)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -108,7 +129,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
       
       let game = backlog[indexPath.section][indexPath.row]
-      gameStore.removeGame(game: game)
+      gameStore.removeGame(game, from: indexPath, for: user)
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
   }

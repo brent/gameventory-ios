@@ -60,6 +60,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJC-Sa-0Sa">
                                                             <rect key="frame" x="8" y="8" width="57" height="80"/>
+                                                            <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="57" id="SlS-gx-NgJ"/>
                                                                 <constraint firstAttribute="height" constant="80" id="iB0-Q3-I3Z"/>
@@ -71,12 +72,17 @@
                                                             <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kev-X7-aWB">
+                                                            <rect key="frame" x="26" y="38" width="20" height="20"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="6f8-8a-d4j" firstAttribute="top" secondItem="b5j-74-kvu" secondAttribute="topMargin" id="ClQ-zF-Q32"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="6f8-8a-d4j" secondAttribute="trailing" id="JBY-nd-21x"/>
                                                         <constraint firstItem="xJC-Sa-0Sa" firstAttribute="bottom" secondItem="b5j-74-kvu" secondAttribute="bottomMargin" id="Stv-MP-kbX"/>
+                                                        <constraint firstItem="kev-X7-aWB" firstAttribute="centerX" secondItem="xJC-Sa-0Sa" secondAttribute="centerX" id="VLU-W8-jID"/>
                                                         <constraint firstItem="xJC-Sa-0Sa" firstAttribute="top" secondItem="b5j-74-kvu" secondAttribute="topMargin" id="bUu-fA-IGq"/>
+                                                        <constraint firstItem="kev-X7-aWB" firstAttribute="centerY" secondItem="xJC-Sa-0Sa" secondAttribute="centerY" id="jiA-zn-HRo"/>
                                                         <constraint firstItem="xJC-Sa-0Sa" firstAttribute="leading" secondItem="b5j-74-kvu" secondAttribute="leadingMargin" id="lQd-Fv-xEi"/>
                                                         <constraint firstItem="6f8-8a-d4j" firstAttribute="leading" secondItem="xJC-Sa-0Sa" secondAttribute="trailing" constant="16" id="u1s-1t-39Z"/>
                                                     </constraints>
@@ -84,6 +90,7 @@
                                                 <connections>
                                                     <outlet property="coverImage" destination="xJC-Sa-0Sa" id="l7J-CK-diJ"/>
                                                     <outlet property="gameNameLabel" destination="6f8-8a-d4j" id="HBL-4v-fqu"/>
+                                                    <outlet property="spinner" destination="kev-X7-aWB" id="XfH-k2-WUF"/>
                                                     <segue destination="Sa7-qX-d9u" kind="show" identifier="showGameDetail" id="0Io-Xj-w4g"/>
                                                 </connections>
                                             </tableViewCell>
@@ -171,6 +178,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDK-hq-ZtK">
                                                     <rect key="frame" x="8" y="8" width="57" height="80"/>
+                                                    <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="KLT-Ny-jTf"/>
                                                         <constraint firstAttribute="height" constant="80" id="LmW-gb-deC"/>
@@ -205,13 +213,18 @@
                                                         <constraint firstItem="lID-BC-0QW" firstAttribute="centerY" secondItem="F1A-F5-zXp" secondAttribute="centerY" id="sb7-sn-ITF"/>
                                                     </constraints>
                                                 </view>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wjB-ke-xVc">
+                                                    <rect key="frame" x="26" y="38" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="wjB-ke-xVc" firstAttribute="centerX" secondItem="rDK-hq-ZtK" secondAttribute="centerX" id="44Y-oa-IAx"/>
                                                 <constraint firstAttribute="trailing" secondItem="F1A-F5-zXp" secondAttribute="trailing" id="9xB-ah-D6W"/>
                                                 <constraint firstItem="rDK-hq-ZtK" firstAttribute="leading" secondItem="8WX-8e-lLO" secondAttribute="leadingMargin" id="GeX-YY-pZO"/>
                                                 <constraint firstItem="F1A-F5-zXp" firstAttribute="top" secondItem="8WX-8e-lLO" secondAttribute="top" id="Qlk-TQ-6as"/>
                                                 <constraint firstItem="rDK-hq-ZtK" firstAttribute="bottom" secondItem="8WX-8e-lLO" secondAttribute="bottomMargin" id="UFr-Ur-x2p"/>
                                                 <constraint firstAttribute="bottom" secondItem="F1A-F5-zXp" secondAttribute="bottom" id="Z8O-wH-FHA"/>
+                                                <constraint firstItem="wjB-ke-xVc" firstAttribute="centerY" secondItem="rDK-hq-ZtK" secondAttribute="centerY" id="iwT-97-gJp"/>
                                                 <constraint firstItem="F1A-F5-zXp" firstAttribute="leading" secondItem="1Pw-i3-9GT" secondAttribute="trailing" constant="16" id="r9j-cu-bvm"/>
                                                 <constraint firstItem="1Pw-i3-9GT" firstAttribute="top" secondItem="8WX-8e-lLO" secondAttribute="topMargin" id="u6K-BW-Cr8"/>
                                                 <constraint firstItem="rDK-hq-ZtK" firstAttribute="top" secondItem="8WX-8e-lLO" secondAttribute="topMargin" id="uoh-rq-30j"/>
@@ -222,6 +235,7 @@
                                             <outlet property="addGameBtn" destination="lID-BC-0QW" id="dLB-O9-pTS"/>
                                             <outlet property="coverImage" destination="rDK-hq-ZtK" id="B7Y-bz-4Wf"/>
                                             <outlet property="gameNameLabel" destination="1Pw-i3-9GT" id="Uex-oH-wUf"/>
+                                            <outlet property="spinner" destination="wjB-ke-xVc" id="RAh-sN-n84"/>
                                             <segue destination="Sa7-qX-d9u" kind="show" identifier="showGameDetail" id="zKI-zX-Zkm"/>
                                         </connections>
                                     </tableViewCell>
@@ -667,7 +681,7 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Io-Xj-w4g"/>
-        <segue reference="yMM-bp-858"/>
+        <segue reference="zKI-zX-Zkm"/>
+        <segue reference="yBd-sU-WtI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -134,7 +134,6 @@ class GameStore {
       let result = GameventoryAPI.gameventory(fromJSON: response.data!)
       switch result {
       case let .success(gameventory):
-        print("gameventory from network request empty?: \(gameventory.isEmpty)")
         self.gameventory = gameventory
       case let .failure(error):
         print(error)

@@ -22,7 +22,7 @@ class SearchDataSource: NSObject, UITableViewDataSource {
     cell.gameNameLabel?.text = game.name
     
     let coverImg = imageStore.image(forKey: String(game.igdbId))
-    cell.coverImage.image = coverImg
+    cell.update(with: coverImg)
     
     cell.selectionStyle = .none
     

@@ -26,8 +26,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     navigationItem.titleView = imageView
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    
-    //print(user.token)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -50,18 +48,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         print(error)
       }
     }
-    
-    /*
-    if gameStore.gamesInBacklog == nil {
-      tableView.isHidden = true
-      zeroStateStackView.isHidden = false
-      navigationItem.leftBarButtonItem = nil
-    } else {
-      zeroStateStackView.isHidden = true
-      tableView.isHidden = false
-      navigationItem.leftBarButtonItem = editButtonItem
-    }
-    */
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,10 +65,22 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
     if let backlog = gameStore.gamesInBacklog {
-      //print("indexPath section: \(indexPath.section)", "indexPath row: \(indexPath.row)", separator: "\n", terminator: "\n\n")
       let game = backlog[indexPath.section][indexPath.row]
       cell.gameNameLabel?.text = game.name
-      cell.coverImage?.image = imageStore.image(forKey: String(game.igdbId))
+      
+      if let coverImg = imageStore.image(forKey: String(game.igdbId)) {
+        cell.update(with: coverImg)
+      } else {
+        GameventoryAPI.coverImg(url: game.coverImgURL, completion: { (result) in
+          switch result {
+          case let .success(coverImg):
+            cell.update(with: coverImg)
+          case let .failure(error):
+            print(error)
+          }
+        })
+      }
+      
     } else {
       cell.gameNameLabel?.text = ""
       cell.coverImage?.image = UIImage()
@@ -116,8 +114,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   */
   
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-    //print("backlog: \(gameStore.gamesInBacklog!)")
-    //print("sourceIndexPath section: \(sourceIndexPath.section)", "sourceIndexPath row: \(sourceIndexPath.row)", "destinationIndexPath section: \(destinationIndexPath.section)", "destinationIndexPath row: \(destinationIndexPath.row)", separator: "\n", terminator: "\n\n")
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
                        toSection: destinationIndexPath.section, toIndex: destinationIndexPath.row, for: user)
   }
@@ -136,6 +132,12 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 96
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row % 2 == 1 {
+      cell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+    }
   }
   
   override func setEditing(_ editing: Bool, animated: Bool) {

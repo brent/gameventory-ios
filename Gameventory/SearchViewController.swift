@@ -47,6 +47,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         switch result {
         case let .success(coverImg):
           self.imageStore.setImage(coverImg, forKey: String(game.igdbId))
+          
+          let index = games.index(of: game)
+          let indexPath = IndexPath(row: index!, section: 0)
+          if let cell = self.tableView.cellForRow(at: indexPath) as? GameSearchResultCell {
+            cell.update(with: coverImg)
+          }
         case let .failure(error):
           print(error)
         }
@@ -71,7 +77,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if indexPath.row % 2 == 1 {
-      cell.backgroundColor = UIColor(red: 249, green: 249, blue: 249, alpha: 1)
+      cell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
     }
   }
   

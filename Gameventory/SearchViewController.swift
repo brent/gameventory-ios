@@ -76,8 +76,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    guard let gameCell = cell as? GameSearchResultCell else {
+      return
+    }
+    
     if indexPath.row % 2 == 1 {
-      cell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+      gameCell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+    }
+    
+    let game = gameStore.gamesFromSearch[indexPath.row]
+    if gameStore.hasGame(game) {
+      gameCell.addGameBtn.superview!.isHidden = true
+    } else {
+      gameCell.addGameBtn.superview!.isHidden = false
     }
   }
   

@@ -15,6 +15,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @IBOutlet var zeroStateStackView: UIStackView!
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var addGameButton: UIButton!
 
   override func viewDidLoad() {
     tableView.dataSource = self
@@ -92,26 +93,63 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     return gameStore.sectionsInBacklog[section]
   }
   
-  /*
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let view = UIView()
-    view.backgroundColor = UIColor.clear
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
+    view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
     
-    let label = UILabel()
+    /*
+    let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 44))
+    stackView.axis = .horizontal
+    stackView.distribution = .fillEqually
+    stackView.spacing = 0
+    stackView.backgroundColor = UIColor.white
+    */
+    
+    let label = UILabel(frame: CGRect(x: 100, y: 0, width: tableView.frame.size.width - 200, height: 50))
     label.text = gameStore.sectionsInBacklog[section].uppercased()
     label.textAlignment = .center
-    label.font = UIFont(name: "SourceSansPro-Light", size: 16)
-    label.textColor = UIColor.darkText
+    label.font = UIFont(name: "SourceSansPro-Semibold", size: 16)
+    label.textColor = UIColor(red: 0.73, green: 0.73, blue: 0.73, alpha: 1.0)
+    
+    /*
+    let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+    let leftButton = UIButton()
+    leftButton.setTitle("PREV", for: .normal)
+    leftButton.addTarget(self, action: Selector(("sectionHeaderButtonPressed")), for: .touchUpInside)
+    */
+    
+    /*
+    let rightButton = UIButton(frame: CGRect(x: tableView.frame.size.width - 100, y: 0, width: 100, height: 44))
+    let rightButton = UIButton()
+    rightButton.setTitle("NEXT", for: .normal)
+    rightButton.addTarget(self, action: Selector(("sectionHeaderButtonPressed")), for: .touchUpInside)
+    */
     
     view.addSubview(label)
+    //stackView.addArrangedSubview(leftButton)
+    //stackView.addArrangedSubview(label)
+    //stackView.addArrangedSubview(rightButton)
     
     return view
+    //return stackView
   }
   
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 44
+  /*
+  func sectionHeaderButtonPressed(sender: UIButton) {
+    switch sender.titleLabel?.text {
+    case "PREV"?:
+      print("PREV pressed")
+    case "NEXT"?:
+      print("NEXT pressed")
+    default:
+      print("there was a problem")
+    }
   }
   */
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
+  }
   
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     gameStore.moveGame(fromSection: sourceIndexPath.section, fromIndex: sourceIndexPath.row,
@@ -143,6 +181,15 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     self.tableView.setEditing(editing, animated: animated)
+    if (editing) {
+      UIView.animate(withDuration: 0.3, animations: {
+        self.addGameButton.center.y += 100
+      })
+    } else {
+      UIView.animate(withDuration: 0.3, animations: {
+        self.addGameButton.center.y -= 100
+      })
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {

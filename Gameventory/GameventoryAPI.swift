@@ -38,7 +38,6 @@ class GameventoryAPI {
     var searchString = gameTitle.lowercased()
     searchString = "/\(searchString.replacingOccurrences(of: " ", with: "+"))"
     
-    print("\(gameSearchURL)\(searchString)")
     return "\(gameSearchURL)\(searchString)"
   }
   
@@ -97,7 +96,6 @@ class GameventoryAPI {
       let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
       guard
         let jsonDictionary = jsonObj["games"] as? [String: Any] else {
-          //print("failure creating jsonDictionary")
           return .failure(GameventoryAPIError.invalidJSONData)
       }
       
@@ -105,7 +103,6 @@ class GameventoryAPI {
       
       for (key, _) in jsonDictionary {
         guard let gamesArray = jsonDictionary[key] as? [[String: Any]] else {
-          //print("failure creating gamesArray")
           continue
         }
         
@@ -118,7 +115,6 @@ class GameventoryAPI {
             let firstReleaseDate = gameData["igdb_first_release_date"] as? Int,
             let summary = gameData["igdb_summary"] as? String,
             let id = gameData["igdb_id"] as? Int else {
-              //print("failure creating gameData")
               continue
           }
           
@@ -181,8 +177,9 @@ class GameventoryAPI {
         print("Could not get image from URL")
         return
       }
-      let image = UIImage(data: imageData)!
-      completion(.success(image))
+      if let image = UIImage(data: imageData) {
+        completion(.success(image))
+      }
     }
   }
 }

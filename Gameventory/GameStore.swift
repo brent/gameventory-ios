@@ -175,7 +175,7 @@ class GameStore {
     
     for section in backlog {
       for backlogGame in section {
-        if backlogGame == game {
+        if backlogGame.igdbId == game.igdbId {
           return true
         }
       }

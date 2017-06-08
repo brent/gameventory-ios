@@ -23,15 +23,7 @@ class SearchDataSource: NSObject, UITableViewDataSource {
     
     let coverImg = imageStore.image(forKey: String(game.igdbId))
     cell.update(with: coverImg)
-    
     cell.selectionStyle = .none
-    
-    /*
-    if gameStore.hasGame(game) {
-      cell.addGameBtn.superview!.isHidden = true
-    }
-    */
-    
     cell.addGameBtn.tag = indexPath.row
     
     return cell

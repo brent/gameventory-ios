@@ -22,6 +22,7 @@ class BacklogSectionPickerViewController: UIViewController {
   var user: User!
   
   @IBOutlet var modalView: UIView!
+  @IBOutlet var backgroundMask: UIView!
   
   @IBAction func dissmissView(_ sender: Any) {
     presentingViewController?.dismiss(animated: false, completion: nil)
@@ -46,9 +47,22 @@ class BacklogSectionPickerViewController: UIViewController {
     presentingViewController?.dismiss(animated: false, completion: nil)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
+      animations: {
+        self.modalView.center.y += self.view.bounds.width
+        self.backgroundMask.alpha = 1.0
+      },
+      completion: nil
+    )
+  }
+  
   override func viewDidLoad() {
+    modalView.center.y -= view.bounds.width
+    backgroundMask.alpha = 0
+    
     view.backgroundColor = UIColor.clear
     view.isOpaque = false
-    modalView.layer.cornerRadius = 3
   }
 }

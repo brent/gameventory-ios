@@ -31,11 +31,12 @@ class GameDetailViewController: UIViewController {
     super.viewDidLoad()
     
     gameTitleLabel.text = game.name
+    
+    let date = Date(timeIntervalSince1970: Double(game.firstReleaseDate / 1000))
     let dateFormatter = DateFormatter()
     dateFormatter.dateStyle = .medium
     
-    //releaseDateLabel.text = dateFormatter.string(from: game.firstReleaseDate)
-    releaseDateLabel.text = game.firstReleaseDate.description
+    releaseDateLabel.text = dateFormatter.string(from: date)
     summaryLabel.text = game.summary
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
     

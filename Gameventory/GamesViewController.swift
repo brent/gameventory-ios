@@ -15,7 +15,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @IBOutlet var zeroStateStackView: UIStackView!
   @IBOutlet var tableView: UITableView!
-  @IBOutlet var addGameButton: UIButton!
 
   override func viewDidLoad() {
     tableView.dataSource = self
@@ -27,6 +26,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     navigationItem.titleView = imageView
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    self.tableView.isHidden = true
+    self.zeroStateStackView.isHidden = false
+    self.navigationItem.leftBarButtonItem = nil
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -181,15 +183,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     self.tableView.setEditing(editing, animated: animated)
-    if (editing) {
-      UIView.animate(withDuration: 0.3, animations: {
-        self.addGameButton.center.y += 100
-      })
-    } else {
-      UIView.animate(withDuration: 0.3, animations: {
-        self.addGameButton.center.y -= 100
-      })
-    }
   }
   
   required init?(coder aDecoder: NSCoder) {

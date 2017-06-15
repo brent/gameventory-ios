@@ -17,11 +17,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   @IBOutlet var tableView: UITableView!
   @IBOutlet var textInput: UITextField!
   
-  @IBAction func done(_ sender: UIBarButtonItem) {
-    textInput.resignFirstResponder()
-    presentingViewController?.dismiss(animated: true, completion: nil)
-  }
-  
   @IBAction func performSearch(_ sender: UITextField) {
     if var searchString = sender.text {
       searchString = searchString.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -67,6 +62,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     tableView.dataSource = searchDataSource
     tableView.delegate = self
 
+    textInput.becomeFirstResponder()
+    
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
   

@@ -101,11 +101,17 @@ class LogInSignUpViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case "showGameventory"?:
-      let navController = segue.destination as! UINavigationController
-      let gamesViewController = navController.topViewController as! GamesViewController
-      gamesViewController.user = user
-      gamesViewController.gameStore = gameStore
-      gamesViewController.imageStore = imageStore
+      //let navController = segue.destination as! UINavigationController
+      //let gamesViewController = navController.topViewController as! GamesViewController
+      //gamesViewController.user = user
+      //gamesViewController.gameStore = gameStore
+      //gamesViewController.imageStore = imageStore
+      
+      let tabController = segue.destination as! TabBarViewController
+      tabController.user = user
+      tabController.gameStore = gameStore
+      tabController.imageStore = imageStore
+
     default:
       preconditionFailure("Segue identifier not found")
     }

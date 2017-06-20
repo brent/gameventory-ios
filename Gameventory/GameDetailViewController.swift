@@ -49,6 +49,11 @@ class GameDetailViewController: UIViewController {
     if gameStore.hasGame(game) {
       addOrMoveGameBtn.superview!.isHidden = true
     }
+    self.tabBarController?.tabBar.isHidden = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

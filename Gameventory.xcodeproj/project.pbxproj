@@ -12,7 +12,10 @@
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */; };
-		7B60DFBB1EEF3D8A00E6D4BD /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBA1EEF3D8A00E6D4BD /* NavController.swift */; };
+		7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBC1EF48DFC00E6D4BD /* Event.swift */; };
+		7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */; };
+		7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */; };
+		7B60DFC31EF9AD1B00E6D4BD /* CircleUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */; };
 		7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
 		7B93F5641EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */; };
 		7B93F5671EAEF0BA00CF3360 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */; };
@@ -68,7 +71,10 @@
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		7B60DFBA1EEF3D8A00E6D4BD /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		7B60DFBC1EF48DFC00E6D4BD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUIImageView.swift; sourceTree = "<group>"; };
 		7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchResultCell.swift; sourceTree = "<group>"; };
 		7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacklogSectionPickerViewController.swift; sourceTree = "<group>"; };
 		7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 				7BF02F3F1ED29E7A00AD93B0 /* User.swift */,
 				7B162F101EDE3F10005312BA /* Gameventory.swift */,
 				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
+				7B60DFBC1EF48DFC00E6D4BD /* Event.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -158,9 +165,9 @@
 			children = (
 				7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */,
 				7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */,
-				7B60DFBA1EEF3D8A00E6D4BD /* NavController.swift */,
 				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
 				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
+				7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */,
 				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
 				7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */,
 			);
@@ -170,12 +177,14 @@
 		7B9FDBAF1EE60E8A004FD987 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */,
 				7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */,
 				7B9FDBAB1EE609D2004FD987 /* UnderlinedTextField.swift */,
 				7B9FDBAD1EE60DBE004FD987 /* RoundedUIView.swift */,
 				7B9FDBB21EE61F6B004FD987 /* RoundedUIImageView.swift */,
 				7B9FDBB01EE60F90004FD987 /* RoundedUIButton.swift */,
 				7B9770751EA840BD008A78DC /* GameCell.swift */,
+				7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -558,10 +567,11 @@
 				7BC4E1441EAD5571000CEDBB /* ImageStore.swift in Sources */,
 				7B9770761EA840BD008A78DC /* GameCell.swift in Sources */,
 				7B9FDBB31EE61F6B004FD987 /* RoundedUIImageView.swift in Sources */,
-				7B60DFBB1EEF3D8A00E6D4BD /* NavController.swift in Sources */,
+				7B60DFC31EF9AD1B00E6D4BD /* CircleUIImageView.swift in Sources */,
 				7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */,
 				7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */,
 				7BC4E13E1EAA7CDE000CEDBB /* GameDetailViewController.swift in Sources */,
+				7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */,
 				7B9FDBAC1EE609D2004FD987 /* UnderlinedTextField.swift in Sources */,
 				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
 				7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */,
@@ -569,8 +579,10 @@
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
 				7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
+				7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */,
 				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
 				7B9FDBB11EE60F90004FD987 /* RoundedUIButton.swift in Sources */,
+				7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,11 @@ enum CoverImgResult {
   case failure(Error)
 }
 
+enum FeedResult {
+  case success([String])
+  case failure(Error)
+}
+
 enum GameventorySections: Int {
   case nowPlaying
   case upNext
@@ -78,7 +83,26 @@ class GameStore {
     gameventory.setValue(fromGameventorySection, forKey: fromSectionName)
     gameventory.setValue(toGameventorySection, forKey: toSectionName)
     
-    updateGameventory(for: user)
+    let eventType: EventType
+    
+    switch toSectionName {
+    case "nowPlaying":
+      eventType = .GAME_MOVE_NOW_PLAYING
+    case "upNext":
+      eventType = .GAME_MOVE_UP_NEXT
+    case "onIce":
+      eventType = .GAME_MOVE_ON_ICE
+    case "finished":
+      eventType = .GAME_MOVE_FINISHED
+    case "abandoned":
+      eventType = .GAME_MOVE_ABANDONED
+    default:
+      fatalError("couldn't create event type")
+    }
+    
+    let event = Event(eventType, for: user, with: movedGame)
+    
+    updateGameventory(for: user, with: event)
   }
   
   func addGame(game: Game, to section: Int, for user: User) {
@@ -88,10 +112,32 @@ class GameStore {
     section.append(game)
     gameventory.setValue(section, forKey: sectionName)
     
-    updateGameventory(for: user)
+    let eventType: EventType
+    
+    switch sectionName {
+    case "nowPlaying":
+      eventType = .GAME_ADD_NOW_PLAYING
+    case "upNext":
+      eventType = .GAME_ADD_UP_NEXT
+    case "onIce":
+      eventType = .GAME_ADD_ON_ICE
+    case "finished":
+      eventType = .GAME_ADD_FINISHED
+    case "abandoned":
+      eventType = .GAME_ADD_ABANDONED
+    default:
+      fatalError("couldn't create event type")
+    }
+    
+    let event = Event(eventType, for: user, with: game)
+    
+    updateGameventory(for: user, with: event)
   }
   
-  func updateGameventory(for user: User) {
+  func updateGameventory(for user: User, with event: Event? = nil) {
+    // needs a way to include the event to send to the server
+    // otherwise the event logging has to happen in a separate call
+    
     var gameParams: [Array<Any>] = []
     
     for backlogSection in gamesInBacklog! {
@@ -113,7 +159,7 @@ class GameStore {
     }
 
     let gameventoryUrl = GameventoryAPI.gameventoryURL()
-    let params: Parameters = [
+    var params: Parameters = [
       "user": [
         "id": user.id,
         "username": user.username
@@ -125,6 +171,20 @@ class GameStore {
         "abandoned": gameParams[4]
       ]
     ]
+    
+    if let event = event {
+      let eventParams: Parameters = [
+        "event": [
+          "actor": event.actor.id,
+          "target": event.target,
+          "type": event.type.rawValue,
+          "message": event.message
+        ]
+      ]
+      
+      params.updateValue(eventParams["event"], forKey: "event")
+    }
+    
     let headers: HTTPHeaders = [
       "Authorization": "JWT \(user.token)",
       "Content-Type": "application/json"
@@ -182,6 +242,23 @@ class GameStore {
     }
     
     return false
+  }
+  
+  // TODO: this function should not be in here
+  func getFeed(withToken token: String, completion: @escaping (FeedResult) -> Void) {
+    
+    let url = GameventoryAPI.feedURL()
+    processRequest(URLstring: url, withToken: token) { (response) in
+      let result = GameventoryAPI.feed(fromJSON: response.data!)
+      
+      switch result {
+      case let .success(feed):
+        completion(.success(feed))
+      case let .failure(error):
+        completion(.failure(error))
+        print("Error fetching feed: \(error)")
+      }
+    }
   }
   
   func processRequest(URLstring: String, withToken token: String, completion: @escaping (DataResponse<Any>) -> Void) {

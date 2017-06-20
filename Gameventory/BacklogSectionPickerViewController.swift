@@ -49,6 +49,7 @@ class BacklogSectionPickerViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = true
     UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
       animations: {
         self.modalView.center.y += self.view.bounds.width
@@ -64,5 +65,9 @@ class BacklogSectionPickerViewController: UIViewController {
     
     view.backgroundColor = UIColor.clear
     view.isOpaque = false
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
   }
 }

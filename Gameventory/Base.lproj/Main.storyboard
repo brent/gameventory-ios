@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZr-em-I5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599.2" y="-704.79760119940033"/>
+            <point key="canvasLocation" x="1732" y="-844"/>
         </scene>
         <!--Search-->
         <scene sceneID="PjL-Fs-wjH">
@@ -251,7 +251,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="du5-gw-Cnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599.2" y="66.11694152923539"/>
+            <point key="canvasLocation" x="1732" y="-73"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="d0C-jv-vWL">
+            <objects>
+                <tableViewController id="lEz-wm-5Sa" customClass="SocialViewController" customModule="Gameventory" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="NkB-hk-0x5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="81" id="eUT-o8-vKy" customClass="FeedCell" customModule="Gameventory" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUT-o8-vKy" id="oqg-U0-lX6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="p7x-tZ-8fM">
+                                            <rect key="frame" x="8" y="16" width="359" height="48.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-Kz-861" customClass="CircleUIImageView" customModule="Gameventory" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48.5"/>
+                                                    <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="Rir-CS-5rx"/>
+                                                        <constraint firstAttribute="width" constant="48" id="TSw-Pw-4tg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-FT-YWn">
+                                                    <rect key="frame" x="64" y="0.0" width="295" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                                                    <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="p7x-tZ-8fM" secondAttribute="bottom" constant="8" id="3ja-Cv-PnM"/>
+                                        <constraint firstItem="p7x-tZ-8fM" firstAttribute="top" secondItem="oqg-U0-lX6" secondAttribute="topMargin" constant="8" id="3wh-4S-CVh"/>
+                                        <constraint firstItem="p7x-tZ-8fM" firstAttribute="leading" secondItem="oqg-U0-lX6" secondAttribute="leadingMargin" id="uFs-ge-K5u"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="p7x-tZ-8fM" secondAttribute="trailing" id="uT2-Re-XfS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="feedMessage" destination="8m7-FT-YWn" id="0VZ-0N-YbZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lEz-wm-5Sa" id="sbK-CW-22Q"/>
+                            <outlet property="delegate" destination="lEz-wm-5Sa" id="RPF-gy-l4b"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Activity" id="Hdc-ND-YBg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgC-n9-XzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773.5999999999999" y="679.61019490254876"/>
+        </scene>
+        <!--Social-->
+        <scene sceneID="MI5-xM-Lpg">
+            <objects>
+                <navigationController id="mRQ-zH-4zI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Social" id="DPr-yQ-qCr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jOU-1I-prp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lEz-wm-5Sa" kind="relationship" relationship="rootViewController" id="3kn-AF-zbe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rSa-hw-kwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="680"/>
         </scene>
         <!--Backlog Section Picker View Controller-->
         <scene sceneID="IYQ-WU-5PY">
@@ -388,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWC-fP-0MO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="66"/>
+            <point key="canvasLocation" x="3454" y="-74"/>
         </scene>
         <!--Game title-->
         <scene sceneID="NvZ-b2-RNU">
@@ -543,7 +619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU7-hc-rwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="-335"/>
+            <point key="canvasLocation" x="2598" y="-475"/>
         </scene>
         <!--Log In Sign Up View Controller-->
         <scene sceneID="Yw8-mW-auL">
@@ -689,6 +765,7 @@
                     <connections>
                         <segue destination="xoL-qE-T05" kind="relationship" relationship="viewControllers" id="twu-8c-sUo"/>
                         <segue destination="kLp-Im-Nq0" kind="relationship" relationship="viewControllers" id="2dL-Q4-tHS"/>
+                        <segue destination="mRQ-zH-4zI" kind="relationship" relationship="viewControllers" id="O0s-ib-jyU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vy7-65-Gml" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -712,7 +789,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l60-pg-xhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="-704.79760119940033"/>
+            <point key="canvasLocation" x="793" y="-844"/>
         </scene>
         <!--Search-->
         <scene sceneID="qTi-aH-m7f">
@@ -731,7 +808,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHq-KU-rk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="66.11694152923539"/>
+            <point key="canvasLocation" x="793" y="-73"/>
         </scene>
     </scenes>
     <resources>
@@ -739,7 +816,7 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tgj-er-C9s"/>
-        <segue reference="yMM-bp-858"/>
+        <segue reference="l6R-Y4-yDp"/>
+        <segue reference="yBd-sU-WtI"/>
     </inferredMetricsTieBreakers>
 </document>

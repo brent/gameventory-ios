@@ -14,6 +14,7 @@ enum Method: String {
   case gameventory = "/gameventory"
   case logIn = "/login"
   case signUp = "/signUp"
+  case feed = "/feed"
 }
 
 enum GameventoryAPIError: Error {
@@ -51,6 +52,10 @@ class GameventoryAPI {
   
   class func signUpURL() -> String {
     return "\(gameventoryApiUrl(method: .signUp))"
+  }
+  
+  class func feedURL() -> String {
+    return "\(gameventoryApiUrl(method: .feed))"
   }
   
   class func games(fromJSON data: Data) -> GamesResult {
@@ -180,6 +185,27 @@ class GameventoryAPI {
       if let image = UIImage(data: imageData) {
         completion(.success(image))
       }
+    }
+  }
+  
+  class func feed(fromJSON data: Data) -> FeedResult {
+    do {
+      let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+      
+      guard let events = jsonObj["events"] as? [[String:Any]] else {
+        return .failure(GameventoryAPIError.invalidJSONData)
+      }
+      
+      var eventMessages:[String] = []
+      for event in events {
+        if let eventMessage = event["message"] as? String {
+          eventMessages.append(eventMessage)
+        }
+      }
+      
+      return .success(eventMessages)
+    } catch let error {
+      return .failure(error)
     }
   }
 }

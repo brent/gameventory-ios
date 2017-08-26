@@ -29,6 +29,11 @@ enum FeedResult {
   case failure(Error)
 }
 
+enum UsersResult {
+  case success([User])
+  case failure(Error)
+}
+
 enum GameventorySections: Int {
   case nowPlaying
   case upNext
@@ -60,6 +65,20 @@ class GameStore {
       switch result {
       case let .success(gameventory):
         self.gameventory = gameventory
+        completion(.success(gameventory))
+      case let .failure(error):
+        print(error)
+      }
+    }
+  }
+  
+  func getUserGameventory(for user: User, withToken token: String, completion: @escaping (GameventoryResult) -> Void) {
+    let gameventoryUrl = GameventoryAPI.userURL(for: user.username)
+    
+    processRequest(URLstring: gameventoryUrl, withToken: token) { response in
+      let result = GameventoryAPI.gameventory(fromJSON: response.data!)
+      switch result {
+      case let .success(gameventory):
         completion(.success(gameventory))
       case let .failure(error):
         print(error)
@@ -224,6 +243,22 @@ class GameStore {
         completion(.success(games))
       case let .failure(error):
         print("Error fetching games: \(error)")
+      }
+    }
+  }
+  
+  func searchForUser(withUsername username: String, withToken token: String, completion: @escaping (UsersResult) -> Void) {
+    
+    let userSearchURL = GameventoryAPI.userSearchURL(for: username)
+
+    processRequest(URLstring: userSearchURL, withToken: token) { (response) in
+      let result = GameventoryAPI.users(fromJSON: response.data!)
+      
+      switch result {
+      case let .success(users):
+        completion(.success(users))
+      case let .failure(error):
+        print("Error fetching users: \(error)")
       }
     }
   }

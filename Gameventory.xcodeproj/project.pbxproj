@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
 		7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
+		7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3082B01EFDA6470065E87B /* UserCell.swift */; };
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */; };
@@ -68,6 +69,7 @@
 		6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B162F101EDE3F10005312BA /* Gameventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameventory.swift; sourceTree = "<group>"; };
+		7B3082B01EFDA6470065E87B /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				7B9FDBB01EE60F90004FD987 /* RoundedUIButton.swift */,
 				7B9770751EA840BD008A78DC /* GameCell.swift */,
 				7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */,
+				7B3082B01EFDA6470065E87B /* UserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */,
 				7BC4E13E1EAA7CDE000CEDBB /* GameDetailViewController.swift in Sources */,
 				7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */,
+				7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */,
 				7B9FDBAC1EE609D2004FD987 /* UnderlinedTextField.swift in Sources */,
 				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
 				7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */,

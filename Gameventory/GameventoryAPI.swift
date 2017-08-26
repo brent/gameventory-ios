@@ -15,6 +15,7 @@ enum Method: String {
   case logIn = "/login"
   case signUp = "/signUp"
   case feed = "/feed"
+  case users = "/users"
 }
 
 enum GameventoryAPIError: Error {
@@ -58,14 +59,27 @@ class GameventoryAPI {
     return "\(gameventoryApiUrl(method: .feed))"
   }
   
+  private class var userURL: String {
+    return gameventoryApiUrl(method: .users)
+  }
+  
+  class func userSearchURL(for username: String) -> String {
+    let username = username.lowercased()
+    return "\(userURL)?q=\(username)"
+  }
+  
+  class func userURL(for username: String) -> String {
+    let username = username.lowercased()
+    return "\(userURL)/\(username)"
+  }
+  
   class func games(fromJSON data: Data) -> GamesResult {
     var allGames = [Game]()
     
     do {
       let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
       
-      guard
-        let jsonDictionary = jsonObj["games"] as? [[String: Any]] else {
+      guard let jsonDictionary = jsonObj["games"] as? [[String: Any]] else {
           return .failure(GameventoryAPIError.invalidJSONData)
       }
       
@@ -82,19 +96,38 @@ class GameventoryAPI {
     return .success(allGames)
   }
   
-  /*
+  class func users(fromJSON data: Data) -> UsersResult {
+    var users = [User]()
+    
+    do {
+      let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+      
+      guard let jsonDictionary = jsonObj["users"] as? [[String: Any]] else {
+        return .failure(GameventoryAPIError.invalidJSONData)
+      }
+      
+      for userJSON in jsonDictionary {
+        if let user = user(fromJSON: userJSON) {
+          users.append(user)
+        }
+      }
+    } catch let error {
+      return .failure(error)
+    }
+    
+    return .success(users)
+  }
+  
   class func user(fromJSON json: [String: Any]) -> User? {
     guard
-      let token = json["token"] as? String,
-      let userId = json["userId"] as? String,
+      let userId = json["_id"] as? String,
       let username = json["username"] as? String else {
         return nil
     }
     
-    let user = User(id: userId, username: username, token: token)
+    let user = User(id: userId, username: username)
     return user
   }
-  */
   
   class func gameventory(fromJSON data: Data) -> GameventoryResult {
     do {
@@ -138,7 +171,7 @@ class GameventoryAPI {
           gameventory.setValue(value, forKey: key)
         }
       }
-      
+            
       return .success(gameventory)
       
     } catch let error {

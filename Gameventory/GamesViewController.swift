@@ -13,8 +13,15 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   var imageStore: ImageStore!
   var user: User!
   
+  var otherUser: User?
+  var otherUserGameStore: GameStore?
+  
   @IBOutlet var zeroStateStackView: UIStackView!
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var usernameLabel: UILabel!
+  @IBOutlet var numGamesLabel: UILabel!
+  @IBOutlet var numFollowersLabel: UILabel!
+  @IBOutlet var numFollowingLabel: UILabel!
 
   override func viewDidLoad() {
     tableView.dataSource = self
@@ -34,23 +41,59 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    gameStore.getGameventory(for: user) { (result) in
-      switch result {
-      case let .success(gameventory):
-        if gameventory.isEmpty {
-          self.tableView.isHidden = true
-          self.zeroStateStackView.isHidden = false
-          self.navigationItem.leftBarButtonItem = nil
-        } else {
+    if otherUser == nil {
+      gameStore.getGameventory(for: user) { (result) in
+        switch result {
+        case let .success(gameventory):
+          if gameventory.isEmpty {
+            self.tableView.isHidden = true
+            self.zeroStateStackView.isHidden = false
+            self.navigationItem.leftBarButtonItem = nil
+          } else {
+            self.zeroStateStackView.isHidden = true
+            self.tableView.isHidden = false
+            self.navigationItem.leftBarButtonItem = self.editButtonItem
+            
+            self.usernameLabel.text? = self.user.username
+            self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
+            
+            self.tableView.reloadData()
+          }
+        case let .failure(error):
+          print(error)
+        }
+      }
+    } else {
+      guard let otherUser = otherUser else {
+        print("no otherUser found")
+        return
+      }
+      
+      gameStore.getUserGameventory(for: otherUser, withToken: user.token, completion: { (result) in
+        switch result {
+        case let .success(gameventory):
+          self.otherUserGameStore = GameStore()
+          self.otherUserGameStore!.gameventory = gameventory
+          
+          self.usernameLabel.text? = self.otherUser!.username
+          self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames) games"
+          
           self.zeroStateStackView.isHidden = true
           self.tableView.isHidden = false
-          self.navigationItem.leftBarButtonItem = self.editButtonItem
           self.tableView.reloadData()
+        case let .failure(error):
+          print(error)
+          fatalError(error.localizedDescription)
         }
-      case let .failure(error):
-        print(error)
-      }
+      })
+      
+      self.tabBarController?.tabBar.isHidden = true
     }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.tabBarController?.tabBar.isHidden = false
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,16 +101,33 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let backlog = gameStore.gamesInBacklog {
+    
+    if otherUserGameStore != nil {
+      guard let backlog = otherUserGameStore?.gamesInBacklog else {
+        return 0
+      }
+      
       return backlog[section].count
     } else {
-      return 0
+      guard let backlog = gameStore.gamesInBacklog else {
+        return 0
+      }
+      return backlog[section].count
     }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
-    if let backlog = gameStore.gamesInBacklog {
+    
+    let backlog: [[Game]]?
+    if otherUserGameStore != nil {
+      backlog = otherUserGameStore!.gamesInBacklog!
+    } else {
+      backlog = gameStore.gamesInBacklog!
+    }
+    
+    //if let backlog = gameStore.gamesInBacklog {
+    if let backlog = backlog {
       let game = backlog[indexPath.section][indexPath.row]
       cell.gameNameLabel?.text = game.name
       
@@ -191,6 +251,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     navigationItem.leftBarButtonItem = editButtonItem
   }
   
+  // Need to pass other user data to game detail
+  // so the proper game displays and so the user
+  // can appropriately add games
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case "showSearch"?:
@@ -201,9 +264,18 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       viewController.user = user
     case "showGameDetail"?:
       let destinationVC = segue.destination as! GameDetailViewController
+
+      let detailViewGameStore: GameStore!
+      if otherUserGameStore != nil {
+        detailViewGameStore = otherUserGameStore
+        destinationVC.otherUserGameStore = otherUserGameStore
+      } else {
+        detailViewGameStore = gameStore
+      }
+      
       guard let section = tableView.indexPathForSelectedRow?.section,
         let row = tableView.indexPathForSelectedRow?.row,
-        let backlog = gameStore.gamesInBacklog else {
+        let backlog = detailViewGameStore.gamesInBacklog else {
           return
       }
       destinationVC.game = backlog[section][row]

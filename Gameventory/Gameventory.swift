@@ -23,6 +23,10 @@ class Gameventory: NSObject {
     }
   }
   
+  var totalGames: Int {
+    return self.nowPlaying.count + self.upNext.count + self.onIce.count + self.finished.count + self.abandoned.count
+  }
+  
   init(nowPlaying: [Game] = [], upNext: [Game] = [], onIce: [Game] = [], finished: [Game] = [], abandoned: [Game] = []) {
     self.nowPlaying = nowPlaying
     self.upNext = upNext

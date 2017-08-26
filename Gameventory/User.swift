@@ -14,7 +14,7 @@ class User: NSObject {
   let token: String
   let email: String
   
-  init(id: String, username: String, token: String) {
+  init(id: String, username: String, token: String = "") {
     self.username = username
     self.id = id
     self.token = token

@@ -14,12 +14,20 @@ class User: NSObject {
   let token: String
   let email: String
   
+
+  let numGames: String
+  let numFollowers: String
+  let numFollowing: String
+  
   init(id: String, username: String, token: String = "") {
     self.username = username
     self.id = id
     self.token = token
-    
     self.email = ""
+    
+    self.numGames = ""
+    self.numFollowers = ""
+    self.numFollowing = ""
     
     super.init()
   }

@@ -38,10 +38,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
       default:
         fatalError("unrecognized controller type")
       }
-      
-      //vc.gameStore = gameStore
-      //vc.imageStore = imageStore
-      //vc.user = user
     }
     
     super.viewDidLoad()
@@ -68,7 +64,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
       let socialVc = vc.topViewController as! SocialViewController
       socialVc.gameStore = gameStore
       socialVc.imageStore = imageStore
-      socialVc.user = user    case is GameDetailViewController:
+      socialVc.user = user
+    case is GameDetailViewController:
       let gameDetailVc = vc.topViewController as! GameDetailViewController
       gameDetailVc.gameStore = gameStore
       gameDetailVc.imageStore = imageStore

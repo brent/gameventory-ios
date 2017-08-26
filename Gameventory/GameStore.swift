@@ -77,6 +77,8 @@ class GameStore {
     
     processRequest(URLstring: gameventoryUrl, withToken: token) { response in
       let result = GameventoryAPI.gameventory(fromJSON: response.data!)
+      // Need to be able to get the user out of the result so it can be updated
+      // this will allow the above getGameventory function to be removed
       switch result {
       case let .success(gameventory):
         completion(.success(gameventory))

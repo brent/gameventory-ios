@@ -48,9 +48,10 @@ class LogInSignUpViewController: UIViewController {
         case let .success(data):
           guard
             let json = data as? [String: Any],
-            let id = json["userId"] as? String,
-            let username = json["username"] as? String,
-            let token = json["token"] as? String else {
+            let token = json["token"] as? String,
+            let user = json["user"] as? [String: Any],
+            let id = user["id"] as? String,
+            let username = user["username"] as? String else {
               return
           }
           
@@ -69,9 +70,10 @@ class LogInSignUpViewController: UIViewController {
         case let .success(data):
           guard
             let json = data as? [String: Any],
-            let id = json["userId"] as? String,
-            let username = json["username"] as? String,
-            let token = json["token"] as? String else {
+            let token = json["token"] as? String,
+            let user = json["user"] as? [String: Any],
+            let id = user["id"] as? String,
+            let username = user["username"] as? String else {
               return
           }
           
@@ -101,12 +103,6 @@ class LogInSignUpViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case "showGameventory"?:
-      //let navController = segue.destination as! UINavigationController
-      //let gamesViewController = navController.topViewController as! GamesViewController
-      //gamesViewController.user = user
-      //gamesViewController.gameStore = gameStore
-      //gamesViewController.imageStore = imageStore
-      
       let tabController = segue.destination as! TabBarViewController
       tabController.user = user
       tabController.gameStore = gameStore

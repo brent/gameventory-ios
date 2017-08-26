@@ -42,6 +42,32 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     super.viewWillAppear(animated)
     
     if otherUser == nil {
+
+      gameStore.getUserGameventory(for: user, withToken: user.token, completion: { (result) in
+        switch result {
+        case let .success(gameventory):
+          self.gameStore.gameventory = gameventory
+          
+          if gameventory.isEmpty {
+            self.tableView.isHidden = true
+            self.zeroStateStackView.isHidden = false
+            self.navigationItem.leftBarButtonItem = nil
+          } else {
+            self.zeroStateStackView.isHidden = true
+            self.tableView.isHidden = false
+            self.navigationItem.leftBarButtonItem = self.editButtonItem
+            
+            self.usernameLabel.text? = self.user.username
+            self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
+            
+            self.tableView.reloadData()
+          }
+        case let .failure(error):
+          print(error)
+        }
+      })
+      
+      /*
       gameStore.getGameventory(for: user) { (result) in
         switch result {
         case let .success(gameventory):
@@ -63,6 +89,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       }
+      */
     } else {
       guard let otherUser = otherUser else {
         print("no otherUser found")
@@ -159,55 +186,16 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
     view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
     
-    /*
-    let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 44))
-    stackView.axis = .horizontal
-    stackView.distribution = .fillEqually
-    stackView.spacing = 0
-    stackView.backgroundColor = UIColor.white
-    */
-    
     let label = UILabel(frame: CGRect(x: 100, y: 0, width: tableView.frame.size.width - 200, height: 50))
     label.text = gameStore.sectionsInBacklog[section].uppercased()
     label.textAlignment = .center
     label.font = UIFont(name: "SourceSansPro-Semibold", size: 16)
     label.textColor = UIColor(red: 0.73, green: 0.73, blue: 0.73, alpha: 1.0)
     
-    /*
-    let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-    let leftButton = UIButton()
-    leftButton.setTitle("PREV", for: .normal)
-    leftButton.addTarget(self, action: Selector(("sectionHeaderButtonPressed")), for: .touchUpInside)
-    */
-    
-    /*
-    let rightButton = UIButton(frame: CGRect(x: tableView.frame.size.width - 100, y: 0, width: 100, height: 44))
-    let rightButton = UIButton()
-    rightButton.setTitle("NEXT", for: .normal)
-    rightButton.addTarget(self, action: Selector(("sectionHeaderButtonPressed")), for: .touchUpInside)
-    */
-    
     view.addSubview(label)
-    //stackView.addArrangedSubview(leftButton)
-    //stackView.addArrangedSubview(label)
-    //stackView.addArrangedSubview(rightButton)
     
     return view
-    //return stackView
   }
-  
-  /*
-  func sectionHeaderButtonPressed(sender: UIButton) {
-    switch sender.titleLabel?.text {
-    case "PREV"?:
-      print("PREV pressed")
-    case "NEXT"?:
-      print("NEXT pressed")
-    default:
-      print("there was a problem")
-    }
-  }
-  */
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 50

@@ -352,7 +352,7 @@
 				TargetAttributes = {
 					7BB9AA581E8DFE0F00FBCC68 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = P43K3F4W3K;
+						DevelopmentTeam = 6RBNGV4B52;
 						ProvisioningStyle = Automatic;
 					};
 					7BB9AA6C1E8DFE0F00FBCC68 = {
@@ -741,12 +741,13 @@
 			baseConfigurationReference = 96D35584FF421D2DA37CEEA5 /* Pods-Gameventory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P43K3F4W3K;
+				DEVELOPMENT_TEAM = 6RBNGV4B52;
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -755,12 +756,13 @@
 			baseConfigurationReference = 25F8199207CEC7DFC6F11B4A /* Pods-Gameventory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P43K3F4W3K;
+				DEVELOPMENT_TEAM = 6RBNGV4B52;
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

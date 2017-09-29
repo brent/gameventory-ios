@@ -66,30 +66,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       })
-      
-      /*
-      gameStore.getGameventory(for: user) { (result) in
-        switch result {
-        case let .success(gameventory):
-          if gameventory.isEmpty {
-            self.tableView.isHidden = true
-            self.zeroStateStackView.isHidden = false
-            self.navigationItem.leftBarButtonItem = nil
-          } else {
-            self.zeroStateStackView.isHidden = true
-            self.tableView.isHidden = false
-            self.navigationItem.leftBarButtonItem = self.editButtonItem
-            
-            self.usernameLabel.text? = self.user.username
-            self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
-            
-            self.tableView.reloadData()
-          }
-        case let .failure(error):
-          print(error)
-        }
-      }
-      */
     } else {
       guard let otherUser = otherUser else {
         print("no otherUser found")

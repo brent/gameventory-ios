@@ -179,6 +179,49 @@ class GameventoryAPI {
     }
   }
   
+  class func gameventory(fromGames data: [String: Any]) -> GameventoryResult {
+    do {
+      var gvGames: [String: [Game]] = [:]
+      
+      for (key, _) in data {
+        guard let gamesArray = data[key] as? [[String: Any]] else {
+          continue
+        }
+        
+        var gamesInSection: [Game] = []
+        
+        for gameData in gamesArray {
+          guard
+            let name = gameData["igdb_name"] as? String,
+            let coverImgUrl = gameData["coverImgURL"] as? String,
+            let firstReleaseDate = gameData["igdb_first_release_date"] as? Int,
+            let summary = gameData["igdb_summary"] as? String,
+            let id = gameData["igdb_id"] as? Int else {
+              continue
+          }
+          
+          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
+          
+          gamesInSection.append(game)
+        }
+        
+        gvGames[key] = gamesInSection
+      }
+      
+      let gameventory = Gameventory()
+      
+      for (key, value) in gvGames {
+        if value != [] {
+          gameventory.setValue(value, forKey: key)
+        }
+      }
+      
+      return .success(gameventory)
+    } catch let error {
+      return .failure(error)
+    }
+  }
+  
   private class func game(fromJSON json: [String: Any]) -> Game? {
     guard
       let id = json["igdb_id"] as? Int,

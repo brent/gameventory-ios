@@ -39,49 +39,39 @@ class LogInSignUpViewController: UIViewController {
     }
     
     let params: Parameters = ["username": username, "password": password]
-    
+
+    var logInSignUpUrl = ""
     if signUpMode {
-      let signUpUrl = GameventoryAPI.signUpURL()
-      
-      Alamofire.request(signUpUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
-        switch response.result {
-        case let .success(data):
-          guard
-            let json = data as? [String: Any],
-            let token = json["token"] as? String,
-            let user = json["user"] as? [String: Any],
-            let id = user["id"] as? String,
-            let username = user["username"] as? String else {
-              return
-          }
-          
-          self.user = User(id: id, username: username, token: token)
-          self.performSegue(withIdentifier: "showGameventory", sender: self)
-        case let .failure(error):
-          print(error)
-        }
-      }
-      
+      logInSignUpUrl = GameventoryAPI.signUpURL()
     } else {
-      let loginUrl = GameventoryAPI.logInURL()
-      
-      Alamofire.request(loginUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
-        switch response.result {
-        case let .success(data):
-          guard
-            let json = data as? [String: Any],
-            let token = json["token"] as? String,
-            let user = json["user"] as? [String: Any],
-            let id = user["id"] as? String,
-            let username = user["username"] as? String else {
-              return
-          }
-          
-          self.user = User(id: id, username: username, token: token)
-          self.performSegue(withIdentifier: "showGameventory", sender: self)
+      logInSignUpUrl = GameventoryAPI.logInURL()
+    }
+    
+    Alamofire.request(logInSignUpUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
+      switch response.result {
+      case let .success(data):
+        guard
+          let json = data as? [String: Any],
+          let token = json["token"] as? String,
+          let user = json["user"] as? [String: Any],
+          let id = user["id"] as? String,
+          let username = user["username"] as? String,
+          let games = json["games"] as? [String: Any] else {
+            return
+        }
+        
+        self.user = User(id: id, username: username, token: token)
+        
+        let gameventoryResult = GameventoryAPI.gameventory(fromGames: games)
+        switch gameventoryResult {
+        case let .success(gameventory):
+          self.gameStore.gameventory = gameventory
         case let .failure(error):
           print(error)
         }
+        self.performSegue(withIdentifier: "showGameventory", sender: self)
+      case let .failure(error):
+        print(error)
       }
     }
   }

@@ -58,7 +58,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nml-KQ-4nQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62h-6P-UX2" customClass="CircleUIImageView" customModule="Gameventory" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -69,40 +69,43 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiM-Ob-fuO">
-                                                                    <rect key="frame" x="64" y="0.0" width="251" height="28"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="54" height="30.5"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwV-8z-BkF">
-                                                                    <rect key="frame" x="331" y="0.0" width="44" height="44"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwV-8z-BkF">
+                                                                    <rect key="frame" x="134" y="0.0" width="241" height="44"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="44" id="ga2-BC-9w0"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="ga2-BC-9w0"/>
                                                                         <constraint firstAttribute="height" constant="44" id="t4l-et-MK8"/>
                                                                     </constraints>
-                                                                    <state key="normal" image="searchResultAddBtn">
+                                                                    <state key="normal" title="_">
                                                                         <color key="titleColor" red="0.2470588235" green="0.77647058820000003" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="followBtnPressed:" destination="Pg1-XZ-4DY" eventType="touchUpInside" id="FZ7-MA-pQz"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3AS-Hu-U5Z">
-                                                            <rect key="frame" x="0.0" y="95.5" width="375" height="17.5"/>
+                                                            <rect key="frame" x="0.0" y="94" width="375" height="19"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAI-Kx-fzf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="17.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="19"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6T-p1-twn">
-                                                                    <rect key="frame" x="125" y="0.0" width="125" height="17.5"/>
+                                                                    <rect key="frame" x="125" y="0.0" width="125" height="19"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 following" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLD-FU-EA6">
-                                                                    <rect key="frame" x="250" y="0.0" width="125" height="17.5"/>
+                                                                    <rect key="frame" x="250" y="0.0" width="125" height="19"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -132,7 +135,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-8a-d4j">
-                                                                    <rect key="frame" x="81" y="8" width="286" height="28"/>
+                                                                    <rect key="frame" x="81" y="8" width="286" height="30.5"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -184,6 +187,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Gameventory" id="Ibt-C9-onP"/>
                     <connections>
+                        <outlet property="followButton" destination="DwV-8z-BkF" id="MYC-u7-fGX"/>
                         <outlet property="numFollowersLabel" destination="i6T-p1-twn" id="cp0-XI-ycM"/>
                         <outlet property="numFollowingLabel" destination="gLD-FU-EA6" id="p0H-fj-z3b"/>
                         <outlet property="numGamesLabel" destination="FAI-Kx-fzf" id="sYd-hC-qTk"/>
@@ -251,7 +255,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pw-i3-9GT">
-                                                    <rect key="frame" x="81" y="8" width="234" height="28"/>
+                                                    <rect key="frame" x="81" y="8" width="234" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -495,7 +499,7 @@
             <objects>
                 <navigationController id="mRQ-zH-4zI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Community" id="DPr-yQ-qCr"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jOU-1I-prp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jOU-1I-prp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -526,13 +530,13 @@
                                         <rect key="frame" x="62" y="174" width="250" height="319"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD TO SECTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6p-jT-OFt">
-                                                <rect key="frame" x="8" y="8" width="234" height="16.5"/>
+                                                <rect key="frame" x="8" y="8" width="234" height="18"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
                                                 <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmI-D2-f5Y">
-                                                <rect key="frame" x="8" y="40.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="42" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="Now Playing">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -542,7 +546,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-6J-1Is">
-                                                <rect key="frame" x="8" y="89.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="93" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="Up Next">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -552,7 +556,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYv-FM-L13">
-                                                <rect key="frame" x="8" y="138.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="144" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="On Ice">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -562,7 +566,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR6-u6-5l5">
-                                                <rect key="frame" x="8" y="179.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="187" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="Finished">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -572,7 +576,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCc-eZ-omx">
-                                                <rect key="frame" x="8" y="220.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="230" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="Abandoned">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -582,7 +586,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykc-Ln-hmA">
-                                                <rect key="frame" x="8" y="261.5" width="234" height="33"/>
+                                                <rect key="frame" x="8" y="273" width="234" height="35"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -955,7 +959,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="xoL-qE-T05" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Backlog" id="XVB-o7-NM5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1D2-b5-kXx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1D2-b5-kXx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -974,7 +978,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="kLp-Im-Nq0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Games" id="tSP-it-Uhh"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iz8-Uh-RRH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iz8-Uh-RRH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

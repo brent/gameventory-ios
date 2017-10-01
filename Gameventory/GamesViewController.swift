@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   var gameStore: GameStore!
@@ -16,13 +17,84 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   var otherUser: User?
   var otherUserGameStore: GameStore?
   
+  var isFollowed: Bool = false {
+    willSet(newVal) {
+      switch newVal {
+      case true:
+        updateFollowBtn(withTitle: "unfollow")
+      case false:
+        updateFollowBtn(withTitle: "follow")
+      }
+    }
+  }
+  
   @IBOutlet var zeroStateStackView: UIStackView!
   @IBOutlet var tableView: UITableView!
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var numGamesLabel: UILabel!
   @IBOutlet var numFollowersLabel: UILabel!
   @IBOutlet var numFollowingLabel: UILabel!
+  @IBOutlet var followButton: UIButton!
 
+  @IBAction func followBtnPressed(_ sender: Any) {
+    guard let followee = otherUser else {
+      return
+    }
+    
+    let headers: HTTPHeaders = [
+      "Authorization": "JWT \(user.token)",
+    ]
+    
+    if isFollowed {
+      let url = "\(GameventoryAPI.followURL())/\(followee.id)"
+      Alamofire.request(url, method: .delete,
+                        headers: headers).responseJSON { response in
+        switch response.result {
+        case let .success(data):
+          guard
+            let json = data as? [String: Any],
+            let success = json["success"] as? Bool else {
+              return
+          }
+          
+          if success {
+            self.isFollowed = false
+          }
+        case let .failure(error):
+          print(error)
+        }
+      }
+      
+    } else {
+      let params: Parameters = ["fid": followee.id, "fUsername": followee.username]
+      Alamofire.request(GameventoryAPI.followURL(), method: .post, parameters: params,
+                        encoding: URLEncoding.httpBody, headers: headers).responseJSON { response in
+        switch response.result {
+        case let .success(data):
+          guard
+            let json = data as? [String: Any],
+            let success = json["success"] as? Bool else {
+              return
+          }
+          
+          if success {
+            self.isFollowed = true
+          }
+        case let .failure(error):
+          print(error)
+        }
+      }
+    }
+  }
+  
+  func updateFollowBtn(withTitle title: String) {
+    if otherUser != nil && user != otherUser {
+      followButton.setTitle(title, for: [])
+    } else {
+      followButton.isHidden = true
+    }
+  }
+  
   override func viewDidLoad() {
     tableView.dataSource = self
     tableView.delegate = self
@@ -41,7 +113,51 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    let headers: HTTPHeaders = [
+      "Authorization": "JWT \(user.token)",
+    ]
+    
     if otherUser == nil {
+      
+      Alamofire.request(GameventoryAPI.userURL(for: user.username), headers: headers).responseJSON { response in
+        switch response.result {
+        case let .success(data):
+          guard
+            let json = data as? [String: Any],
+            let user = json["user"] as? [String: Any],
+            let games = json["games"] as? [String: Any] else {
+              return
+          }
+          
+          let gameventoryResult = GameventoryAPI.gameventory(fromGames: games)
+          switch gameventoryResult {
+          case let .success(gameventory):
+            self.gameStore.gameventory = gameventory
+            
+            if gameventory.isEmpty {
+              self.tableView.isHidden = true
+              self.zeroStateStackView.isHidden = false
+              self.navigationItem.leftBarButtonItem = nil
+            } else {
+              self.zeroStateStackView.isHidden = true
+              self.tableView.isHidden = false
+              self.navigationItem.leftBarButtonItem = self.editButtonItem
+              
+              self.usernameLabel.text? = self.user.username
+              self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
+              self.numFollowersLabel.text? = "\(user["numFollowers"] as! Int) followers"
+              self.numFollowingLabel.text? = "\(user["numFollowing"] as! Int) following"
+              
+              self.tableView.reloadData()
+            }
+          case let .failure(error):
+            print(error)
+          }
+          
+        case let .failure(error):
+          print(error)
+        }
+      }
 
       gameStore.getUserGameventory(for: user, withToken: user.token, completion: { (result) in
         switch result {
@@ -72,24 +188,42 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return
       }
       
-      gameStore.getUserGameventory(for: otherUser, withToken: user.token, completion: { (result) in
-        switch result {
-        case let .success(gameventory):
-          self.otherUserGameStore = GameStore()
-          self.otherUserGameStore!.gameventory = gameventory
+      Alamofire.request(GameventoryAPI.userURL(for: otherUser.username), headers: headers).responseJSON { response in
+        switch response.result {
+        case let .success(data):
+          guard
+            let json = data as? [String: Any],
+            let user = json["user"] as? [String: Any],
+            let games = json["games"] as? [String: Any] else {
+              return
+          }
           
-          self.usernameLabel.text? = self.otherUser!.username
-          self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames) games"
+          self.isFollowed = user["isFollowed"] as! Bool
           
-          self.zeroStateStackView.isHidden = true
-          self.tableView.isHidden = false
-          self.tableView.reloadData()
+          let gameventoryResult = GameventoryAPI.gameventory(fromGames: games)
+          switch gameventoryResult {
+          case let .success(gameventory):
+            self.otherUserGameStore = GameStore()
+            self.otherUserGameStore!.gameventory = gameventory
+            
+            self.usernameLabel.text? = self.otherUser!.username
+            self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames) games"
+            self.numFollowersLabel.text? = "\(user["numFollowers"] as! Int) followers"
+            self.numFollowingLabel.text? = "\(user["numFollowing"] as! Int) following"
+            
+            self.zeroStateStackView.isHidden = true
+            
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
+
+          case let .failure(error):
+            print(error)
+          }
         case let .failure(error):
           print(error)
-          fatalError(error.localizedDescription)
         }
-      })
-      
+      }
+ 
       self.tabBarController?.tabBar.isHidden = true
     }
   }

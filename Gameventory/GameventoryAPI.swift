@@ -16,6 +16,7 @@ enum Method: String {
   case signUp = "/signUp"
   case feed = "/feed"
   case users = "/users"
+  case follow = "/follow"
 }
 
 enum GameventoryAPIError: Error {
@@ -57,6 +58,10 @@ class GameventoryAPI {
   
   class func feedURL() -> String {
     return "\(gameventoryApiUrl(method: .feed))"
+  }
+  
+  class func followURL() -> String {
+    return "\(gameventoryApiUrl(method: .follow))"
   }
   
   private class var userURL: String {

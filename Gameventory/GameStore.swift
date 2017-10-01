@@ -46,6 +46,11 @@ enum GameventorySections: Int {
   }
 }
 
+enum FeedScope {
+  case following
+  case global
+}
+
 class GameStore {
   var gameventory: Gameventory = Gameventory()
   
@@ -282,10 +287,17 @@ class GameStore {
   }
   
   // TODO: this function should not be in here
-  func getFeed(withToken token: String, completion: @escaping (FeedResult) -> Void) {
+  func getFeed(withToken token: String, scope: FeedScope, completion: @escaping (FeedResult) -> Void) {
     
+    var params: Parameters = [:]
+    if scope == .following {
+      params["scope"] = "following"
+    }
     let url = GameventoryAPI.feedURL()
-    processRequest(URLstring: url, withToken: token) { (response) in
+    let headers: HTTPHeaders = [
+      "Authorization": "JWT \(token)",
+    ]
+    Alamofire.request(url, method: .get, parameters: params, headers: headers).responseJSON { response in
       let result = GameventoryAPI.feed(fromJSON: response.data!)
       
       switch result {

@@ -345,7 +345,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-n6-HBF">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-n6-HBF">
                                 <rect key="frame" x="8" y="142" width="359" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="qUC-2K-LOd"/>
@@ -355,6 +355,9 @@
                                     <segment title="Global activity"/>
                                 </segments>
                                 <color key="tintColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlPressed:" destination="DTx-j7-cBJ" eventType="valueChanged" id="sNE-0I-4aB"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KKA-6v-RaQ">
                                 <rect key="frame" x="0.0" y="186" width="375" height="432"/>
@@ -997,7 +1000,7 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pbb-XD-lzy"/>
+        <segue reference="KCX-cy-yx2"/>
         <segue reference="Tgj-er-C9s"/>
         <segue reference="yMM-bp-858"/>
     </inferredMetricsTieBreakers>

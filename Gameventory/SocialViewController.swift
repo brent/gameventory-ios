@@ -35,7 +35,32 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    gameStore.getFeed(withToken: user.token) { (result) in
+    gameStore.getFeed(withToken: user.token, scope: .following) { (result) in
+      switch result {
+      case let .success(feed):
+        self.feed = feed
+        self.feedTableView.isHidden = false
+        self.usersTableView.isHidden = true
+        self.feedTableView.reloadData()
+      case let .failure(error):
+        print(error)
+      }
+    }
+  }
+  
+  @IBAction func segmentedControlPressed(_ sender: Any) {
+    var scope: FeedScope!
+    
+    switch segmentedControl.selectedSegmentIndex {
+    case 0:
+      scope = .following
+    case 1:
+      scope = .global
+    default:
+      print("ERROR WITH SEGMENTED CONTROL")
+    }
+    
+    gameStore.getFeed(withToken: user.token, scope: scope) { (result) in
       switch result {
       case let .success(feed):
         self.feed = feed

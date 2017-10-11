@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your backlog is empty :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpY-x7-qaA">
-                                                <rect key="frame" x="73.5" y="0.0" width="228.5" height="277"/>
+                                                <rect key="frame" x="73" y="0.0" width="229" height="277"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiM-Ob-fuO">
-                                                                    <rect key="frame" x="64" y="0.0" width="54" height="30.5"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="54" height="31"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -135,7 +135,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-8a-d4j">
-                                                                    <rect key="frame" x="81" y="8" width="286" height="30.5"/>
+                                                                    <rect key="frame" x="81" y="8" width="286" height="31"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                                         <rect key="frame" x="8" y="0.0" width="359" height="52"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
                                             <action selector="performSearch:" destination="eLs-Xx-A27" eventType="primaryActionTriggered" id="GUg-9B-0eG"/>
                                         </connections>
@@ -255,7 +255,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pw-i3-9GT">
-                                                    <rect key="frame" x="81" y="8" width="234" height="30.5"/>
+                                                    <rect key="frame" x="81" y="8" width="234" height="31"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                     <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -374,13 +374,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-FT-YWn">
-                                                            <rect key="frame" x="72" y="8" width="295" height="56.5"/>
+                                                            <rect key="frame" x="72" y="8" width="295" height="57"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-Kz-861" customClass="CircleUIImageView" customModule="Gameventory" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="8" width="48" height="48.5"/>
+                                                            <rect key="frame" x="8" y="8" width="48" height="48"/>
                                                             <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="48" id="Rir-CS-5rx"/>
@@ -411,7 +411,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jst-gX-0Rl" id="anl-Ex-r0E">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lP-rZ-hAM" customClass="CircleUIImageView" customModule="Gameventory" customModuleProvider="target">
@@ -455,7 +455,7 @@
                                         <rect key="frame" x="8" y="0.0" width="359" height="52"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                         <connections>
                                             <action selector="performSearch:" destination="DTx-j7-cBJ" eventType="primaryActionTriggered" id="N7l-sk-ao2"/>
                                         </connections>
@@ -502,7 +502,7 @@
             <objects>
                 <navigationController id="mRQ-zH-4zI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Community" id="DPr-yQ-qCr"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jOU-1I-prp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jOU-1I-prp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -517,7 +517,7 @@
         <!--Backlog Section Picker View Controller-->
         <scene sceneID="IYQ-WU-5PY">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="PjG-A2-E6z" customClass="BacklogSectionPickerViewController" customModule="Gameventory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="PjG-A2-E6z" customClass="BacklogSectionPickerViewController" customModule="Gameventory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0ek-SO-bXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="btH-B1-x3u"/>
@@ -667,13 +667,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="te3-Vr-aRh" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="594"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giU-7u-qt6">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="339"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jq-cY-ZGf">
-                                                        <rect key="frame" x="16" y="285" width="343" height="30.5"/>
+                                                        <rect key="frame" x="16" y="285" width="343" height="31"/>
                                                         <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                         <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -697,10 +697,10 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-Nc-V4L">
-                                                <rect key="frame" x="16" y="416" width="343" height="122.5"/>
+                                                <rect key="frame" x="16" y="417" width="343" height="123"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PcB-EG-CpT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="46.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUMMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH1-SI-xH4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
@@ -709,7 +709,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xJ-Ad-EvA">
-                                                                <rect key="frame" x="0.0" y="26" width="343" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="26" width="343" height="21"/>
                                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                                                 <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -717,7 +717,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hiS-aT-SDY">
-                                                        <rect key="frame" x="0.0" y="78.5" width="343" height="44"/>
+                                                        <rect key="frame" x="0.0" y="79" width="343" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELEASE DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEr-h4-KzG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
@@ -736,7 +736,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOW-mh-U5Y">
-                                                <rect key="frame" x="0.0" y="346" width="375" height="54"/>
+                                                <rect key="frame" x="0.0" y="347" width="375" height="54"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Et-YH-TkK" customClass="RoundedUIButton" customModule="Gameventory" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="359" height="38"/>
@@ -818,7 +818,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YR-ew-pTi">
-                                <rect key="frame" x="30" y="107.5" width="315" height="452"/>
+                                <rect key="frame" x="30" y="108" width="315" height="452"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g09-Gm-YFF" customClass="RoundedUIView" customModule="Gameventory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="315" height="396"/>
@@ -827,7 +827,7 @@
                                                 <rect key="frame" x="30" y="-64" width="255" height="430"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-signup-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-if-NrQ">
-                                                        <rect key="frame" x="48.5" y="0.0" width="158" height="158"/>
+                                                        <rect key="frame" x="49" y="0.0" width="158" height="158"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="158" id="Rbl-tR-DaU"/>
                                                             <constraint firstAttribute="width" constant="158" id="ZN3-sS-7xn"/>
@@ -872,7 +872,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-VS-vXa">
-                                                        <rect key="frame" x="39.5" y="382" width="176" height="48"/>
+                                                        <rect key="frame" x="40" y="382" width="176" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqH-IM-FJs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="176" height="18"/>
@@ -962,7 +962,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="xoL-qE-T05" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Backlog" id="XVB-o7-NM5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1D2-b5-kXx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1D2-b5-kXx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -981,7 +981,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="kLp-Im-Nq0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Games" id="tSP-it-Uhh"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iz8-Uh-RRH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iz8-Uh-RRH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1000,8 +1000,8 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KCX-cy-yx2"/>
-        <segue reference="Tgj-er-C9s"/>
-        <segue reference="yMM-bp-858"/>
+        <segue reference="yBd-sU-WtI"/>
+        <segue reference="pbb-XD-lzy"/>
+        <segue reference="l6R-Y4-yDp"/>
     </inferredMetricsTieBreakers>
 </document>

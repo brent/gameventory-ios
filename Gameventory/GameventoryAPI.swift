@@ -10,13 +10,15 @@ import UIKit
 import Alamofire
 
 enum Method: String {
-  case gameSearch = "/search"
-  case gameventory = "/gameventory"
-  case logIn = "/login"
-  case signUp = "/signUp"
-  case feed = "/feed"
-  case users = "/users"
-  case follow = "/follow"
+  case gameSearch   = "/search"
+  case gameventory  = "/gameventory"
+  case logIn        = "/login"
+  case signUp       = "/signUp"
+  case feed         = "/feed"
+  case users        = "/users"
+  case follow       = "/follow"
+  case followers    = "/followers"
+  case following    = "/following"
 }
 
 enum GameventoryAPIError: Error {
@@ -62,6 +64,14 @@ class GameventoryAPI {
   
   class func followURL() -> String {
     return "\(gameventoryApiUrl(method: .follow))"
+  }
+  
+  class func followersURL() -> String {
+    return "\(gameventoryApiUrl(method: .followers))"
+  }
+  
+  class func followingURL() -> String {
+    return "\(gameventoryApiUrl(method: .following))"
   }
   
   private class var userURL: String {

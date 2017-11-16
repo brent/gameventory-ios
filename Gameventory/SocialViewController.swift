@@ -35,6 +35,10 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    // This needs to be in viewDidLoad()
+    // but search bar bug needs to be fixed first
+    // so a user can clear the search results
+    // and see the feed UI again
     gameStore.getFeed(withToken: user.token, scope: .following) { (result) in
       switch result {
       case let .success(feed):
@@ -141,15 +145,6 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       destinationVc.gameStore = gameStore
       destinationVc.imageStore = imageStore
       destinationVc.user = user
-      
-      /*
-      let cell = sender as! UserCell
-      guard let indexPath = usersTableView.indexPath(for: cell) else {
-        print("could not find cell in user table")
-        return
-      }
-      let otherUser = users[indexPath.row]
-      */
       
       guard let index = usersTableView.indexPathForSelectedRow?.row else {
         return

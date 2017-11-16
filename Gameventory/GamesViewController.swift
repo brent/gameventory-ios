@@ -17,6 +17,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   var otherUser: User?
   var otherUserGameStore: GameStore?
   
+  var followerPressed: Bool!
+  
   var isFollowed: Bool = false {
     willSet(newVal) {
       switch newVal {
@@ -32,9 +34,26 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   @IBOutlet var tableView: UITableView!
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var numGamesLabel: UILabel!
-  @IBOutlet var numFollowersLabel: UILabel!
-  @IBOutlet var numFollowingLabel: UILabel!
+  @IBOutlet var numFollowersBtn: UIButton!
+  @IBOutlet var numFollowingBtn: UIButton!
   @IBOutlet var followButton: UIButton!
+  
+  @IBAction func followingFollowerBtnPressed(_ sender: Any) {
+    guard let button = sender as? UIButton else {
+      return
+    }
+    
+    switch button.tag {
+    case 1:
+      followerPressed = true
+    case 2:
+      followerPressed = false
+    default:
+      return
+    }
+    
+    performSegue(withIdentifier: "showFollowingFollowers", sender: button)
+  }
 
   @IBAction func followBtnPressed(_ sender: Any) {
     guard let followee = otherUser else {
@@ -119,6 +138,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     if otherUser == nil {
       
+      // TODO: turn this into an external method
       Alamofire.request(GameventoryAPI.userURL(for: user.username), headers: headers).responseJSON { response in
         switch response.result {
         case let .success(data):
@@ -145,8 +165,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
               
               self.usernameLabel.text? = self.user.username
               self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
-              self.numFollowersLabel.text? = "\(user["numFollowers"] as! Int) followers"
-              self.numFollowingLabel.text? = "\(user["numFollowing"] as! Int) following"
+              self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int) followers", for: .normal)
+              self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int) following", for: .normal)
               
               self.tableView.reloadData()
             }
@@ -188,6 +208,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return
       }
       
+      // TODO: turn this into an external method
       Alamofire.request(GameventoryAPI.userURL(for: otherUser.username), headers: headers).responseJSON { response in
         switch response.result {
         case let .success(data):
@@ -208,8 +229,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             self.usernameLabel.text? = self.otherUser!.username
             self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames) games"
-            self.numFollowersLabel.text? = "\(user["numFollowers"] as! Int) followers"
-            self.numFollowingLabel.text? = "\(user["numFollowing"] as! Int) following"
+            self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int) followers", for: .normal)
+            self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int) following", for: .normal)
             
             self.zeroStateStackView.isHidden = true
             
@@ -381,6 +402,23 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       destinationVC.gameStore = gameStore
       destinationVC.buttonTitle = "Move"
       destinationVC.user = user
+    case "showFollowingFollowers"?:
+      let destinationVC = segue.destination as! FollowingFollowersViewController
+      var title = ""
+      
+      switch followerPressed {
+      case true:
+        title = "Followers"
+        destinationVC.followingOrFollowers = title.lowercased()
+      case false:
+        title = "Following"
+        destinationVC.followingOrFollowers = title.lowercased()
+      default:
+        preconditionFailure("followerPressed not assigned")
+      }
+      
+      destinationVC.user = user
+      destinationVC.navigationItem.title = title
     default:
       preconditionFailure("Unexpected segue identifier")
     }

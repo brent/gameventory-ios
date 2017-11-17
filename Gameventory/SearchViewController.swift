@@ -65,6 +65,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     textInput.becomeFirstResponder()
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    
+    let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+    tap.cancelsTouchesInView = false
+    self.view.addGestureRecognizer(tap)
   }
   
   override func viewWillAppear(_ animated: Bool) {

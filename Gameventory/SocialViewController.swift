@@ -30,6 +30,10 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     feedTableView.estimatedRowHeight = 81
     usersTableView.delegate = self
     usersTableView.dataSource = self
+    
+    let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+    tap.cancelsTouchesInView = false
+    self.view.addGestureRecognizer(tap)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -136,6 +140,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
       })
     }
+    sender.resignFirstResponder()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

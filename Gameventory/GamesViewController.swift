@@ -409,14 +409,17 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       switch followerPressed {
       case true:
         title = "Followers"
-        destinationVC.followingOrFollowers = title.lowercased()
       case false:
         title = "Following"
-        destinationVC.followingOrFollowers = title.lowercased()
       default:
         preconditionFailure("followerPressed not assigned")
       }
       
+      if otherUser != nil {
+        destinationVC.targetUser = otherUser
+      }
+      
+      destinationVC.followingOrFollowers = title.lowercased()
       destinationVC.user = user
       destinationVC.navigationItem.title = title
     default:

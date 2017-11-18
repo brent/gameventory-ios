@@ -66,12 +66,12 @@ class GameventoryAPI {
     return "\(gameventoryApiUrl(method: .follow))"
   }
   
-  class func followersURL() -> String {
-    return "\(gameventoryApiUrl(method: .followers))"
+  class func followersURL(for username: String) -> String {
+    return "\(gameventoryApiUrl(method: .followers))/\(username)"
   }
   
-  class func followingURL() -> String {
-    return "\(gameventoryApiUrl(method: .following))"
+  class func followingURL(for username: String) -> String {
+    return "\(gameventoryApiUrl(method: .following))/\(username)"
   }
   
   private class var userURL: String {

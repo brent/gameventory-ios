@@ -11,6 +11,7 @@ import Alamofire
 
 class FollowingFollowersViewController: UITableViewController {
   var user: User!
+  var targetUser: User?
   
   var followingOrFollowers: String!
   var users = [User]()
@@ -24,13 +25,17 @@ class FollowingFollowersViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if targetUser == nil {
+      targetUser = user
+    }
+    
     var requestUrl = ""
     
     switch followingOrFollowers {
     case "following":
-      requestUrl = GameventoryAPI.followingURL()
+      requestUrl = GameventoryAPI.followingURL(for: targetUser!.username)
     case "followers":
-      requestUrl = GameventoryAPI.followersURL()
+      requestUrl = GameventoryAPI.followersURL(for: targetUser!.username)
     default:
       preconditionFailure("requestUrl unable to be set")
     }

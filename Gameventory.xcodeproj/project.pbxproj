@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
 		7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
+		7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3082B01EFDA6470065E87B /* UserCell.swift */; };
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
+		7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */; };
+		7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBC1EF48DFC00E6D4BD /* Event.swift */; };
+		7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */; };
+		7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */; };
+		7B60DFC31EF9AD1B00E6D4BD /* CircleUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */; };
+		7B8161D81F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */; };
 		7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
 		7B93F5641EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */; };
 		7B93F5671EAEF0BA00CF3360 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */; };
@@ -63,8 +70,15 @@
 		6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B162F101EDE3F10005312BA /* Gameventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameventory.swift; sourceTree = "<group>"; };
+		7B3082B01EFDA6470065E87B /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
+		7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7B60DFBC1EF48DFC00E6D4BD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUIImageView.swift; sourceTree = "<group>"; };
+		7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingFollowersViewController.swift; sourceTree = "<group>"; };
 		7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchResultCell.swift; sourceTree = "<group>"; };
 		7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacklogSectionPickerViewController.swift; sourceTree = "<group>"; };
 		7B93F5651EAEF0BA00CF3360 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
@@ -135,6 +149,7 @@
 				7BF02F3F1ED29E7A00AD93B0 /* User.swift */,
 				7B162F101EDE3F10005312BA /* Gameventory.swift */,
 				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
+				7B60DFBC1EF48DFC00E6D4BD /* Event.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -153,10 +168,13 @@
 			isa = PBXGroup;
 			children = (
 				7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */,
+				7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */,
 				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
 				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
+				7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */,
 				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
 				7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */,
+				7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -164,12 +182,15 @@
 		7B9FDBAF1EE60E8A004FD987 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7B60DFC21EF9AD1B00E6D4BD /* CircleUIImageView.swift */,
 				7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */,
 				7B9FDBAB1EE609D2004FD987 /* UnderlinedTextField.swift */,
 				7B9FDBAD1EE60DBE004FD987 /* RoundedUIView.swift */,
 				7B9FDBB21EE61F6B004FD987 /* RoundedUIImageView.swift */,
 				7B9FDBB01EE60F90004FD987 /* RoundedUIButton.swift */,
 				7B9770751EA840BD008A78DC /* GameCell.swift */,
+				7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */,
+				7B3082B01EFDA6470065E87B /* UserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -334,7 +355,7 @@
 				TargetAttributes = {
 					7BB9AA581E8DFE0F00FBCC68 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = P43K3F4W3K;
+						DevelopmentTeam = 6RBNGV4B52;
 						ProvisioningStyle = Automatic;
 					};
 					7BB9AA6C1E8DFE0F00FBCC68 = {
@@ -429,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7CCE09DACD1F1ED960476C73 /* [CP] Check Pods Manifest.lock */ = {
@@ -444,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		82B1FCFE70E4DB99F504A2F8 /* [CP] Check Pods Manifest.lock */ = {
@@ -459,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9BCD613E888243A0F302A7D4 /* [CP] Embed Pods Frameworks */ = {
@@ -552,8 +573,12 @@
 				7BC4E1441EAD5571000CEDBB /* ImageStore.swift in Sources */,
 				7B9770761EA840BD008A78DC /* GameCell.swift in Sources */,
 				7B9FDBB31EE61F6B004FD987 /* RoundedUIImageView.swift in Sources */,
+				7B60DFC31EF9AD1B00E6D4BD /* CircleUIImageView.swift in Sources */,
+				7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */,
 				7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */,
 				7BC4E13E1EAA7CDE000CEDBB /* GameDetailViewController.swift in Sources */,
+				7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */,
+				7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */,
 				7B9FDBAC1EE609D2004FD987 /* UnderlinedTextField.swift in Sources */,
 				7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */,
 				7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */,
@@ -561,8 +586,11 @@
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
 				7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
+				7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */,
 				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
+				7B8161D81F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift in Sources */,
 				7B9FDBB11EE60F90004FD987 /* RoundedUIButton.swift in Sources */,
+				7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,12 +745,13 @@
 			baseConfigurationReference = 96D35584FF421D2DA37CEEA5 /* Pods-Gameventory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P43K3F4W3K;
+				DEVELOPMENT_TEAM = 6RBNGV4B52;
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -731,12 +760,13 @@
 			baseConfigurationReference = 25F8199207CEC7DFC6F11B4A /* Pods-Gameventory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P43K3F4W3K;
+				DEVELOPMENT_TEAM = 6RBNGV4B52;
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,6 +17,7 @@ class GameDetailViewController: UIViewController {
   
   var imageStore: ImageStore!
   var gameStore: GameStore!
+  var otherUserGameStore: GameStore!
   var user: User!
   
   var buttonTitle: String!
@@ -49,6 +50,11 @@ class GameDetailViewController: UIViewController {
     if gameStore.hasGame(game) {
       addOrMoveGameBtn.superview!.isHidden = true
     }
+    self.tabBarController?.tabBar.isHidden = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

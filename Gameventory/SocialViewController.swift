@@ -12,7 +12,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var gameStore: GameStore!
   var imageStore: ImageStore!
   var user: User!
-  var feed: [String]!
+  var feed: [[String:Any]]!
   
   var users = [User]()
   
@@ -87,7 +87,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
       
       if feed != nil {
-        cell.feedMessage?.text = feed[indexPath.row]
+        cell.feedMessage?.text = feed[indexPath.row]["message"] as? String
       } else {
         cell.feedMessage?.text = ""
       }
@@ -155,6 +155,21 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return
       }
       destinationVc.otherUser = users[index]
+    case "showFeedActor"?:
+      let destinationVc = segue.destination as! GamesViewController
+      destinationVc.gameStore = gameStore
+      destinationVc.imageStore = imageStore
+      destinationVc.user = user
+      
+      guard let index = feedTableView.indexPathForSelectedRow?.row,
+        let id = feed[index]["actor"] as? String,
+        let username = feed[index]["actorUsername"] as? String else {
+          return
+      }
+      
+      let otherUser = User(id: id, username: username)
+      destinationVc.otherUser = otherUser
+      
     default:
       fatalError("Unexpected segue identifier")
     }

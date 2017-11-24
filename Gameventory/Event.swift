@@ -52,7 +52,7 @@ class Event: NSObject {
     
     if type.rawValue.contains("GAME") {
       var parts = type.rawValue.components(separatedBy: "_")
-      let scope = parts.removeFirst()
+      let _ = parts.removeFirst() // scope
       let action = parts.removeFirst()
       let section = parts.joined(separator: " ").lowercased().capitalized
       
@@ -68,8 +68,8 @@ class Event: NSObject {
       }
     } else if type.rawValue.contains("USER") {
       var parts = type.rawValue.components(separatedBy: "_")
-      let scope = parts.removeFirst()
-      let action = parts.removeFirst()
+      let _ = parts.removeFirst() // scope
+      let _ = parts.removeFirst() // action
       
       let user = target as! User
       

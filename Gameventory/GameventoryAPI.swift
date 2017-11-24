@@ -287,14 +287,7 @@ class GameventoryAPI {
         return .failure(GameventoryAPIError.invalidJSONData)
       }
       
-      var eventMessages:[String] = []
-      for event in events {
-        if let eventMessage = event["message"] as? String {
-          eventMessages.append(eventMessage)
-        }
-      }
-      
-      return .success(eventMessages)
+      return .success(events)
     } catch let error {
       return .failure(error)
     }

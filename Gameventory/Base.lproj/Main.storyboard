@@ -34,13 +34,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="96i-zY-74d">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-nx-UqS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your backlog is empty :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpY-x7-qaA">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="323.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="277"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LKM-b1-yPv">
-                                        <rect key="frame" x="0.0" y="323.5" width="375" height="323.5"/>
+                                        <rect key="frame" x="0.0" y="277" width="375" height="277"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbN-QE-y4h">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="kYf-KN-ykz">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
@@ -459,6 +459,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="feedMessage" destination="8m7-FT-YWn" id="0VZ-0N-YbZ"/>
+                                                    <segue destination="Pg1-XZ-4DY" kind="show" identifier="showFeedActor" id="5Q4-yb-GVR"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1062,6 +1063,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="l6R-Y4-yDp"/>
         <segue reference="yBd-sU-WtI"/>
-        <segue reference="l77-BV-LLt"/>
+        <segue reference="5Q4-yb-GVR"/>
     </inferredMetricsTieBreakers>
 </document>

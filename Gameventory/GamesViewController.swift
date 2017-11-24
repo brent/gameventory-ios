@@ -107,7 +107,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func updateFollowBtn(withTitle title: String) {
-    if otherUser != nil && user != otherUser {
+    if otherUser != nil && user.username != otherUser?.username {
       followButton.setTitle(title, for: [])
     } else {
       followButton.isHidden = true

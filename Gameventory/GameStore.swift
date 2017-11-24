@@ -25,7 +25,7 @@ enum CoverImgResult {
 }
 
 enum FeedResult {
-  case success([String])
+  case success([[String:Any]])
   case failure(Error)
 }
 
@@ -202,6 +202,7 @@ class GameStore {
       let eventParams: Parameters = [
         "event": [
           "actor": event.actor.id,
+          "actorUsername": event.actor.username,
           "target": event.target,
           "type": event.type.rawValue,
           "message": event.message

@@ -51,6 +51,11 @@ enum FeedScope {
   case global
 }
 
+enum PopularGamesResult {
+  case success([Game])
+  case failure(Error)
+}
+
 class GameStore {
   var gameventory: Gameventory = Gameventory()
   
@@ -60,7 +65,7 @@ class GameStore {
   
   var sectionsInBacklog = ["Now Playing", "Up Next", "On Ice", "Finished", "Abandoned"]
   
-  var gamesFromSearch = [Game]()
+  var gamesArray = [Game]()
   
   func getGameventory(for user: User, completion: @escaping (GameventoryResult) -> Void) {
     let gameventoryUrl = GameventoryAPI.gameventoryURL()
@@ -247,7 +252,7 @@ class GameStore {
       
       switch result {
       case let .success(games):
-        self.gamesFromSearch = games
+        self.gamesArray = games
         completion(.success(games))
       case let .failure(error):
         print("Error fetching games: \(error)")
@@ -307,6 +312,26 @@ class GameStore {
       case let .failure(error):
         completion(.failure(error))
         print("Error fetching feed: \(error)")
+      }
+    }
+  }
+  
+  func getPopularGames(withToken token: String, completion: @escaping (PopularGamesResult) -> Void) {
+    
+    let headers: HTTPHeaders = [
+      "Authorization": "JWT \(token)",
+    ]
+    let url = GameventoryAPI.popularURL()
+    
+    Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
+      let result = GameventoryAPI.popularGames(fromJSON: response.data!)
+      
+      switch result {
+      case let .success(games):
+        completion(.success(games))
+      case let .failure(error):
+        completion(.failure(error))
+        print("Error getting popular games: \(error)")
       }
     }
   }

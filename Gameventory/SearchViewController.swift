@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+  
   var gameStore: GameStore!
   var imageStore: ImageStore!
   var user: User!
@@ -17,17 +18,22 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   @IBOutlet var tableView: UITableView!
   @IBOutlet var textInput: UITextField!
   
+  @IBOutlet var collectionView: UICollectionView!
+  
   @IBAction func performSearch(_ sender: UITextField) {
     if var searchString = sender.text {
       searchString = searchString.trimmingCharacters(in: .whitespacesAndNewlines)
       gameStore.searchForGame(withTitle: searchString, withToken: user.token, completion: { (gamesResult) in
         switch gamesResult {
         case let .success(games):
-          self.gameStore.gamesFromSearch = games
+          self.gameStore.gamesArray = games
           self.searchDataSource.games = games
           self.searchDataSource.gameStore = self.gameStore
           self.searchDataSource.imageStore = self.imageStore
           self.fetchCoverImgs(for: games)
+          
+          self.tableView.isHidden = false
+          self.collectionView.isHidden = true
         case let .failure(error):
           print("\(error)")
         }
@@ -59,16 +65,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    tableView.isHidden = true
     tableView.dataSource = searchDataSource
     tableView.delegate = self
-
-    textInput.becomeFirstResponder()
+    
+    collectionView.isHidden = false
+    collectionView.dataSource = self
+    collectionView.delegate = self
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)
+    
+    gameStore.getPopularGames(withToken: user.token) { (result) in
+      switch result {
+      case let .success(games):
+        self.gameStore.gamesArray = games
+        
+        self.collectionView.reloadData()
+      case let .failure(error):
+        print("\(error)")
+      }
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +106,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       gameCell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
     }
     
-    let game = gameStore.gamesFromSearch[indexPath.row]
+    let game = gameStore.gamesArray[indexPath.row]
     if gameStore.hasGame(game) {
       gameCell.addGameBtn.superview!.isHidden = true
     } else {
@@ -94,12 +114,53 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
   }
   
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+    
+    let game = gameStore.gamesArray[indexPath.item]
+    
+    if let coverImg = imageStore.image(forKey: String(game.igdbId)) {
+      cell.update(with: coverImg)
+    } else {
+      GameventoryAPI.coverImg(url: game.coverImgURL, completion: { (result) in
+        switch result {
+        case let .success(coverImg):
+          cell.update(with: coverImg)
+        case let .failure(error):
+          print(error)
+        }
+      })
+    }
+    
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    guard let games = gameStore?.gamesArray else {
+      return 21
+    }
+    
+    return games.count
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     switch segue.identifier {
-    case "showGameDetail"?:
+    case "showGameDetailFromSearch"?:
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        let game = gameStore.gamesFromSearch[selectedIndexPath.row]
+        let game = gameStore.gamesArray[selectedIndexPath.row]
+        let destinationVC = segue.destination as! GameDetailViewController
+        
+        destinationVC.game = game
+        destinationVC.imageStore = imageStore
+        destinationVC.gameStore = gameStore
+        destinationVC.buttonTitle = "Add"
+        destinationVC.user = user
+      }
+    case "showGameDetailFromCollection"?:
+      if let selectedIndexPath = collectionView.indexPath(for: sender as! CollectionViewCell) {
+        let game = gameStore.gamesArray[selectedIndexPath.item]
         let destinationVC = segue.destination as! GameDetailViewController
         
         destinationVC.game = game
@@ -111,7 +172,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     case "showBacklogSectionSelector"?:
       if let button = sender as? UIButton {
         let selectedIndex = button.tag
-        let game = gameStore.gamesFromSearch[selectedIndex]
+        let game = gameStore.gamesArray[selectedIndex]
         let destinationVC = segue.destination as! BacklogSectionPickerViewController
         destinationVC.game = game
         destinationVC.gameStore = gameStore

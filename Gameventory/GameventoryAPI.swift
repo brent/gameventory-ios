@@ -19,6 +19,7 @@ enum Method: String {
   case follow       = "/follow"
   case followers    = "/followers"
   case following    = "/following"
+  case popular      = "/popular"
 }
 
 enum GameventoryAPIError: Error {
@@ -76,6 +77,10 @@ class GameventoryAPI {
   
   private class var userURL: String {
     return gameventoryApiUrl(method: .users)
+  }
+  
+  class func popularURL() -> String {
+    return "\(gameventoryApiUrl(method: .popular))"
   }
   
   class func userSearchURL(for username: String) -> String {
@@ -288,6 +293,37 @@ class GameventoryAPI {
       }
       
       return .success(events)
+    } catch let error {
+      return .failure(error)
+    }
+  }
+  
+  class func popularGames(fromJSON data: Data) -> PopularGamesResult {
+    do {
+      let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+      
+      guard let games = jsonObj["games"] as? [[String: Any]] else {
+        return .failure(GameventoryAPIError.invalidJSONData)
+      }
+      
+      var popularGames: [Game] = []
+      
+      for game in games {
+        guard
+          let gameData = game["game"] as? [String: Any],
+          let id = gameData["igdb_id"] as? Int,
+          let name = gameData["igdb_name"] as? String,
+          let summary = gameData["igdb_summary"] as? String,
+          let release = gameData["igdb_first_release_date"] as? Int,
+          let coverImgUrl = gameData["coverImgURL"] as? String else {
+            return .failure(GameventoryAPIError.invalidJSONData)
+        }
+        
+        let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: release, summary: summary, igdbId: id)
+        popularGames.append(game)
+      }
+      
+      return .success(popularGames)
     } catch let error {
       return .failure(error)
     }

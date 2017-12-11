@@ -30,6 +30,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     feedTableView.estimatedRowHeight = 81
     usersTableView.delegate = self
     usersTableView.dataSource = self
+    textField.delegate = self
     
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
@@ -173,5 +174,12 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     default:
       fatalError("Unexpected segue identifier")
     }
+  }
+  
+  func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    feedTableView.isHidden = false
+    usersTableView.isHidden = true
+    segmentedControl.isHidden = false
+    return true
   }
 }

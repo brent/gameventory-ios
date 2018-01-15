@@ -422,6 +422,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       destinationVC.followingOrFollowers = title.lowercased()
       destinationVC.user = user
       destinationVC.navigationItem.title = title
+      destinationVC.gameStore = gameStore
+      destinationVC.imageStore = imageStore
     default:
       preconditionFailure("Unexpected segue identifier")
     }

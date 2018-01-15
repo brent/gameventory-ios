@@ -16,6 +16,9 @@ class FollowingFollowersViewController: UITableViewController {
   var followingOrFollowers: String!
   var users = [User]()
   
+  var gameStore: GameStore!
+  var imageStore: ImageStore!
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -103,8 +106,8 @@ class FollowingFollowersViewController: UITableViewController {
     switch segue.identifier {
     case "showFollowingFollowerUser"?:
       let destinationVc = segue.destination as! GamesViewController
-      destinationVc.gameStore = GameStore()
-      destinationVc.imageStore = ImageStore()
+      destinationVc.gameStore = gameStore
+      destinationVc.imageStore = imageStore
       destinationVc.user = user
       
       guard let index = tableView.indexPathForSelectedRow?.row else {

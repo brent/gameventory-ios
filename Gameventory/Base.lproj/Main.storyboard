@@ -252,6 +252,9 @@
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="1" green="0.084040851152848539" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutBtnPressed:" destination="m4s-hl-ERw" eventType="touchUpInside" id="nuP-db-B8y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -991,7 +994,7 @@
         <!--Log In Sign Up View Controller-->
         <scene sceneID="Yw8-mW-auL">
             <objects>
-                <viewController id="yLZ-1T-dBY" customClass="LogInSignUpViewController" customModule="Gameventory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInSignUpViewController" id="yLZ-1T-dBY" customClass="LogInSignUpViewController" customModule="Gameventory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QS0-8g-ZpX"/>
                         <viewControllerLayoutGuide type="bottom" id="p2v-Hw-APP"/>

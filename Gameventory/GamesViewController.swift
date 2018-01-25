@@ -433,6 +433,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let destinationVC = segue.destination as! SettingsViewController
       
       destinationVC.user = user
+      destinationVC.gameStore = gameStore
+      destinationVC.imageStore = imageStore
     default:
       preconditionFailure("Unexpected segue identifier")
     }

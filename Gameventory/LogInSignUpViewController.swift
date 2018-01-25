@@ -30,6 +30,9 @@ class LogInSignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    gameStore = GameStore()
+    imageStore = ImageStore()
+    
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)

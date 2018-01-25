@@ -40,6 +40,7 @@
 		7BC18AB81E8E0933009EF825 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC18AB71E8E0933009EF825 /* GameStore.swift */; };
 		7BC4E13E1EAA7CDE000CEDBB /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */; };
 		7BC4E1441EAD5571000CEDBB /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4E1431EAD5571000CEDBB /* ImageStore.swift */; };
+		7BCAE275201A4AF300160297 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAE274201A4AF300160297 /* SettingsViewController.swift */; };
 		7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */; };
 		7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3F1ED29E7A00AD93B0 /* User.swift */; };
 		7BFA0B1A1EA6DB8700C7319E /* GameventoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */; };
@@ -108,6 +109,7 @@
 		7BC18AB71E8E0933009EF825 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		7BC4E1431EAD5571000CEDBB /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		7BCAE274201A4AF300160297 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		7BF02F3F1ED29E7A00AD93B0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameventoryAPI.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */,
 				7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */,
 				7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */,
+				7BCAE274201A4AF300160297 /* SettingsViewController.swift */,
 				7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */,
 				7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */,
 				7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */,
@@ -591,6 +594,7 @@
 				7B8E412C1FD5E93A0025DFA6 /* CollectionViewCell.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
 				7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */,
+				7BCAE275201A4AF300160297 /* SettingsViewController.swift in Sources */,
 				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
 				7B8161D81F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift in Sources */,
 				7B9FDBB11EE60F90004FD987 /* RoundedUIButton.swift in Sources */,

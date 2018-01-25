@@ -13,6 +13,7 @@ enum Method: String {
   case gameSearch   = "/search"
   case gameventory  = "/gameventory"
   case logIn        = "/login"
+  case logOut       = "/logout"
   case signUp       = "/signUp"
   case feed         = "/feed"
   case users        = "/users"
@@ -53,6 +54,10 @@ class GameventoryAPI {
   
   class func logInURL() -> String {
     return "\(gameventoryApiUrl(method: .logIn))"
+  }
+  
+  class func logOutUrl() -> String {
+    return "\(gameventoryApiUrl(method: .logOut))"
   }
   
   class func signUpURL() -> String {

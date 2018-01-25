@@ -37,6 +37,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   @IBOutlet var numFollowersBtn: UIButton!
   @IBOutlet var numFollowingBtn: UIButton!
   @IBOutlet var followButton: UIButton!
+  @IBOutlet var settingsBtn: UIButton!
   
   @IBAction func followingFollowerBtnPressed(_ sender: Any) {
     guard let button = sender as? UIButton else {
@@ -127,6 +128,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.isHidden = true
     self.zeroStateStackView.isHidden = false
     self.navigationItem.leftBarButtonItem = nil
+    
+    if otherUser != nil {
+      settingsBtn.isHidden = true
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -424,6 +429,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       destinationVC.navigationItem.title = title
       destinationVC.gameStore = gameStore
       destinationVC.imageStore = imageStore
+    case "showSettings"?:
+      let destinationVC = segue.destination as! SettingsViewController
+      
+      destinationVC.user = user
     default:
       preconditionFailure("Unexpected segue identifier")
     }

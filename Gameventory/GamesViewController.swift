@@ -405,7 +405,11 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       destinationVC.game = backlog[section][row]
       destinationVC.imageStore = imageStore
       destinationVC.gameStore = gameStore
-      destinationVC.buttonTitle = "Move"
+      if otherUserGameStore != nil {
+        destinationVC.buttonTitle = "Add"
+      } else {
+        destinationVC.buttonTitle = "Move"
+      }
       destinationVC.user = user
     case "showFollowingFollowers"?:
       let destinationVC = segue.destination as! FollowingFollowersViewController

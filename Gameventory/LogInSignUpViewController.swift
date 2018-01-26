@@ -14,7 +14,7 @@ enum LogInSignUpResult {
   case failure(Error)
 }
 
-class LogInSignUpViewController: UIViewController {
+class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var usernameTextField: UITextField!
   @IBOutlet var passwordTextField: UITextField!
   @IBOutlet var logInSignUpSubmitBtn: UIButton!
@@ -36,6 +36,9 @@ class LogInSignUpViewController: UIViewController {
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)
+    
+    self.usernameTextField.delegate = self
+    self.passwordTextField.delegate = self
   }
   
   @IBAction func logInSignUpSubmitBtnPressed(_ sender: Any) {
@@ -120,6 +123,19 @@ class LogInSignUpViewController: UIViewController {
       logInSignUpSwitchLabel.text = "Don't have an account?"
       logInSignUpSwitchBtn.setTitle("Sign up", for: [])      
     }
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    switch textField.tag {
+    case 0:
+      self.passwordTextField.becomeFirstResponder()
+    case 1:
+      self.view.endEditing(true)
+      logInSignUpSubmitBtnPressed(textField)
+    default:
+      print("ERROR")
+    }
+    return true
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

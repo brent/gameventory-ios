@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-  @IBOutlet var gameCover: RoundedUIImageView!
+  @IBOutlet var gameCover: DesignableImageView!
   @IBOutlet var spinner: UIActivityIndicatorView!
   
   override func awakeFromNib() {

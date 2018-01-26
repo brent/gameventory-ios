@@ -53,30 +53,55 @@ class LogInSignUpViewController: UIViewController {
     } else {
       logInSignUpUrl = GameventoryAPI.logInURL()
     }
-    
+
     Alamofire.request(logInSignUpUrl, method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
       switch response.result {
       case let .success(data):
         guard
           let json = data as? [String: Any],
-          let token = json["token"] as? String,
-          let user = json["user"] as? [String: Any],
-          let id = user["id"] as? String,
-          let username = user["username"] as? String,
-          let games = json["games"] as? [String: Any] else {
+          let success = json["success"] as? Bool,
+          let message = json["message"] as? String else {
+            print("ERROR: COULD NOT PARSE JSON")
             return
         }
-        
-        self.user = User(id: id, username: username, token: token)
-        
-        let gameventoryResult = GameventoryAPI.gameventory(fromGames: games)
-        switch gameventoryResult {
-        case let .success(gameventory):
-          self.gameStore.gameventory = gameventory
-        case let .failure(error):
-          print(error)
+
+        if success {
+          guard
+            let token = json["token"] as? String,
+            let user = json["user"] as? [String: Any],
+            let id = user["id"] as? String,
+            let username = user["username"] as? String,
+            let games = json["games"] as? [String: Any] else {
+              return
+          }
+
+          self.user = User(id: id, username: username, token: token)
+
+          let gameventoryResult = GameventoryAPI.gameventory(fromGames: games)
+          switch gameventoryResult {
+          case let .success(gameventory):
+            self.gameStore.gameventory = gameventory
+          case let .failure(error):
+            print(error)
+          }
+          self.performSegue(withIdentifier: "showGameventory", sender: self)
+        } else {
+
+          var alert = UIAlertController()
+
+          switch message {
+          case "user found; passwords do not match":
+            alert = UIAlertController(title: "There was a problem logging in", message: "Check your username and password then try again.", preferredStyle: .alert)
+          case "user already exists":
+            alert = UIAlertController(title: "Sorry, that username is taken", message: "Try a different one and sign up again!", preferredStyle: .alert)
+          default:
+            alert = UIAlertController(title: "There was an error", message: "Please try again. If you encounter this problem multiple times, let me know.", preferredStyle: .alert)
+          }
+
+          alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+
+          self.present(alert, animated: true)
         }
-        self.performSegue(withIdentifier: "showGameventory", sender: self)
       case let .failure(error):
         print(error)
       }

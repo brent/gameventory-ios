@@ -42,14 +42,10 @@ class GameDetailViewController: UIViewController {
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
     
     addOrMoveGameBtn.setTitle(buttonTitle, for: .normal)
-    addOrMoveGameBtn.layer.cornerRadius = 3
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if gameStore.hasGame(game) {
-      addOrMoveGameBtn.superview!.isHidden = true
-    }
     self.tabBarController?.tabBar.isHidden = true
   }
   

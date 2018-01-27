@@ -397,7 +397,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailViewGameStore = gameStore
       }
       
-      guard let section = tableView.indexPathForSelectedRow?.section,
+      guard
+        let section = tableView.indexPathForSelectedRow?.section,
         let row = tableView.indexPathForSelectedRow?.row,
         let backlog = detailViewGameStore.gamesInBacklog else {
           return

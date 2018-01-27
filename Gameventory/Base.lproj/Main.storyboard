@@ -731,7 +731,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-Wv-aMb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Modal View" customClass="RoundedUIView" customModule="Gameventory" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Modal View" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
                                         <rect key="frame" x="62" y="174" width="250" height="319"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD TO SECTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6p-jT-OFt">
@@ -827,6 +827,11 @@
                                             <constraint firstAttribute="height" constant="319" id="qMz-i0-rda"/>
                                             <constraint firstAttribute="trailing" secondItem="ef2-6J-1Is" secondAttribute="trailing" constant="8" id="t3q-IZ-dCB"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -840,7 +845,7 @@
                         <constraints>
                             <constraint firstItem="iSU-Wv-aMb" firstAttribute="top" secondItem="RN6-s5-i5u" secondAttribute="top" id="5bv-Q5-iVP"/>
                             <constraint firstItem="iSU-Wv-aMb" firstAttribute="leading" secondItem="RN6-s5-i5u" secondAttribute="leading" id="R39-bC-bsN"/>
-                            <constraint firstItem="btH-B1-x3u" firstAttribute="top" secondItem="iSU-Wv-aMb" secondAttribute="bottom" id="bUP-Lz-afp"/>
+                            <constraint firstItem="iSU-Wv-aMb" firstAttribute="bottom" secondItem="RN6-s5-i5u" secondAttribute="bottom" id="Yk1-4f-Uba"/>
                             <constraint firstAttribute="trailing" secondItem="iSU-Wv-aMb" secondAttribute="trailing" id="feP-im-zk3"/>
                         </constraints>
                     </view>
@@ -945,13 +950,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOW-mh-U5Y">
                                                 <rect key="frame" x="0.0" y="346.5" width="375" height="54"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Et-YH-TkK" customClass="RoundedUIButton" customModule="Gameventory" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Et-YH-TkK" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="359" height="38"/>
                                                         <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                                                         <state key="normal" title="Button">
                                                             <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <segue destination="PjG-A2-E6z" kind="presentation" identifier="showBacklogSectionSelector" animates="NO" id="yMM-bp-858"/>
                                                         </connections>
@@ -1142,14 +1152,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-VS-vXa">
                                         <rect key="frame" x="33" y="212" width="277.5" height="34"/>

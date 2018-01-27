@@ -65,11 +65,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.isHidden = true
     tableView.dataSource = searchDataSource
     tableView.delegate = self
     
-    collectionView.isHidden = false
     collectionView.dataSource = self
     collectionView.delegate = self
     
@@ -78,6 +76,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    tableView.isHidden = true
+    collectionView.isHidden = false
     
     gameStore.getPopularGames(withToken: user.token) { (result) in
       switch result {
@@ -89,10 +94,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         print("\(error)")
       }
     }
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+    
     tableView.reloadData()
   }
   

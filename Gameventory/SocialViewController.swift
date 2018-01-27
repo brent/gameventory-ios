@@ -16,6 +16,8 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   var users = [User]()
   
+  var backFromProfile = false
+  
   @IBOutlet var feedTableView: UITableView!
   @IBOutlet var usersTableView: UITableView!
   @IBOutlet var textField: UITextField!
@@ -39,11 +41,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    // This needs to be in viewDidLoad()
-    // but search bar bug needs to be fixed first
-    // so a user can clear the search results
-    // and see the feed UI again
+
     gameStore.getFeed(withToken: user.token, scope: .following) { (result) in
       switch result {
       case let .success(feed):
@@ -55,6 +53,9 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print(error)
       }
     }
+
+    segmentedControl.isHidden = false
+    segmentedControl.selectedSegmentIndex = 0
   }
   
   @IBAction func segmentedControlPressed(_ sender: Any) {

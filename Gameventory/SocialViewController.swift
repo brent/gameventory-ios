@@ -163,10 +163,27 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       destinationVc.imageStore = imageStore
       destinationVc.user = user
       
-      guard let index = feedTableView.indexPathForSelectedRow?.row,
-        let id = feed[index]["actor"] as? String,
-        let username = feed[index]["actorUsername"] as? String else {
+      guard
+        let index = feedTableView.indexPathForSelectedRow?.row,
+        let actorId = feed[index]["actor"] as? String,
+        let actorUsername = feed[index]["actorUsername"] as? String,
+        let eventType = feed[index]["type"] as? String,
+        let targetId = feed[index]["actor"] as? String,
+        let eventMessage = feed[index]["message"] as? String else {
           return
+      }
+      
+      var id: String
+      var username: String
+      if eventType.contains("USER_FOLLOW") {
+        id = targetId
+        guard let un = eventMessage.split(separator: " ").last else {
+          return
+        }
+        username = String(un)
+      } else {
+        id = actorId
+        username = actorUsername
       }
       
       let otherUser = User(id: id, username: username)

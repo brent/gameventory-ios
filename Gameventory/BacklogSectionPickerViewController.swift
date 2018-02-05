@@ -21,6 +21,8 @@ class BacklogSectionPickerViewController: UIViewController {
   var gameStore: GameStore!
   var user: User!
   
+  var gameBacklogDelegate: GameBacklogDelegate?
+  
   @IBOutlet var modalView: UIView!
   @IBOutlet var backgroundMask: UIView!
   
@@ -44,6 +46,7 @@ class BacklogSectionPickerViewController: UIViewController {
       return
     }
     
+    gameBacklogDelegate?.updateGameStore(gameStore: gameStore)
     presentingViewController?.dismiss(animated: false, completion: nil)
   }
   

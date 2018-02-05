@@ -98,6 +98,26 @@ class GameStore {
     }
   }
   
+  func moveGameToSection(game: Game, to section: Int, for user: User) {
+    if !hasGame(game) {
+      return
+    }
+    
+    print(locationInBacklog(of: game))
+    
+    let (fromSection, fromIndex) = self.locationInBacklog(of: game)
+    //var fromSectionArray = gameventory.value(forKey: GameventorySections(rawValue: fromSection)!.string) as! [Game]
+    //let movedGame = fromSectionArray.remove(at: fromIndex)
+    
+    let toSection = section
+    let toIndex = 0
+    //var toSectionArray = gameventory.value(forKey: GameventorySections(rawValue: toSection)!.string) as! [Game]
+    //toSectionArray.insert(movedGame, at: toIndex)
+    
+    moveGame(fromSection: fromSection, fromIndex: fromIndex, toSection: toSection, toIndex: toIndex, for: user)
+  }
+  
+  // this should probably be moveGameToIndexPath(_:IndexPath, from:IndexPath)
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int, for user: User) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
       return
@@ -137,10 +157,12 @@ class GameStore {
   }
   
   func addGame(game: Game, to section: Int, for user: User) {
-    
     if self.hasGame(game) {
       return
     }
+    
+    print(locationInBacklog(of: game))
+
     
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
@@ -280,19 +302,26 @@ class GameStore {
     }
   }
   
-  func hasGame(_ game: Game) -> Bool {
-    guard let backlog = gamesInBacklog else {
-      return false
-    }
-    
-    for section in backlog {
-      for backlogGame in section {
-        if backlogGame.igdbId == game.igdbId {
-          return true
+  func locationInBacklog(of game: Game) -> (section: Int, index: Int) {
+    if let backlog = gamesInBacklog {
+      var sectionNum = 0
+      for section in backlog {
+        for backlogGame in section {
+          if backlogGame.igdbId == game.igdbId {
+            return (sectionNum, section.index(of: backlogGame)!)
+          }
         }
+        sectionNum += 1
       }
     }
     
+    return (-1, -1)
+  }
+  
+  func hasGame(_ game: Game) -> Bool {
+    if locationInBacklog(of: game).section >= 0 && locationInBacklog(of: game).index >= 0 {
+      return true
+    }
     return false
   }
   

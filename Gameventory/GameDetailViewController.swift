@@ -59,7 +59,10 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
       addOrMoveGameBtn.setTitle("Move", for: [])
     } else {
       addOrMoveGameBtn.setTitle("Add", for: [])
-    }    
+    }
+    
+    print("has game?", gameStore.hasGame(game))
+    print(gameStore.locationInBacklog(of: game))
   }
   
   override func viewWillAppear(_ animated: Bool) {

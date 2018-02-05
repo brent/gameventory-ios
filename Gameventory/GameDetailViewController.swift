@@ -30,9 +30,7 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
       }
     }
   }
-  
-  var buttonTitle: String!
-  
+    
   @IBOutlet var gameTitleLabel: UILabel!
   @IBOutlet var releaseDateLabel: UILabel!
   @IBOutlet var summaryLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameDetailViewController: UIViewController {
+class GameDetailViewController: UIViewController, GameBacklogDelegate {
   var game: Game! {
     didSet {
       navigationItem.title = game.name
@@ -20,13 +20,27 @@ class GameDetailViewController: UIViewController {
   var otherUserGameStore: GameStore!
   var user: User!
   
-  var buttonTitle: String!
-  
+  var gameAdded: Bool = false {
+    willSet(newVal) {
+      switch newVal {
+      case true:
+        addOrMoveGameBtn.setTitle("Move", for: [])
+      case false:
+        addOrMoveGameBtn.setTitle("Add", for: [])
+      }
+    }
+  }
+    
   @IBOutlet var gameTitleLabel: UILabel!
   @IBOutlet var releaseDateLabel: UILabel!
   @IBOutlet var summaryLabel: UILabel!
   @IBOutlet var coverImg: UIImageView!
   @IBOutlet var addOrMoveGameBtn: UIButton!
+  
+  func updateGameStore(gameStore: GameStore) {
+    self.gameStore = gameStore
+    self.gameAdded = true
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,7 +55,14 @@ class GameDetailViewController: UIViewController {
     summaryLabel.text = game.summary
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
     
-    addOrMoveGameBtn.setTitle(buttonTitle, for: .normal)
+    if gameStore.hasGame(game) {
+      addOrMoveGameBtn.setTitle("Move", for: [])
+    } else {
+      addOrMoveGameBtn.setTitle("Add", for: [])
+    }
+    
+    print("has game?", gameStore.hasGame(game))
+    print(gameStore.locationInBacklog(of: game))
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +81,7 @@ class GameDetailViewController: UIViewController {
       destinationVC.game = game
       destinationVC.gameStore = gameStore
       destinationVC.user = user
+      destinationVC.gameBacklogDelegate = self
     default:
       preconditionFailure("Could not find segue with identifier")
     }

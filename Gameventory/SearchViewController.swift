@@ -157,7 +157,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         destinationVC.game = game
         destinationVC.imageStore = imageStore
         destinationVC.gameStore = gameStore
-        destinationVC.buttonTitle = "Add"
         destinationVC.user = user
       }
     case "showGameDetailFromCollection"?:
@@ -168,7 +167,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         destinationVC.game = game
         destinationVC.imageStore = imageStore
         destinationVC.gameStore = gameStore
-        destinationVC.buttonTitle = "Add"
         destinationVC.user = user
       }
     case "showBacklogSectionSelector"?:

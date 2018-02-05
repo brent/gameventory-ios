@@ -106,13 +106,9 @@ class GameStore {
     print(locationInBacklog(of: game))
     
     let (fromSection, fromIndex) = self.locationInBacklog(of: game)
-    //var fromSectionArray = gameventory.value(forKey: GameventorySections(rawValue: fromSection)!.string) as! [Game]
-    //let movedGame = fromSectionArray.remove(at: fromIndex)
     
     let toSection = section
     let toIndex = 0
-    //var toSectionArray = gameventory.value(forKey: GameventorySections(rawValue: toSection)!.string) as! [Game]
-    //toSectionArray.insert(movedGame, at: toIndex)
     
     moveGame(fromSection: fromSection, fromIndex: fromIndex, toSection: toSection, toIndex: toIndex, for: user)
   }

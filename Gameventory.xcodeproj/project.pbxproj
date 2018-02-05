@@ -37,6 +37,7 @@
 		7BC4E1441EAD5571000CEDBB /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4E1431EAD5571000CEDBB /* ImageStore.swift */; };
 		7BCAE275201A4AF300160297 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAE274201A4AF300160297 /* SettingsViewController.swift */; };
 		7BCAE279201AC0C500160297 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAE278201AC0C500160297 /* UIViewExtensions.swift */; };
+		7BD1D2EF2028EDD9009161DF /* GameBacklogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD1D2EE2028EDD9009161DF /* GameBacklogDelegate.swift */; };
 		7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */; };
 		7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3F1ED29E7A00AD93B0 /* User.swift */; };
 		7BFA0B1A1EA6DB8700C7319E /* GameventoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */; };
@@ -102,6 +103,7 @@
 		7BC4E1431EAD5571000CEDBB /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		7BCAE274201A4AF300160297 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BCAE278201AC0C500160297 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		7BD1D2EE2028EDD9009161DF /* GameBacklogDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBacklogDelegate.swift; sourceTree = "<group>"; };
 		7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		7BF02F3F1ED29E7A00AD93B0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameventoryAPI.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */,
 				7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */,
 				7BCAE278201AC0C500160297 /* UIViewExtensions.swift */,
+				7BD1D2EE2028EDD9009161DF /* GameBacklogDelegate.swift */,
 				7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */,
 				7B93F5691EAEF0C100CF3360 /* Resources */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
@@ -580,6 +583,7 @@
 				7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */,
 				7BCAE275201A4AF300160297 /* SettingsViewController.swift in Sources */,
 				7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */,
+				7BD1D2EF2028EDD9009161DF /* GameBacklogDelegate.swift in Sources */,
 				7B8161D81F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift in Sources */,
 				7BCAE279201AC0C500160297 /* UIViewExtensions.swift in Sources */,
 				7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */,

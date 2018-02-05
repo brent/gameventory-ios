@@ -138,6 +138,10 @@ class GameStore {
   
   func addGame(game: Game, to section: Int, for user: User) {
     
+    if self.hasGame(game) {
+      return
+    }
+    
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
     section.append(game)

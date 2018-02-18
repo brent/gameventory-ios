@@ -175,6 +175,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
               
               self.tableView.reloadData()
             }
+            
           case let .failure(error):
             print(error)
           }
@@ -183,7 +184,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       }
-
+      /*
       gameStore.getUserGameventory(for: user, withToken: user.token, completion: { (result) in
         switch result {
         case let .success(gameventory):
@@ -207,6 +208,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       })
+     */
     } else {
       guard let otherUser = otherUser else {
         print("no otherUser found")

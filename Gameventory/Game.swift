@@ -14,15 +14,15 @@ class Game: NSObject {
   let firstReleaseDate: Int
   let summary: String
   let igdbId: Int
-  // var platforms: [String]
+  var availablePlatforms: [Platform]?
   
-  init(name: String, coverImgURL: String, firstReleaseDate: Int, summary: String, igdbId: Int) {
+  init(name: String, coverImgURL: String, firstReleaseDate: Int, summary: String, igdbId: Int, availablePlatforms: [Platform]? = nil) {
     self.name = name
     self.coverImgURL = coverImgURL
     self.firstReleaseDate = firstReleaseDate
     self.summary = summary
     self.igdbId = igdbId
-    // self.platforms = platforms
+    self.availablePlatforms = availablePlatforms
     
     super.init()
   }

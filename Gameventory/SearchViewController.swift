@@ -76,6 +76,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)
+    
+    tableView.estimatedRowHeight = 96.0
+    tableView.rowHeight = UITableViewAutomaticDimension
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -177,9 +180,5 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     default:
       preconditionFailure("Could not find segue with identifier")
     }
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 96
   }
 }

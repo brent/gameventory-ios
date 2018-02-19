@@ -104,10 +104,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       return
     }
     
-    if indexPath.row % 2 == 1 {
-      gameCell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
-    }
-    
     let game = gameStore.gamesArray[indexPath.row]
     if gameStore.hasGame(game) {
       gameCell.addGameBtn.superview!.isHidden = true

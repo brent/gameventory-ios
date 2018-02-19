@@ -36,6 +36,7 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
   @IBOutlet var summaryLabel: UILabel!
   @IBOutlet var coverImg: UIImageView!
   @IBOutlet var addOrMoveGameBtn: UIButton!
+  @IBOutlet var platformsLabel: UILabel!
   
   func updateGameStore(gameStore: GameStore) {
     self.gameStore = gameStore
@@ -46,6 +47,21 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
     super.viewDidLoad()
     
     gameTitleLabel.text = game.name
+    
+    guard let platforms = game.availablePlatforms else {
+      return
+    }
+    
+    var platformsList = ""
+    for platform in platforms {
+      if platformsList.count > 0 {
+        platformsList += ", \(platform.name)"
+      } else {
+        platformsList += platform.name
+      }
+    }
+    
+    platformsLabel.text = platformsList
     
     let date = Date(timeIntervalSince1970: Double(game.firstReleaseDate / 1000))
     let dateFormatter = DateFormatter()

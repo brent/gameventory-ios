@@ -156,10 +156,7 @@ class GameStore {
     if self.hasGame(game) {
       return
     }
-    
-    print(locationInBacklog(of: game))
-
-    
+        
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
     section.append(game)
@@ -197,12 +194,27 @@ class GameStore {
       var newBacklogSection: Array<Any> = []
       
       for game in backlogSection {
+        
+        var platformsData: [[String: Any]] = []
+        
+        guard let availablePlatforms = game.availablePlatforms else {
+          return
+        }
+        
+        for platform in availablePlatforms {
+          
+          let p: [String: Any] = ["igdb_name": platform.name, "igdb_id": platform.igdbId]
+          
+          platformsData.append(p)
+        }
+        
         let gameData: [String: Any] = [
           "igdb_name": game.name,
           "coverImgURL": game.coverImgURL,
           "igdb_first_release_date": game.firstReleaseDate,
           "igdb_summary": game.summary,
-          "igdb_id": game.igdbId
+          "igdb_id": game.igdbId,
+          "platforms": platformsData
         ]
         
         newBacklogSection.append(gameData)

@@ -76,6 +76,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
     tap.cancelsTouchesInView = false
     self.view.addGestureRecognizer(tap)
+    
+    tableView.estimatedRowHeight = 96.0
+    tableView.rowHeight = UITableViewAutomaticDimension
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -102,10 +105,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     guard let gameCell = cell as? GameSearchResultCell else {
       return
-    }
-    
-    if indexPath.row % 2 == 1 {
-      gameCell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
     }
     
     let game = gameStore.gamesArray[indexPath.row]
@@ -181,9 +180,5 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     default:
       preconditionFailure("Could not find segue with identifier")
     }
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 96
   }
 }

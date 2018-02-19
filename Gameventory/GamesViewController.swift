@@ -132,6 +132,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     if otherUser != nil {
       settingsBtn.isHidden = true
     }
+    
+    tableView.estimatedRowHeight = 96.0
+    tableView.rowHeight = UITableViewAutomaticDimension
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -175,6 +178,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
               
               self.tableView.reloadData()
             }
+            
           case let .failure(error):
             print(error)
           }
@@ -183,7 +187,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       }
-
+      /*
       gameStore.getUserGameventory(for: user, withToken: user.token, completion: { (result) in
         switch result {
         case let .success(gameventory):
@@ -207,6 +211,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
           print(error)
         }
       })
+     */
     } else {
       guard let otherUser = otherUser else {
         print("no otherUser found")
@@ -351,16 +356,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let game = backlog[indexPath.section][indexPath.row]
       gameStore.removeGame(game, from: indexPath, for: user)
       tableView.deleteRows(at: [indexPath], with: .automatic)
-    }
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 96
-  }
-  
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if indexPath.row % 2 == 1 {
-      cell.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
     }
   }
   

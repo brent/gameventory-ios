@@ -177,8 +177,18 @@ class GameventoryAPI {
             let coverImgUrl = gameData["coverImgURL"] as? String,
             let firstReleaseDate = gameData["igdb_first_release_date"] as? Int,
             let summary = gameData["igdb_summary"] as? String,
-            let id = gameData["igdb_id"] as? Int else {
-              continue
+            let id = gameData["igdb_id"] as? Int,
+            let platformsData = gameData["platforms"] as? [[String:Any]] else {
+              throw GameventoryAPIError.invalidJSONData
+          }
+          
+          var platformsArray: [Platform] = []
+          for platformData in platformsData {
+            guard let platform = platform(fromJSON: platformData) else {
+              throw GameventoryAPIError.invalidJSONData
+            }
+            
+            platformsArray.append(platform)
           }
           
           let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
@@ -221,11 +231,21 @@ class GameventoryAPI {
             let coverImgUrl = gameData["coverImgURL"] as? String,
             let firstReleaseDate = gameData["igdb_first_release_date"] as? Int,
             let summary = gameData["igdb_summary"] as? String,
-            let id = gameData["igdb_id"] as? Int else {
-              continue
+            let id = gameData["igdb_id"] as? Int,
+            let platformsData = gameData["platforms"] as? [[String: Any]] else {
+              throw GameventoryAPIError.invalidJSONData
           }
           
-          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
+          var platformsArray: [Platform] = []
+          for platformData in platformsData {
+            guard let platform = platform(fromJSON: platformData) else {
+              throw GameventoryAPIError.invalidJSONData
+            }
+            
+            platformsArray.append(platform)
+          }
+          
+          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id, availablePlatforms: platformsArray)
           
           gamesInSection.append(game)
         }
@@ -254,14 +274,35 @@ class GameventoryAPI {
       let cover = json["igdb_cover"] as? [String: Any],
       let firstReleaseDate = json["igdb_first_release_date"] as? Int,
       let summary = json["igdb_summary"] as? String,
-      let coverImgId = cover["cloudinary_id"] as? String else {
+      let coverImgId = cover["cloudinary_id"] as? String,
+      let platformsData = json["platforms"] as? [[String: Any]] else {
         return nil
     }
     
     let coverImgURL = self.coverImgURL(for: coverImgId)
-        
-    let game = Game(name: name, coverImgURL: coverImgURL, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
+    
+    var platformsArray: [Platform] = []
+    for platformData in platformsData {
+      guard let platform = platform(fromJSON: platformData) else {
+        return nil
+      }
+      
+      platformsArray.append(platform)
+    }
+    
+    let game = Game(name: name, coverImgURL: coverImgURL, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id, availablePlatforms: platformsArray)
     return game
+  }
+  
+  private class func platform(fromJSON json: [String: Any]) -> Platform? {
+    guard
+      let id = json["igdb_id"] as? Int,
+      let name = json["igdb_name"] as? String else {
+        return nil
+    }
+    
+    let platform = Platform(name: name, igdbId: id)
+    return platform
   }
   
   private class func coverImgURL(for coverImgId: String) -> String {
@@ -308,7 +349,7 @@ class GameventoryAPI {
       let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
       
       guard let games = jsonObj["games"] as? [[String: Any]] else {
-        return .failure(GameventoryAPIError.invalidJSONData)
+        throw GameventoryAPIError.invalidJSONData
       }
       
       var popularGames: [Game] = []
@@ -320,11 +361,21 @@ class GameventoryAPI {
           let name = gameData["igdb_name"] as? String,
           let summary = gameData["igdb_summary"] as? String,
           let release = gameData["igdb_first_release_date"] as? Int,
-          let coverImgUrl = gameData["coverImgURL"] as? String else {
-            return .failure(GameventoryAPIError.invalidJSONData)
+          let coverImgUrl = gameData["coverImgURL"] as? String,
+          let platformsData = gameData["platforms"] as? [[String: Any]] else {
+            throw GameventoryAPIError.invalidJSONData
         }
         
-        let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: release, summary: summary, igdbId: id)
+        var platformsArray: [Platform] = []
+        for platformData in platformsData {
+          guard let platform = platform(fromJSON: platformData) else {
+            throw GameventoryAPIError.invalidJSONData
+          }
+          
+          platformsArray.append(platform)
+        }
+        
+        let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: release, summary: summary, igdbId: id, availablePlatforms: platformsArray)
         popularGames.append(game)
       }
       

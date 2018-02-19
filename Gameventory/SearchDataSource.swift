@@ -16,8 +16,6 @@ class SearchDataSource: NSObject, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameSearchResultCell", for: indexPath) as! GameSearchResultCell
     
-    // indexPath changes as cells are dequeued and reused
-    // this needs to match the game in the table cell
     let game = games[indexPath.row]
     cell.gameNameLabel?.text = game.name
     
@@ -25,6 +23,21 @@ class SearchDataSource: NSObject, UITableViewDataSource {
     cell.update(with: coverImg)
     cell.selectionStyle = .none
     cell.addGameBtn.tag = indexPath.row
+    
+    guard let platforms = games[indexPath.row].availablePlatforms else {
+      return UITableViewCell()
+    }
+    
+    var platformsList = ""
+    for platform in platforms {
+      if platformsList.count > 0 {
+        platformsList += ", \(platform.name)"
+      } else {
+        platformsList += platform.name
+      }
+    }
+    
+    cell.platformsLabel.text = platformsList
     
     return cell
   }

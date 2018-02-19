@@ -10,6 +10,7 @@
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
 		7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
 		7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3082B01EFDA6470065E87B /* UserCell.swift */; };
+		7B4466E3203A042400FD5B03 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4466E2203A042400FD5B03 /* Platform.swift */; };
 		7B559D3C1E95C5CD001A0F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
 		7B559D3E1E95D0FE001A0F55 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
 		7B60DFB51EECBEDB00E6D4BD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */; };
@@ -70,6 +71,7 @@
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B162F101EDE3F10005312BA /* Gameventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameventory.swift; sourceTree = "<group>"; };
 		7B3082B01EFDA6470065E87B /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		7B4466E2203A042400FD5B03 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				7B162F101EDE3F10005312BA /* Gameventory.swift */,
 				7BB9AA8E1E8E001500FBCC68 /* Game.swift */,
 				7B60DFBC1EF48DFC00E6D4BD /* Event.swift */,
+				7B4466E2203A042400FD5B03 /* Platform.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */,
 				7BB9AA8F1E8E001500FBCC68 /* Game.swift in Sources */,
 				7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */,
+				7B4466E3203A042400FD5B03 /* Platform.swift in Sources */,
 				7B8E412C1FD5E93A0025DFA6 /* CollectionViewCell.swift in Sources */,
 				7BB9AA5D1E8DFE0F00FBCC68 /* AppDelegate.swift in Sources */,
 				7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */,

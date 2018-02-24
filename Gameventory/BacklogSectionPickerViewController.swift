@@ -31,6 +31,9 @@ class BacklogSectionPickerViewController: UIViewController {
   }
   
   @IBAction func addToBacklogSection(_ sender: UIButton) {
+    let platform = Platform(name: "PlayStation 4", igdbId: 48)
+    game.selectedPlatform = platform
+    
     if gameStore.hasGame(game) {
       switch sender.tag {
       case BacklogSectionButtonTags.NowPlaying.rawValue:

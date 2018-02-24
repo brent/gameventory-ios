@@ -226,6 +226,7 @@ class GameventoryAPI {
         var gamesInSection: [Game] = []
         
         for gameData in gamesArray {
+          // should use game(fromJSON:) to build Game
           guard
             let name = gameData["igdb_name"] as? String,
             let coverImgUrl = gameData["coverImgURL"] as? String,
@@ -245,7 +246,14 @@ class GameventoryAPI {
             platformsArray.append(platform)
           }
           
-          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id, availablePlatforms: platformsArray)
+          var selectedPlatform = Platform(name: "", igdbId: -1)
+          if let selectedPlatformData = gameData["selected_platform"] as? [String: Any] {
+            selectedPlatform = Platform(name: selectedPlatformData["igdb_name"] as! String, igdbId: selectedPlatformData["igdb_id"] as! Int)
+          }
+          
+          let game = Game(name: name, coverImgURL: coverImgUrl, firstReleaseDate: firstReleaseDate, summary: summary, igdbId: id)
+          game.availablePlatforms = platformsArray
+          game.selectedPlatform = selectedPlatform
           
           gamesInSection.append(game)
         }

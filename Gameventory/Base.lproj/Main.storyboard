@@ -131,42 +131,61 @@
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="96" id="M0K-23-ckP" customClass="GameCell" customModule="Gameventory" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="141" width="375" height="96"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="M0K-23-ckP" id="b5j-74-kvu">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M0K-23-ckP" id="b5j-74-kvu">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJC-Sa-0Sa" customClass="DesignableImageView" customModule="Gameventory" customModuleProvider="target">
-                                                                    <rect key="frame" x="15" y="8" width="57" height="80"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJC-Sa-0Sa" customClass="DesignableImageView" customModule="Gameventory" customModuleProvider="target">
+                                                                    <rect key="frame" x="15" y="11" width="57" height="80"/>
                                                                     <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="57" id="SlS-gx-NgJ"/>
                                                                         <constraint firstAttribute="height" constant="80" id="iB0-Q3-I3Z"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-8a-d4j">
-                                                                    <rect key="frame" x="88" y="8" width="272" height="30.5"/>
-                                                                    <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
-                                                                    <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kev-X7-aWB">
-                                                                    <rect key="frame" x="33" y="38" width="20" height="20"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LmZ-i6-rhH">
+                                                                    <rect key="frame" x="88" y="8" width="287" height="80"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-8a-d4j">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="287" height="25.5"/>
+                                                                            <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
+                                                                            <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-5x-DFv" userLabel="Platform">
+                                                                            <rect key="frame" x="0.0" y="25.5" width="287" height="54.5"/>
+                                                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
+                                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="QJf-5x-DFv" secondAttribute="trailing" id="B4f-M6-IMZ"/>
+                                                                        <constraint firstItem="6f8-8a-d4j" firstAttribute="leading" secondItem="LmZ-i6-rhH" secondAttribute="leading" id="Sth-iQ-4qh"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="6f8-8a-d4j" secondAttribute="trailing" id="jxz-vE-mGj"/>
+                                                                        <constraint firstItem="QJf-5x-DFv" firstAttribute="leading" secondItem="LmZ-i6-rhH" secondAttribute="leading" id="tjb-Ck-8Ep"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kev-X7-aWB">
+                                                                    <rect key="frame" x="33" y="41" width="20" height="20"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="6f8-8a-d4j" firstAttribute="top" secondItem="b5j-74-kvu" secondAttribute="topMargin" id="ClQ-zF-Q32"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="6f8-8a-d4j" secondAttribute="trailing" id="JBY-nd-21x"/>
+                                                                <constraint firstItem="LmZ-i6-rhH" firstAttribute="leading" secondItem="xJC-Sa-0Sa" secondAttribute="trailing" constant="16" id="11n-Db-RSP"/>
+                                                                <constraint firstItem="LmZ-i6-rhH" firstAttribute="top" secondItem="b5j-74-kvu" secondAttribute="top" constant="8" id="H4m-hV-1Td"/>
                                                                 <constraint firstItem="xJC-Sa-0Sa" firstAttribute="bottom" secondItem="b5j-74-kvu" secondAttribute="bottomMargin" id="Stv-MP-kbX"/>
                                                                 <constraint firstItem="kev-X7-aWB" firstAttribute="centerX" secondItem="xJC-Sa-0Sa" secondAttribute="centerX" id="VLU-W8-jID"/>
                                                                 <constraint firstItem="xJC-Sa-0Sa" firstAttribute="top" secondItem="b5j-74-kvu" secondAttribute="topMargin" id="bUu-fA-IGq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="LmZ-i6-rhH" secondAttribute="trailing" id="fXf-92-VhZ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="LmZ-i6-rhH" secondAttribute="bottom" constant="8" id="fpx-Kl-cf5"/>
                                                                 <constraint firstItem="kev-X7-aWB" firstAttribute="centerY" secondItem="xJC-Sa-0Sa" secondAttribute="centerY" id="jiA-zn-HRo"/>
                                                                 <constraint firstItem="xJC-Sa-0Sa" firstAttribute="leading" secondItem="b5j-74-kvu" secondAttribute="leadingMargin" id="lQd-Fv-xEi"/>
-                                                                <constraint firstItem="6f8-8a-d4j" firstAttribute="leading" secondItem="xJC-Sa-0Sa" secondAttribute="trailing" constant="16" id="u1s-1t-39Z"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
                                                             <outlet property="coverImage" destination="xJC-Sa-0Sa" id="l7J-CK-diJ"/>
                                                             <outlet property="gameNameLabel" destination="6f8-8a-d4j" id="HBL-4v-fqu"/>
+                                                            <outlet property="selectedPlatformLabel" destination="QJf-5x-DFv" id="XXu-su-xcO"/>
                                                             <outlet property="spinner" destination="kev-X7-aWB" id="XfH-k2-WUF"/>
                                                             <segue destination="Sa7-qX-d9u" kind="show" identifier="showGameDetail" id="Tgj-er-C9s"/>
                                                         </connections>
@@ -209,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZr-em-I5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="-844"/>
+            <point key="canvasLocation" x="2400.8000000000002" y="-844.22788605697156"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="lZv-h1-Pfv">
@@ -1308,6 +1327,7 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7pA-V4-I0i"/>
         <segue reference="Tgj-er-C9s"/>
         <segue reference="yBd-sU-WtI"/>
         <segue reference="l77-BV-LLt"/>

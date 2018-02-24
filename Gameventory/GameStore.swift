@@ -197,8 +197,10 @@ class GameStore {
         
         var platformsData: [[String: Any]] = []
         
-        guard let availablePlatforms = game.availablePlatforms else {
-          return
+        guard
+          let availablePlatforms = game.availablePlatforms,
+          let selectedPlatform = game.selectedPlatform else {
+            return
         }
         
         for platform in availablePlatforms {
@@ -208,15 +210,21 @@ class GameStore {
           platformsData.append(p)
         }
         
+        let selectedPlatformData: [String: Any] = [
+          "igdb_name": selectedPlatform.name,
+          "igdb_id": selectedPlatform.igdbId
+        ]
+        
         let gameData: [String: Any] = [
           "igdb_name": game.name,
           "coverImgURL": game.coverImgURL,
           "igdb_first_release_date": game.firstReleaseDate,
           "igdb_summary": game.summary,
           "igdb_id": game.igdbId,
-          "platforms": platformsData
+          "platforms": platformsData,
+          "selected_platform": selectedPlatformData
         ]
-        
+                
         newBacklogSection.append(gameData)
       }
       

@@ -15,14 +15,16 @@ class Game: NSObject {
   let summary: String
   let igdbId: Int
   var availablePlatforms: [Platform]?
+  var selectedPlatform: Platform?
   
-  init(name: String, coverImgURL: String, firstReleaseDate: Int, summary: String, igdbId: Int, availablePlatforms: [Platform]? = nil) {
+  init(name: String, coverImgURL: String, firstReleaseDate: Int, summary: String, igdbId: Int, availablePlatforms: [Platform]? = nil, selectedPlatform: Platform? = nil) {
     self.name = name
     self.coverImgURL = coverImgURL
     self.firstReleaseDate = firstReleaseDate
     self.summary = summary
     self.igdbId = igdbId
     self.availablePlatforms = availablePlatforms
+    self.selectedPlatform = selectedPlatform
     
     super.init()
   }

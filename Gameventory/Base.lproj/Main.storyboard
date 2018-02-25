@@ -768,7 +768,40 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-Wv-aMb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-oa-hK1" userLabel="PickerContainer">
+                                        <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="2oz-86-V6c">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5W-mP-XQf">
+                                                <rect key="frame" x="0.0" y="120" width="375" height="30"/>
+                                                <state key="normal" title="Close"/>
+                                                <connections>
+                                                    <action selector="closePicker:" destination="PjG-A2-E6z" eventType="touchUpInside" id="gnV-Oc-fCt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="y5W-mP-XQf" secondAttribute="trailing" id="57p-lu-XfU"/>
+                                            <constraint firstItem="y5W-mP-XQf" firstAttribute="leading" secondItem="ES4-oa-hK1" secondAttribute="leading" id="D08-oH-m7T"/>
+                                            <constraint firstAttribute="height" constant="150" id="DyO-8O-8n0"/>
+                                            <constraint firstAttribute="bottom" secondItem="y5W-mP-XQf" secondAttribute="bottom" id="EJU-Ve-3ut"/>
+                                            <constraint firstItem="y5W-mP-XQf" firstAttribute="top" secondItem="2oz-86-V6c" secondAttribute="bottom" id="Oip-WQ-NSm"/>
+                                            <constraint firstAttribute="trailing" secondItem="2oz-86-V6c" secondAttribute="trailing" id="STP-ib-Qj9"/>
+                                            <constraint firstItem="2oz-86-V6c" firstAttribute="top" secondItem="ES4-oa-hK1" secondAttribute="top" id="hHn-Vo-mZ3"/>
+                                            <constraint firstItem="2oz-86-V6c" firstAttribute="leading" secondItem="ES4-oa-hK1" secondAttribute="leading" id="j7b-oC-6Vb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ES4-oa-hK1" secondAttribute="bottom" constant="-8" id="DSY-2t-44E"/>
+                                    <constraint firstAttribute="trailing" secondItem="ES4-oa-hK1" secondAttribute="trailing" id="yn9-6l-GSV"/>
+                                    <constraint firstItem="ES4-oa-hK1" firstAttribute="leading" secondItem="iSU-Wv-aMb" secondAttribute="leading" id="z0q-IW-Xjj"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Modal View" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
                                 <rect key="frame" x="16" y="214.5" width="343" height="238"/>
@@ -783,6 +816,9 @@
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="dissmissView:" destination="PjG-A2-E6z" eventType="touchUpInside" id="9Mi-h9-IQt"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LPN-9c-lng">
                                         <rect key="frame" x="16" y="16" width="311" height="206"/>
@@ -818,45 +854,35 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-al-vcJ" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex0-QR-epM" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="33.5" width="252" height="34"/>
-                                                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="34" id="eXy-nQ-nXp"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="a3h-4s-oab"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
                                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 <state key="normal" title="Console">
-                                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="3"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="openPicker:" destination="PjG-A2-E6z" eventType="touchUpInside" id="9rM-AP-SuE"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNh-Kf-wov" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAP-eC-Fws" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="75.5" width="252" height="34"/>
-                                                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="34" id="HLK-yb-zjl"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="CSe-X0-SiJ"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
                                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 <state key="normal" title="Section">
-                                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="3"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="openPicker:" destination="PjG-A2-E6z" eventType="touchUpInside" id="BQF-yp-lgN"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -868,7 +894,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="4gp-5x-7HF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Add">
+                                                <state key="normal" title="Done">
                                                     <color key="titleColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -876,12 +902,15 @@
                                                         <real key="value" value="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="uYT-vt-5QJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -916,7 +945,11 @@
                     </view>
                     <connections>
                         <outlet property="backgroundMask" destination="iSU-Wv-aMb" id="5Sy-BU-O74"/>
+                        <outlet property="consoleBtn" destination="Ex0-QR-epM" id="K0q-Ze-Mnd"/>
                         <outlet property="modalView" destination="FxR-me-wG2" id="CCD-fO-IRD"/>
+                        <outlet property="picker" destination="2oz-86-V6c" id="Dhr-Fy-fgn"/>
+                        <outlet property="pickerContainer" destination="ES4-oa-hK1" id="HOY-FE-QQK"/>
+                        <outlet property="sectionBtn" destination="xAP-eC-Fws" id="kk9-vt-zqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWC-fP-0MO" userLabel="First Responder" sceneMemberID="firstResponder"/>

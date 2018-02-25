@@ -102,9 +102,7 @@ class GameStore {
     if !hasGame(game) {
       return
     }
-    
-    print(locationInBacklog(of: game))
-    
+
     let (fromSection, fromIndex) = self.locationInBacklog(of: game)
     
     let toSection = section
@@ -156,7 +154,7 @@ class GameStore {
     if self.hasGame(game) {
       return
     }
-        
+    
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
     section.append(game)

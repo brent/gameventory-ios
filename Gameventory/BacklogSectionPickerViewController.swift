@@ -25,7 +25,7 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
   var gameBacklogDelegate: GameBacklogDelegate?
   
   var buttonTag: Int = -1
-  var pickedSection: Int = -1
+  var pickedSection: Int = 0
   
   @IBOutlet var modalView: UIView!
   @IBOutlet var backgroundMask: UIView!
@@ -34,8 +34,8 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
     ["Now playing", BacklogSectionButtonTags.NowPlaying.rawValue],
     ["Up next", BacklogSectionButtonTags.UpNext.rawValue],
     ["On ice", BacklogSectionButtonTags.OnIce.rawValue],
-    ["Abandoned", BacklogSectionButtonTags.Abandoned.rawValue],
-    ["Finished", BacklogSectionButtonTags.Finished.rawValue]
+    ["Finished", BacklogSectionButtonTags.Finished.rawValue],
+    ["Abandoned", BacklogSectionButtonTags.Abandoned.rawValue]
   ]
   @IBOutlet var pickerContainer: UIView!
   
@@ -98,17 +98,21 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
       return
     }
     
-    var platform = availablePlatforms[0].name
-    var section = pickerSections[0][0] as? String
+    var platformName = availablePlatforms[0].name
+    var sectionName = pickerSections[0][0] as? String
     
-    if game.selectedPlatform != nil {
-      platform = game.selectedPlatform!.name
-      section = pickerSections[gameStore.locationInBacklog(of: game).section][0] as? String
+    if gameStore.hasGame(game) && game.selectedPlatform != nil {
+      platformName = game.selectedPlatform!.name
+      sectionName = pickerSections[gameStore.locationInBacklog(of: game).section][0] as? String
       pickedSection = gameStore.locationInBacklog(of: game).section
+    } else {
+      let platform = Platform(name: availablePlatforms[0].name, igdbId: availablePlatforms[0].igdbId)
+      game.selectedPlatform = platform
+      platformName = platform.name
     }
     
-    consoleBtn.setTitle(platform, for: .normal)
-    sectionBtn.setTitle(section, for: .normal)
+    consoleBtn.setTitle(platformName, for: .normal)
+    sectionBtn.setTitle(sectionName, for: .normal)
     
     gameTitleLabel.text = game.name
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
@@ -158,7 +162,7 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
         return
       }
       
-      game.selectedPlatform = availablePlatforms[row]
+      game.selectedPlatform = Platform(name: availablePlatforms[row].name, igdbId: availablePlatforms[row].igdbId)
       consoleBtn.setTitle(availablePlatforms[row].name, for: .normal)
     case 1:
       pickedSection = pickerSections[row][1] as! Int

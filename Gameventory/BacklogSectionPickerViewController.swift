@@ -19,6 +19,7 @@ enum BacklogSectionButtonTags: Int {
 class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   var game: Game!
   var gameStore: GameStore!
+  var imageStore: ImageStore!
   var user: User!
   
   var gameBacklogDelegate: GameBacklogDelegate?
@@ -37,7 +38,10 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
     ["Finished", BacklogSectionButtonTags.Finished.rawValue]
   ]
   @IBOutlet var pickerContainer: UIView!
-
+  
+  @IBOutlet var gameTitleLabel: UILabel!
+  @IBOutlet var coverImg: DesignableImageView!
+  
   @IBOutlet var consoleBtn: DesignableButton!
   @IBOutlet var sectionBtn: DesignableButton!
 
@@ -105,6 +109,9 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
     
     consoleBtn.setTitle(platform, for: .normal)
     sectionBtn.setTitle(section, for: .normal)
+    
+    gameTitleLabel.text = game.name
+    coverImg.image = imageStore.image(forKey: String(game.igdbId))
   }
   
   override func viewWillDisappear(_ animated: Bool) {

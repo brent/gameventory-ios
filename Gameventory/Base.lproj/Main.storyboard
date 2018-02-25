@@ -946,6 +946,8 @@
                     <connections>
                         <outlet property="backgroundMask" destination="iSU-Wv-aMb" id="5Sy-BU-O74"/>
                         <outlet property="consoleBtn" destination="Ex0-QR-epM" id="K0q-Ze-Mnd"/>
+                        <outlet property="coverImg" destination="hvl-gS-mOO" id="2c7-7z-lg5"/>
+                        <outlet property="gameTitleLabel" destination="7gY-hL-nrH" id="XnR-pR-GQk"/>
                         <outlet property="modalView" destination="FxR-me-wG2" id="CCD-fO-IRD"/>
                         <outlet property="picker" destination="2oz-86-V6c" id="Dhr-Fy-fgn"/>
                         <outlet property="pickerContainer" destination="ES4-oa-hK1" id="HOY-FE-QQK"/>

@@ -175,6 +175,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         let destinationVC = segue.destination as! BacklogSectionPickerViewController
         destinationVC.game = game
         destinationVC.gameStore = gameStore
+        destinationVC.imageStore = imageStore
         destinationVC.user = user
       }
     default:

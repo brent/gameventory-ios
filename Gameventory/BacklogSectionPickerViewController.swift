@@ -67,7 +67,12 @@ class BacklogSectionPickerViewController: UIViewController, UIPickerViewDelegate
   }
   
   @IBAction func closePicker(_ sender: Any) {
+    pickedSection = 0
     pickerContainer.isHidden = true
+    guard let availablePlatforms = game.availablePlatforms else {
+      return
+    }
+    game.selectedPlatform = Platform(name: availablePlatforms[0].name, igdbId: availablePlatforms[0].igdbId)
   }
   
   override func viewWillAppear(_ animated: Bool) {

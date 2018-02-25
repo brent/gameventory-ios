@@ -768,123 +768,150 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-Wv-aMb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Modal View" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
+                                <rect key="frame" x="16" y="214.5" width="343" height="238"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Modal View" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="174" width="250" height="319"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW6-16-kh4">
+                                        <rect key="frame" x="301" y="8" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="2kM-cG-KWL"/>
+                                            <constraint firstAttribute="height" constant="34" id="Egc-4R-rVS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LPN-9c-lng">
+                                        <rect key="frame" x="16" y="16" width="311" height="206"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD TO SECTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6p-jT-OFt">
-                                                <rect key="frame" x="8" y="8" width="234" height="18"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
-                                                <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD GAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rD-VE-TNf">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmI-D2-f5Y">
-                                                <rect key="frame" x="8" y="42" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Now Playing">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9QE-i3-C6C">
+                                                <rect key="frame" x="0.0" y="36.5" width="311" height="109.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hvl-gS-mOO" customClass="DesignableImageView" customModule="Gameventory" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="61"/>
+                                                        <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="61" id="0Zk-Xf-h1C"/>
+                                                            <constraint firstAttribute="width" constant="43" id="MUn-Eo-LbQ"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-m3-C5P">
+                                                        <rect key="frame" x="59" y="0.0" width="252" height="109.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gY-hL-nrH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="252" height="25.5"/>
+                                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-al-vcJ" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="33.5" width="252" height="34"/>
+                                                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="34" id="eXy-nQ-nXp"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
+                                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="Console">
+                                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="3"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNh-Kf-wov" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="75.5" width="252" height="34"/>
+                                                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="34" id="HLK-yb-zjl"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
+                                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="Section">
+                                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="3"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp0-sa-C3N" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="162" width="311" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="4gp-5x-7HF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="gUL-9Q-DL8"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-6J-1Is">
-                                                <rect key="frame" x="8" y="93" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Up Next">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="Tuq-SW-653"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYv-FM-L13">
-                                                <rect key="frame" x="8" y="144" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="On Ice">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="CkJ-s6-NWQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR6-u6-5l5">
-                                                <rect key="frame" x="8" y="187" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Finished">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="qH9-Ys-YHl"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCc-eZ-omx">
-                                                <rect key="frame" x="8" y="230" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Abandoned">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addToBacklogSection:" destination="PjG-A2-E6z" eventType="touchUpInside" id="uJu-2T-6nD"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykc-Ln-hmA">
-                                                <rect key="frame" x="8" y="273" width="234" height="35"/>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="0.63137254901960782" green="0.40784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="dissmissView:" destination="PjG-A2-E6z" eventType="touchUpInside" id="kbq-Q6-6uR"/>
-                                                </connections>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="d6p-jT-OFt" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="0sb-oQ-g6Q"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZR6-u6-5l5" secondAttribute="trailing" constant="8" id="28D-n2-Dql"/>
-                                            <constraint firstItem="ykc-Ln-hmA" firstAttribute="top" secondItem="OCc-eZ-omx" secondAttribute="bottom" constant="8" id="47j-u1-Vb6"/>
-                                            <constraint firstItem="OCc-eZ-omx" firstAttribute="top" secondItem="ZR6-u6-5l5" secondAttribute="bottom" constant="8" id="6lh-i5-zkj"/>
-                                            <constraint firstItem="ef2-6J-1Is" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="6yc-3N-Orr"/>
-                                            <constraint firstItem="ZR6-u6-5l5" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="MK9-is-CAc"/>
-                                            <constraint firstItem="ef2-6J-1Is" firstAttribute="top" secondItem="VmI-D2-f5Y" secondAttribute="bottom" constant="16" id="OlY-bz-5vQ"/>
-                                            <constraint firstItem="VmI-D2-f5Y" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="WCK-fq-xVp"/>
-                                            <constraint firstItem="ZR6-u6-5l5" firstAttribute="top" secondItem="OYv-FM-L13" secondAttribute="bottom" constant="8" id="YAB-Wi-zNP"/>
-                                            <constraint firstAttribute="trailing" secondItem="OCc-eZ-omx" secondAttribute="trailing" constant="8" id="Yoi-3Q-bVl"/>
-                                            <constraint firstAttribute="trailing" secondItem="OYv-FM-L13" secondAttribute="trailing" constant="8" id="aTk-AL-cyn"/>
-                                            <constraint firstItem="OYv-FM-L13" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="bNf-8p-wMA"/>
-                                            <constraint firstAttribute="width" constant="250" id="dhe-9O-Ahb"/>
-                                            <constraint firstAttribute="trailing" secondItem="d6p-jT-OFt" secondAttribute="trailing" constant="8" id="fMc-Hc-Cem"/>
-                                            <constraint firstItem="d6p-jT-OFt" firstAttribute="top" secondItem="FxR-me-wG2" secondAttribute="top" constant="8" id="gew-gy-7Vz"/>
-                                            <constraint firstItem="ykc-Ln-hmA" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="i3l-dS-TcZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="VmI-D2-f5Y" secondAttribute="trailing" constant="8" id="kTc-Ey-Fgg"/>
-                                            <constraint firstItem="VmI-D2-f5Y" firstAttribute="top" secondItem="d6p-jT-OFt" secondAttribute="bottom" constant="16" id="l6M-bn-iK2"/>
-                                            <constraint firstItem="OYv-FM-L13" firstAttribute="top" secondItem="ef2-6J-1Is" secondAttribute="bottom" constant="16" id="nk9-Vx-dFb"/>
-                                            <constraint firstItem="OCc-eZ-omx" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="8" id="oKk-M1-pwt"/>
-                                            <constraint firstAttribute="trailing" secondItem="ykc-Ln-hmA" secondAttribute="trailing" constant="8" id="p4g-Ir-Z21"/>
-                                            <constraint firstAttribute="height" constant="319" id="qMz-i0-rda"/>
-                                            <constraint firstAttribute="trailing" secondItem="ef2-6J-1Is" secondAttribute="trailing" constant="8" id="t3q-IZ-dCB"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="FxR-me-wG2" firstAttribute="centerX" secondItem="iSU-Wv-aMb" secondAttribute="centerX" id="N6B-aj-7C5"/>
-                                    <constraint firstItem="FxR-me-wG2" firstAttribute="centerY" secondItem="iSU-Wv-aMb" secondAttribute="centerY" id="PbY-8Q-sSn"/>
+                                    <constraint firstItem="vW6-16-kh4" firstAttribute="top" secondItem="FxR-me-wG2" secondAttribute="top" constant="8" id="RUi-XB-S8y"/>
+                                    <constraint firstItem="LPN-9c-lng" firstAttribute="top" secondItem="FxR-me-wG2" secondAttribute="top" constant="16" id="SKG-77-BFS"/>
+                                    <constraint firstAttribute="bottom" secondItem="LPN-9c-lng" secondAttribute="bottom" constant="16" id="UTv-ov-PBo"/>
+                                    <constraint firstItem="LPN-9c-lng" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" constant="16" id="VSV-lq-nfD"/>
+                                    <constraint firstAttribute="trailing" secondItem="vW6-16-kh4" secondAttribute="trailing" constant="8" id="VoS-by-MZy"/>
+                                    <constraint firstAttribute="trailing" secondItem="LPN-9c-lng" secondAttribute="trailing" constant="16" id="VrG-eK-QTR"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iSU-Wv-aMb" firstAttribute="top" secondItem="RN6-s5-i5u" secondAttribute="top" id="5bv-Q5-iVP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FxR-me-wG2" secondAttribute="trailing" id="El8-6m-925"/>
+                            <constraint firstItem="FxR-me-wG2" firstAttribute="leading" secondItem="RN6-s5-i5u" secondAttribute="leadingMargin" id="KL6-bM-dNt"/>
                             <constraint firstItem="iSU-Wv-aMb" firstAttribute="leading" secondItem="RN6-s5-i5u" secondAttribute="leading" id="R39-bC-bsN"/>
                             <constraint firstItem="iSU-Wv-aMb" firstAttribute="bottom" secondItem="RN6-s5-i5u" secondAttribute="bottom" id="Yk1-4f-Uba"/>
                             <constraint firstAttribute="trailing" secondItem="iSU-Wv-aMb" secondAttribute="trailing" id="feP-im-zk3"/>
+                            <constraint firstItem="FxR-me-wG2" firstAttribute="centerY" secondItem="RN6-s5-i5u" secondAttribute="centerY" id="u1C-Y1-KSJ"/>
+                            <constraint firstItem="FxR-me-wG2" firstAttribute="centerX" secondItem="RN6-s5-i5u" secondAttribute="centerX" id="yAK-hF-ROg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -894,7 +921,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWC-fP-0MO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4260" y="-73"/>
+            <point key="canvasLocation" x="4260" y="-73.313343328335833"/>
         </scene>
         <!--Game title-->
         <scene sceneID="NvZ-b2-RNU">
@@ -1327,9 +1354,8 @@
         <image name="searchResultAddBtn" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7pA-V4-I0i"/>
         <segue reference="Tgj-er-C9s"/>
-        <segue reference="yBd-sU-WtI"/>
+        <segue reference="yMM-bp-858"/>
         <segue reference="l77-BV-LLt"/>
     </inferredMetricsTieBreakers>
 </document>

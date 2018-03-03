@@ -309,7 +309,7 @@ class GameventoryAPI {
     var coverImgURL = ""
     
     let igdbImageBaseURL = "https://images.igdb.com/igdb/image/upload/t_"
-    let coverSize = "cover_big/"
+    let coverSize = "cover_big_2x/"
     let imgFormat = ".png"
     
     coverImgURL = "\(igdbImageBaseURL)\(coverSize)\(coverImgId)\(imgFormat)"

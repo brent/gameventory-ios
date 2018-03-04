@@ -111,7 +111,7 @@ class GameStore {
     moveGame(fromSection: fromSection, fromIndex: fromIndex, toSection: toSection, toIndex: toIndex, for: user)
   }
   
-  // this should probably be moveGameToIndexPath(_:IndexPath, from:IndexPath)
+  // this should probably be moveGame(to: IndexPath, from:IndexPath)
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int, for user: User) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
       updateGameventory(for: user)
@@ -155,6 +155,8 @@ class GameStore {
     if self.hasGame(game) {
       return
     }
+    
+    print("game: \(game.name), section: \(section)")
     
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]

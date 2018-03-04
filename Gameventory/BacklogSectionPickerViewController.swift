@@ -20,6 +20,12 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
   var newSelectedPlatform: Platform?
   var newLocationInBacklog: (section: Int, index: Int)?
   
+  var selectedPlatformIndexPath: IndexPath?
+  var locationInBacklogIndexPath: IndexPath?
+  
+  var platformScrolledTo = false
+  var sectionScrolledTo = false
+  
   let gameventorySections = [
     "Now playing",
     "Up next",
@@ -100,6 +106,27 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
       },
       completion: nil
     )
+    
+    guard
+      let selectedPlatform = self.selectedPlatform,
+      let availablePlatforms = game.availablePlatforms,
+      let locationInBacklog = self.locationInBacklog else {
+        return
+      }
+    
+    for platform in availablePlatforms {
+      if platform.igdbId == selectedPlatform.igdbId {
+        if let selectedPlatformIndex = availablePlatforms.index(of: platform) {
+          let selectedPlatformIndexPath = IndexPath(row: selectedPlatformIndex, section: 0)
+          self.selectedPlatformIndexPath = selectedPlatformIndexPath
+          platformCollectionView.selectItem(at: selectedPlatformIndexPath, animated: false, scrollPosition: .left)
+        }
+      }
+    }
+    
+    let locationInBacklogIndexPath = IndexPath(row: locationInBacklog.section, section: 0)
+    self.locationInBacklogIndexPath = locationInBacklogIndexPath
+    sectionCollectionView.selectItem(at: locationInBacklogIndexPath, animated: false, scrollPosition: .left)
   }
   
   override func viewDidLoad() {
@@ -131,6 +158,24 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
   
   override func viewWillDisappear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    if collectionView == self.platformCollectionView {
+      if self.platformScrolledTo == false {
+        if let selectedPlatformIndexPath = self.selectedPlatformIndexPath {
+          collectionView.scrollToItem(at: selectedPlatformIndexPath, at: .centeredHorizontally, animated: false)
+          self.platformScrolledTo = true
+        }
+      }
+    } else if collectionView == self.sectionCollectionView {
+      if self.sectionScrolledTo == false {
+        if let locationInBacklogIndexPath = self.locationInBacklogIndexPath {
+          collectionView.scrollToItem(at: locationInBacklogIndexPath, at: .centeredHorizontally, animated: false)
+          self.sectionScrolledTo = true
+        }
+      }
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

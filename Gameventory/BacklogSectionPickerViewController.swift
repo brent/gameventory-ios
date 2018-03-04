@@ -51,6 +51,24 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
   }
   
   @IBAction func addGamePressed(_ sender: Any) {
+    if (newSelectedPlatform == nil || newLocationInBacklog == nil) &&
+        (selectedPlatform == nil || locationInBacklog == nil) {
+      if locationInBacklog == nil && selectedPlatform == nil {
+        var alert = UIAlertController()
+        alert = UIAlertController(title: "Looks like you missed something", message: "Make sure you select a platform and section", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true)
+        return
+      }
+    } else if (selectedPlatform != nil && locationInBacklog != nil) {
+      if newSelectedPlatform == nil {
+        newSelectedPlatform = self.selectedPlatform!
+      }
+      if newLocationInBacklog == nil {
+        newLocationInBacklog = self.locationInBacklog!
+      }
+    }
+    
     guard
       let newSelectedPlatform = self.newSelectedPlatform,
       let newLocationInBacklog = self.newLocationInBacklog else {

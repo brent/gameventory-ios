@@ -102,9 +102,7 @@ class GameStore {
     if !hasGame(game) {
       return
     }
-    
-    print(locationInBacklog(of: game))
-    
+
     let (fromSection, fromIndex) = self.locationInBacklog(of: game)
     
     let toSection = section
@@ -113,12 +111,13 @@ class GameStore {
     moveGame(fromSection: fromSection, fromIndex: fromIndex, toSection: toSection, toIndex: toIndex, for: user)
   }
   
-  // this should probably be moveGameToIndexPath(_:IndexPath, from:IndexPath)
+  // this should probably be moveGame(to: IndexPath, from:IndexPath)
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int, for user: User) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
+      updateGameventory(for: user)
       return
     }
-    
+
     let fromSectionName = GameventorySections(rawValue: fromSection)!.string
     var fromGameventorySection = gameventory.value(forKey: fromSectionName) as! [Game]
     let movedGame = fromGameventorySection[fromIndex]
@@ -156,7 +155,9 @@ class GameStore {
     if self.hasGame(game) {
       return
     }
-        
+    
+    print("game: \(game.name), section: \(section)")
+    
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
     section.append(game)
@@ -187,7 +188,6 @@ class GameStore {
   func updateGameventory(for user: User, with event: Event? = nil) {
     // needs a way to include the event to send to the server
     // otherwise the event logging has to happen in a separate call
-    
     var gameParams: [Array<Any>] = []
     
     for backlogSection in gamesInBacklog! {
@@ -197,8 +197,10 @@ class GameStore {
         
         var platformsData: [[String: Any]] = []
         
-        guard let availablePlatforms = game.availablePlatforms else {
-          return
+        guard
+          let availablePlatforms = game.availablePlatforms,
+          let selectedPlatform = game.selectedPlatform else {
+            return
         }
         
         for platform in availablePlatforms {
@@ -208,15 +210,21 @@ class GameStore {
           platformsData.append(p)
         }
         
+        let selectedPlatformData: [String: Any] = [
+          "igdb_name": selectedPlatform.name,
+          "igdb_id": selectedPlatform.igdbId
+        ]
+        
         let gameData: [String: Any] = [
           "igdb_name": game.name,
           "coverImgURL": game.coverImgURL,
           "igdb_first_release_date": game.firstReleaseDate,
           "igdb_summary": game.summary,
           "igdb_id": game.igdbId,
-          "platforms": platformsData
+          "platforms": platformsData,
+          "selected_platform": selectedPlatformData
         ]
-        
+                
         newBacklogSection.append(gameData)
       }
       

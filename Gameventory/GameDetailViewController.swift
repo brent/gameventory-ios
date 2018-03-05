@@ -52,16 +52,20 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
       return
     }
     
-    var platformsList = ""
-    for platform in platforms {
-      if platformsList.count > 0 {
-        platformsList += ", \(platform.name)"
-      } else {
-        platformsList += platform.name
+    if let selectedPlatform = game.selectedPlatform {
+      platformsLabel.text = selectedPlatform.name
+    } else {
+      var platformsList = ""
+      for platform in platforms {
+        if platformsList.count > 0 {
+          platformsList += ", \(platform.name)"
+        } else {
+          platformsList += platform.name
+        }
       }
+      
+      platformsLabel.text = platformsList
     }
-    
-    platformsLabel.text = platformsList
     
     let date = Date(timeIntervalSince1970: Double(game.firstReleaseDate / 1000))
     let dateFormatter = DateFormatter()
@@ -93,6 +97,7 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
       let destinationVC = segue.destination as! BacklogSectionPickerViewController
       destinationVC.game = game
       destinationVC.gameStore = gameStore
+      destinationVC.imageStore = imageStore
       destinationVC.user = user
       destinationVC.gameBacklogDelegate = self
     default:

@@ -116,7 +116,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! GameCollectionViewCell
     
     let game = gameStore.gamesArray[indexPath.item]
     
@@ -159,7 +159,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         destinationVC.user = user
       }
     case "showGameDetailFromCollection"?:
-      if let selectedIndexPath = collectionView.indexPath(for: sender as! CollectionViewCell) {
+      if let selectedIndexPath = collectionView.indexPath(for: sender as! GameCollectionViewCell) {
         let game = gameStore.gamesArray[selectedIndexPath.item]
         let destinationVC = segue.destination as! GameDetailViewController
         
@@ -175,6 +175,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         let destinationVC = segue.destination as! BacklogSectionPickerViewController
         destinationVC.game = game
         destinationVC.gameStore = gameStore
+        destinationVC.imageStore = imageStore
         destinationVC.user = user
       }
     default:

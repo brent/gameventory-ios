@@ -13,6 +13,7 @@ class GameCell: UITableViewCell {
   @IBOutlet var coverImage: UIImageView!
   @IBOutlet var spinner: UIActivityIndicatorView!
   @IBOutlet var platformsLabel: UILabel!
+  @IBOutlet var selectedPlatformLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()

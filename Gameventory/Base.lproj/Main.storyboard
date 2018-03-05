@@ -770,10 +770,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-me-wG2" userLabel="Add card View" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="265" width="375" height="402"/>
+                                        <rect key="frame" x="0.0" y="245" width="375" height="422"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-T2-TJA">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="402"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-wb-usJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -810,7 +810,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RP6-j3-ha9">
-                                                        <rect key="frame" x="0.0" y="144" width="375" height="75"/>
+                                                        <rect key="frame" x="0.0" y="144" width="375" height="85"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What platform are you playing on?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZv-gx-PgG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
@@ -819,10 +819,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-tP-Ncp">
-                                                                <rect key="frame" x="0.0" y="25" width="375" height="50"/>
+                                                                <rect key="frame" x="0.0" y="25" width="375" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="Fkm-Dh-3jf"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="Fkm-Dh-3jf"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="16" id="lYB-s3-ieW">
                                                                     <size key="itemSize" width="83" height="41"/>
@@ -832,7 +832,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="platformCell" id="efO-ID-5kf" customClass="AddGameButtonCollectionViewCell" customModule="Gameventory" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="4.5" width="83" height="41"/>
+                                                                        <rect key="frame" x="0.0" y="9.5" width="83" height="41"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="83" height="41"/>
@@ -840,6 +840,21 @@
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-IN-HYe" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="-0.5" width="83" height="41"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVA-hO-0mN" customClass="DesignableLabel" customModule="Gameventory" customModuleProvider="target">
+                                                                                            <rect key="frame" x="16" y="8" width="51" height="25"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="BVA-hO-0mN" firstAttribute="top" secondItem="gDh-IN-HYe" secondAttribute="top" constant="8" id="6da-rs-ffp"/>
+                                                                                        <constraint firstItem="BVA-hO-0mN" firstAttribute="leading" secondItem="gDh-IN-HYe" secondAttribute="leading" constant="16" id="6zC-7M-uwt"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="BVA-hO-0mN" secondAttribute="bottom" constant="8" id="hJt-hZ-vvh"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="BVA-hO-0mN" secondAttribute="trailing" constant="16" id="tCM-Vi-qma"/>
+                                                                                    </constraints>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="15"/>
@@ -852,21 +867,11 @@
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </view>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVA-hO-0mN" customClass="DesignableLabel" customModule="Gameventory" customModuleProvider="target">
-                                                                                    <rect key="frame" x="16" y="8" width="51" height="25"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
                                                                             </subviews>
                                                                         </view>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="gDh-IN-HYe" secondAttribute="bottom" id="8Zk-MG-9iZ"/>
-                                                                            <constraint firstItem="BVA-hO-0mN" firstAttribute="leading" secondItem="efO-ID-5kf" secondAttribute="leading" constant="16" id="Gwm-Lr-Pq2"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="BVA-hO-0mN" secondAttribute="trailing" constant="16" id="MSd-1n-imw"/>
                                                                             <constraint firstItem="gDh-IN-HYe" firstAttribute="leading" secondItem="efO-ID-5kf" secondAttribute="leading" id="d3X-uv-9yn"/>
-                                                                            <constraint firstItem="BVA-hO-0mN" firstAttribute="top" secondItem="efO-ID-5kf" secondAttribute="top" constant="8" id="gIw-Rg-miK"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="BVA-hO-0mN" secondAttribute="bottom" constant="8" id="gmg-pq-0Rh"/>
                                                                             <constraint firstAttribute="trailing" secondItem="gDh-IN-HYe" secondAttribute="trailing" id="hFZ-dH-PTZ"/>
                                                                             <constraint firstItem="gDh-IN-HYe" firstAttribute="top" secondItem="efO-ID-5kf" secondAttribute="top" id="pQI-XU-AyZ"/>
                                                                         </constraints>
@@ -880,7 +885,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-V3-msF">
-                                                        <rect key="frame" x="0.0" y="235" width="375" height="75"/>
+                                                        <rect key="frame" x="0.0" y="245" width="375" height="85"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where should it go?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-GX-pDY">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
@@ -889,10 +894,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zV8-zp-0XE">
-                                                                <rect key="frame" x="0.0" y="25" width="375" height="50"/>
+                                                                <rect key="frame" x="0.0" y="25" width="375" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="aBI-CH-FRU"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="aBI-CH-FRU"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="16" id="9KR-z2-1vF">
                                                                     <size key="itemSize" width="83" height="41"/>
@@ -902,7 +907,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionCell" id="xMs-Fr-5pv" customClass="AddGameButtonCollectionViewCell" customModule="Gameventory" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="4.5" width="83" height="41"/>
+                                                                        <rect key="frame" x="0.0" y="9.5" width="83" height="41"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="83" height="41"/>
@@ -910,7 +915,22 @@
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-8d-q5N" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="83" height="41"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-Zw-MDm" customClass="DesignableLabel" customModule="Gameventory" customModuleProvider="target">
+                                                                                            <rect key="frame" x="16" y="8" width="51" height="25"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                                        </label>
+                                                                                    </subviews>
                                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="ptz-Zw-MDm" firstAttribute="leading" secondItem="yBR-8d-q5N" secondAttribute="leading" constant="16" id="2UC-ak-fWE"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="ptz-Zw-MDm" secondAttribute="bottom" constant="8" id="PwM-rY-BdM"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="ptz-Zw-MDm" secondAttribute="trailing" constant="16" id="pm4-yp-CPx"/>
+                                                                                        <constraint firstItem="ptz-Zw-MDm" firstAttribute="top" secondItem="yBR-8d-q5N" secondAttribute="top" constant="8" id="uPA-Ap-5eY"/>
+                                                                                    </constraints>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="15"/>
@@ -923,23 +943,13 @@
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </view>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-Zw-MDm" customClass="DesignableLabel" customModule="Gameventory" customModuleProvider="target">
-                                                                                    <rect key="frame" x="16" y="7.5" width="51" height="25"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
                                                                             </subviews>
                                                                         </view>
                                                                         <constraints>
-                                                                            <constraint firstItem="ptz-Zw-MDm" firstAttribute="top" secondItem="xMs-Fr-5pv" secondAttribute="top" constant="8" id="5W6-M2-lrY"/>
                                                                             <constraint firstItem="yBR-8d-q5N" firstAttribute="top" secondItem="xMs-Fr-5pv" secondAttribute="top" id="Gmc-RK-415"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="ptz-Zw-MDm" secondAttribute="bottom" constant="8" id="IpK-t0-Mog"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="ptz-Zw-MDm" secondAttribute="trailing" constant="16" id="IrK-GR-6JB"/>
                                                                             <constraint firstAttribute="bottom" secondItem="yBR-8d-q5N" secondAttribute="bottom" id="jbL-Qn-Aqk"/>
                                                                             <constraint firstAttribute="trailing" secondItem="yBR-8d-q5N" secondAttribute="trailing" id="jjN-wK-r2D"/>
                                                                             <constraint firstItem="yBR-8d-q5N" firstAttribute="leading" secondItem="xMs-Fr-5pv" secondAttribute="leading" id="kzb-df-Dq4"/>
-                                                                            <constraint firstItem="ptz-Zw-MDm" firstAttribute="leading" secondItem="xMs-Fr-5pv" secondAttribute="leading" constant="16" id="s2X-o9-Ww7"/>
                                                                         </constraints>
                                                                         <connections>
                                                                             <outlet property="platformOrSectionLabel" destination="ptz-Zw-MDm" id="1mS-Vy-3V1"/>
@@ -951,7 +961,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cyU-xW-no1">
-                                                        <rect key="frame" x="0.0" y="326" width="375" height="76"/>
+                                                        <rect key="frame" x="0.0" y="346" width="375" height="76"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvU-bs-Pcf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -976,7 +986,7 @@
                                         <constraints>
                                             <constraint firstItem="fvv-T2-TJA" firstAttribute="leading" secondItem="FxR-me-wG2" secondAttribute="leading" id="NMk-Cm-8hy"/>
                                             <constraint firstItem="fvv-T2-TJA" firstAttribute="top" secondItem="FxR-me-wG2" secondAttribute="top" id="Pmm-IM-H8m"/>
-                                            <constraint firstAttribute="bottom" secondItem="fvv-T2-TJA" secondAttribute="bottom" id="hzz-W4-Yhi"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="fvv-T2-TJA" secondAttribute="bottom" constant="-8" id="hzz-W4-Yhi"/>
                                             <constraint firstAttribute="trailing" secondItem="fvv-T2-TJA" secondAttribute="trailing" id="kqz-VK-cYp"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>

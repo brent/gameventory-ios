@@ -217,44 +217,31 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
         print("No platforms")
         return
       }
-      
-      if let selectedPlatform = self.selectedPlatform {
-        print("initial platform: ", selectedPlatform.name)
-      } else {
-        print("inital platform: NONE")
-      }
-      print("selected platform: ", platforms[indexPath.row].name)
+
       newSelectedPlatform = platforms[indexPath.row]
       
     } else if collectionView == self.sectionCollectionView {
       
       if let inBacklog = self.locationInBacklog {
-        print("current backlog location: \(inBacklog)")
         if inBacklog.section == indexPath.row {
           newLocationInBacklog = inBacklog
-          print("NO MOVE, game in section already")
         } else {
           if let games = gameStore.gamesInBacklog {
             let count = games[indexPath.row].count
             if count == 0 {
               newLocationInBacklog = (indexPath.row, 0)
-              print("move to: \(newLocationInBacklog!)")
             } else {
               newLocationInBacklog = (indexPath.row, count)
-              print("move to: \(newLocationInBacklog!)")
             }
           }
         }
       } else {
         if let games = gameStore.gamesInBacklog {
-          print("not in backlog")
           let count = games[indexPath.row].count
           if count == 0 {
             newLocationInBacklog = (indexPath.row, 0)
-            print("add to: \(newLocationInBacklog!)")
           } else {
             newLocationInBacklog = (indexPath.row, count)
-            print("add to: \(newLocationInBacklog!)")
           }
         }
       }

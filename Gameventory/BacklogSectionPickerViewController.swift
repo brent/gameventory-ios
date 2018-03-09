@@ -144,6 +144,16 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
     
     gameTitleLabel.text = game.name
     
+    /*
+    if let platformFlowLayout = platformCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+      platformFlowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+    }
+    
+    if let sectionFlowLayout = sectionCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+      sectionFlowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+    }
+    */
+ 
     if let selectedPlatform = game.selectedPlatform {
       self.selectedPlatform = selectedPlatform
     }
@@ -249,10 +259,6 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 150.0, height: 44.0)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-    return true
+    return CGSize(width: 150, height: 44)
   }
 }

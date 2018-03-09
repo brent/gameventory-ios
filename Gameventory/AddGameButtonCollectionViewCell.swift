@@ -12,6 +12,12 @@ class AddGameButtonCollectionViewCell: UICollectionViewCell {
   @IBOutlet var wrapperView: DesignableView!
   @IBOutlet var platformOrSectionLabel: DesignableLabel!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+    platformOrSectionLabel.sizeToFit()
+  }
+  
   override var isSelected: Bool {
     willSet(newVal) {
       switch newVal {

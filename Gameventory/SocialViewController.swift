@@ -12,7 +12,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var gameStore: GameStore!
   var imageStore: ImageStore!
   var user: User!
-  var feed: [[String:Any]]!
+  var feed: [Event]!
   
   var users = [User]()
   
@@ -89,7 +89,8 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
       
       if feed != nil {
-        cell.feedMessage?.text = feed[indexPath.row]["message"] as? String
+        let event = feed[indexPath.row]
+        cell.feedMessage?.text = event.printMessage(for: user)
       } else {
         cell.feedMessage?.text = ""
       }
@@ -165,25 +166,26 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       
       guard
         let index = feedTableView.indexPathForSelectedRow?.row,
-        let actorId = feed[index]["actor"] as? String,
-        let actorUsername = feed[index]["actorUsername"] as? String,
-        let eventType = feed[index]["type"] as? String,
-        let targetId = feed[index]["actor"] as? String,
-        let eventMessage = feed[index]["message"] as? String else {
+        let actorId = feed[index].actor["id"],
+        let actorUsername = feed[index].actor["username"],
+        let targetType = feed[index].target["obj"],
+        let targetId = feed[index].target["id"],
+        let targetName = feed[index].target["name"] else {
           return
       }
       
       var id: String
       var username: String
-      if eventType.contains("USER_FOLLOW") {
+      
+      switch targetType {
+      case "user":
         id = targetId
-        guard let un = eventMessage.split(separator: " ").last else {
-          return
-        }
-        username = String(un)
-      } else {
+        username = targetName
+      case "game":
         id = actorId
         username = actorUsername
+      default:
+        return
       }
       
       let otherUser = User(id: id, username: username)

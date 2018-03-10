@@ -25,55 +25,55 @@ enum EventType: String {
 }
 
 class Event: NSObject {
-  let actor: User
+  let actor: [String: String]
   let type: EventType
-  let target: String
-  let message: String
+  let target: [String: String]
   
-  init(_ type: EventType, for actor: User, with target: AnyObject) {
+  init(_ type: EventType, actor: [String: String], target: [String: String]) {
     self.actor = actor
     self.type = type
-    
-    if target is Game {
-      let game = target as! Game
-      self.target = String(game.igdbId)
-    } else if target is User {
-      let user = target as! User
-      self.target = user.username
-    } else {
-      self.target = "no target"
-    }
-    
-    self.message = Event.createMessage(type, for: actor, with: target)
+    self.target = target
   }
   
-  static func createMessage(_ type: EventType, for actor: User, with target: AnyObject) -> String {
+  func printMessage(for user: User) -> String {
+    guard
+      var actorName = self.actor["username"],
+      var targetName = self.target["name"],
+      let targetType = self.target["obj"] else {
+        return "printMessage() error"
+    }
+    
+    if actorName == user.username {
+      actorName = "You"
+    }
+    
+    if targetType == "user" && targetName == user.username {
+      targetName = "you"
+    }
+    
     var message: String!
     
-    if type.rawValue.contains("GAME") {
+    if targetType == "game" {
+      
       var parts = type.rawValue.components(separatedBy: "_")
       let _ = parts.removeFirst() // scope
       let action = parts.removeFirst()
       let section = parts.joined(separator: " ").lowercased().capitalized
       
-      let game = target as! Game
-      
       switch action {
       case "ADD":
-        message = "\(actor.username) added \(game.name) to \(section)"
+        message = "\(actorName) added \(targetName) to \(section)"
       case "MOVE":
-        message = "\(actor.username) moved \(game.name) to \(section)"
+        message = "\(actorName) moved \(targetName) to \(section)"
       default:
         fatalError("problem creating message")
       }
-    } else if type.rawValue.contains("USER") {
+    } else if targetType == "user" {
       var parts = type.rawValue.components(separatedBy: "_")
       let _ = parts.removeFirst() // scope
       let _ = parts.removeFirst() // action
       
-      let user = target as! User
-      
-      message = "\(actor.username) followed \(user.username)"
+      message = "\(actorName) followed \(targetName)"
     }
     
     return message

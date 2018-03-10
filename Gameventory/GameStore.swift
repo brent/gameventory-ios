@@ -25,7 +25,7 @@ enum CoverImgResult {
 }
 
 enum FeedResult {
-  case success([[String:Any]])
+  case success([Event])
   case failure(Error)
 }
 
@@ -146,8 +146,18 @@ class GameStore {
       fatalError("couldn't create event type")
     }
     
-    let event = Event(eventType, for: user, with: movedGame)
+    let userData = [
+      "id": "\(user.id)",
+      "username": "\(user.username)"
+    ]
     
+    let targetData = [
+      "type": "game",
+      "id": "\(movedGame.igdbId)",
+      "name": "\(movedGame.name)"
+    ]
+    
+    let event = Event(eventType, actor: userData, target: targetData)
     updateGameventory(for: user, with: event)
   }
   
@@ -155,8 +165,6 @@ class GameStore {
     if self.hasGame(game) {
       return
     }
-    
-    print("game: \(game.name), section: \(section)")
     
     let sectionName = GameventorySections(rawValue: section)!.string
     var section = gameventory.value(forKey: sectionName) as! [Game]
@@ -179,9 +187,19 @@ class GameStore {
     default:
       fatalError("couldn't create event type")
     }
+
+    let userData = [
+      "id": "\(user.id)",
+      "username": "\(user.username)"
+    ]
     
-    let event = Event(eventType, for: user, with: game)
+    let targetData = [
+      "type": "game",
+      "id": "\(game.igdbId)",
+      "name": "\(game.name)"
+    ]
     
+    let event = Event(eventType, actor: userData, target: targetData)
     updateGameventory(for: user, with: event)
   }
   
@@ -248,11 +266,16 @@ class GameStore {
     if let event = event {
       let eventParams: Parameters = [
         "event": [
-          "actor": event.actor.id,
-          "actorUsername": event.actor.username,
-          "target": event.target,
-          "type": event.type.rawValue,
-          "message": event.message
+          "actor": [
+            "id": event.actor["id"],
+            "username": event.actor["username"]
+          ],
+          "target": [
+            "type": event.target["type"],
+            "id": event.target["id"],
+            "name": event.target["name"]
+          ],
+          "type": event.type.rawValue
         ]
       ]
       

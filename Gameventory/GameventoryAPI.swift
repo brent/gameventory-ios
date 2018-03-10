@@ -346,7 +346,22 @@ class GameventoryAPI {
         return .failure(GameventoryAPIError.invalidJSONData)
       }
       
-      return .success(events)
+      var eventArray: [Event] = []
+      for event in events {
+        guard
+          let actor = event["actor"] as? [String: String],
+          let target = event["target"] as? [String: String],
+          let type = event["type"] as? String,
+          let eventType = EventType(rawValue: type) else {
+            print("data for even incorrect")
+            return .failure(GameventoryAPIError.invalidJSONData)
+        }
+      
+        let e = Event(eventType, actor: actor, target: target)
+        eventArray.append(e)
+      }
+      
+      return .success(eventArray)
     } catch let error {
       return .failure(error)
     }

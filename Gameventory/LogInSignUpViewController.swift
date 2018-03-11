@@ -42,26 +42,6 @@ class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
     self.passwordTextField.delegate = self
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    guard
-      let keychainData = Locksmith.loadDataForUserAccount(userAccount: "gameventory"),
-      let id = keychainData["id"] as? String,
-      let username = keychainData["username"] as? String,
-      let token = keychainData["token"] as? String else {
-        return
-    }
-    
-    print("id", id)
-    print("username", username)
-    print("token", token)
-    
-    let user = User(id: id, username: username, token: token)
-    self.user = user
-    self.performSegue(withIdentifier: "showGameventory", sender: nil)
-  }
-  
   @IBAction func logInSignUpSubmitBtnPressed(_ sender: Any) {
     guard
       let username = usernameTextField.text,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Locksmith
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,16 +20,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gameStore = GameStore()
     let imageStore = ImageStore()
     
-    let logInSignUpController = window!.rootViewController as! LogInSignUpViewController
-    logInSignUpController.gameStore = gameStore
-    logInSignUpController.imageStore = imageStore
-    
-    /*
-    let navController = window!.rootViewController as! UINavigationController
-    let gamesController = navController.topViewController as! GamesViewController
-    gamesController.gameStore = gameStore
-    gamesController.imageStore = imageStore
-    */
+    if let keychainData = Locksmith.loadDataForUserAccount(userAccount: "gameventory") {
+      guard
+        let id = keychainData["id"] as? String,
+        let username = keychainData["username"] as? String,
+        let token = keychainData["token"] as? String else {
+          return false
+      }
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+      let user = User(id: id, username: username, token: token)
+      
+      tabBarViewController.user = user
+      tabBarViewController.gameStore = gameStore
+      tabBarViewController.imageStore = imageStore
+      
+      window?.rootViewController = tabBarViewController
+      window?.makeKeyAndVisible()
+    } else {
+      let logInSignUpController = window!.rootViewController as! LogInSignUpViewController
+      logInSignUpController.gameStore = gameStore
+      logInSignUpController.imageStore = imageStore
+    }
+
     return true
   }
 

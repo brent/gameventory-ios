@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Locksmith
 
 class SettingsViewController: UIViewController {
   var user: User!
@@ -42,6 +43,13 @@ class SettingsViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LogInSignUpViewController")
+        
+        do {
+          try Locksmith.deleteDataForUserAccount(userAccount: "gameventory")
+        } catch {
+          print("Error deleting in keychain")
+        }
+        
         self.present(controller, animated: true, completion: nil)
       case let .failure(error):
         print(error)

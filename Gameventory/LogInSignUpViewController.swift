@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Locksmith
 
 enum LogInSignUpResult {
   case success(User)
@@ -87,6 +88,18 @@ class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
           case let .failure(error):
             print(error)
           }
+          
+          do {
+            let keychainData = [
+              "id": id,
+              "username": username,
+              "token": token
+            ]
+            try Locksmith.updateData(data: keychainData, forUserAccount: "gameventory")
+          } catch {
+            print(error)
+          }
+          
           self.performSegue(withIdentifier: "showGameventory", sender: self)
         } else {
 

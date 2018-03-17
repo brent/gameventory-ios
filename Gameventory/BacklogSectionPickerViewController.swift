@@ -153,15 +153,18 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
       sectionFlowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
     }
     */
- 
-    if let selectedPlatform = game.selectedPlatform {
-      self.selectedPlatform = selectedPlatform
-    }
 
     let locationInBacklog = gameStore.locationInBacklog(of: game)
     if locationInBacklog.section == -1 || locationInBacklog.index == -1 {
       return
     } else {
+      if let backlog = gameStore.gamesInBacklog {
+        let backlogGame = backlog[locationInBacklog.section][locationInBacklog.index]
+        if let selectedPlatform = backlogGame.selectedPlatform {
+          self.selectedPlatform = selectedPlatform
+        }
+      }
+
       self.locationInBacklog = (locationInBacklog.section, locationInBacklog.index)
     }
   }

@@ -224,7 +224,6 @@ class GameStore {
         for platform in availablePlatforms {
           
           let p: [String: Any] = ["igdb_name": platform.name, "igdb_id": platform.igdbId]
-          
           platformsData.append(p)
         }
         
@@ -286,12 +285,16 @@ class GameStore {
       "Authorization": "JWT \(user.token)",
       "Content-Type": "application/json"
     ]
-    
+
     Alamofire.request(gameventoryUrl, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
       let result = GameventoryAPI.gameventory(fromJSON: response.data!)
       switch result {
       case let .success(gameventory):
-        self.gameventory = gameventory
+        // something is wrong with this gameventory
+        // I'd like to use this result to refresh the gameventory but
+        // can't until this is also returns platforms
+        // self.gameventory = gameventory
+        print("successfully updated gameventory")
       case let .failure(error):
         print(error)
       }
@@ -416,5 +419,30 @@ class GameStore {
     Alamofire.request(URLstring, headers: headers).responseJSON { response in
       completion(response)
     }
+  }
+
+  private func printGamesInGameventory() -> [[[String]]] {
+    var gameDataArray: [[[String]]] = []
+
+    if let gamesInBacklog = gamesInBacklog {
+      for section in gamesInBacklog {
+        var sectionArray: [[String]] = []
+
+        for game in section {
+          var platformsArray: [String] = []
+          if let platforms = game.availablePlatforms {
+            for platform in platforms {
+              platformsArray.append(platform.name)
+            }
+          }
+          let gameArray = ["name: \(game.name)", "platforms: \(platformsArray)"]
+          sectionArray.append(gameArray)
+        }
+
+        gameDataArray.append(sectionArray)
+      }
+    }
+
+    return gameDataArray
   }
 }

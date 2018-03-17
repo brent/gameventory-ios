@@ -48,6 +48,20 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
     
     gameTitleLabel.text = game.name
     
+    let date = Date(timeIntervalSince1970: Double(game.firstReleaseDate / 1000))
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+
+    releaseDateLabel.text = dateFormatter.string(from: date)
+    summaryLabel.text = game.summary
+    coverImg.image = imageStore.image(forKey: String(game.igdbId))
+
+    if gameStore.hasGame(game) {
+      addOrMoveGameBtn.setTitle("Move", for: [])
+    } else {
+      addOrMoveGameBtn.setTitle("Add", for: [])
+    }
+
     guard let platforms = game.availablePlatforms else {
       return
     }
@@ -65,20 +79,6 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
       }
       
       platformsLabel.text = platformsList
-    }
-    
-    let date = Date(timeIntervalSince1970: Double(game.firstReleaseDate / 1000))
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    
-    releaseDateLabel.text = dateFormatter.string(from: date)
-    summaryLabel.text = game.summary
-    coverImg.image = imageStore.image(forKey: String(game.igdbId))
-    
-    if gameStore.hasGame(game) {
-      addOrMoveGameBtn.setTitle("Move", for: [])
-    } else {
-      addOrMoveGameBtn.setTitle("Add", for: [])
     }
   }
   

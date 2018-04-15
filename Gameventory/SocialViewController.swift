@@ -90,6 +90,22 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
       
       if feed != nil {
         let event = feed[indexPath.row]
+        switch event.type {
+          case .GAME_ADD_NOW_PLAYING,
+               .GAME_ADD_UP_NEXT,
+               .GAME_ADD_ON_ICE,
+               .GAME_ADD_FINISHED,
+               .GAME_ADD_ABANDONED:
+            cell.feedImage.image = UIImage(named: "activity-game-add")
+          case .GAME_MOVE_NOW_PLAYING,
+               .GAME_MOVE_UP_NEXT,
+               .GAME_MOVE_ON_ICE,
+               .GAME_MOVE_FINISHED,
+               .GAME_MOVE_ABANDONED:
+            cell.feedImage.image = UIImage(named: "activity-game-move")
+          case .USER_FOLLOW:
+            cell.feedImage.image = UIImage(named: "activity-user-follow")
+        }
         cell.feedMessage?.text = event.printMessage(for: user)
       } else {
         cell.feedMessage?.text = ""

@@ -10,4 +10,5 @@ import UIKit
 
 class FeedCell: UITableViewCell {
   @IBOutlet var feedMessage: UILabel!
+  @IBOutlet var feedImage: DesignableImageView!
 }

@@ -619,16 +619,16 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m7-FT-YWn">
-                                                                    <rect key="frame" x="79" y="11" width="265" height="51"/>
+                                                                    <rect key="frame" x="63" y="11" width="281" height="51"/>
                                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-Kz-861" customClass="DesignableImageView" customModule="Gameventory" customModuleProvider="target">
-                                                                    <rect key="frame" x="15" y="11" width="48" height="48"/>
+                                                                    <rect key="frame" x="15" y="11" width="32" height="32"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="48" id="Rir-CS-5rx"/>
-                                                                        <constraint firstAttribute="width" constant="48" id="TSw-Pw-4tg"/>
+                                                                        <constraint firstAttribute="height" constant="32" id="Rir-CS-5rx"/>
+                                                                        <constraint firstAttribute="width" constant="32" id="TSw-Pw-4tg"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>

@@ -274,7 +274,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let game = backlog[indexPath.section][indexPath.row]
       cell.gameNameLabel?.text = game.name
       if let selectedPlatform = game.selectedPlatform {
-        cell.selectedPlatformLabel?.text = selectedPlatform.name
+        cell.selectedPlatformLabel?.text = Platform.displayName(for: selectedPlatform.name)
       }
       
       if let coverImg = imageStore.image(forKey: String(game.igdbId)) {

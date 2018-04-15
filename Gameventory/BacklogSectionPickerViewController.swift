@@ -177,14 +177,14 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
     if collectionView == self.platformCollectionView {
       if self.platformScrolledTo == false {
         if let selectedPlatformIndexPath = self.selectedPlatformIndexPath {
-          collectionView.scrollToItem(at: selectedPlatformIndexPath, at: .centeredHorizontally, animated: false)
+          collectionView.scrollToItem(at: selectedPlatformIndexPath, at: .centeredHorizontally, animated: true)
           self.platformScrolledTo = true
         }
       }
     } else if collectionView == self.sectionCollectionView {
       if self.sectionScrolledTo == false {
         if let locationInBacklogIndexPath = self.locationInBacklogIndexPath {
-          collectionView.scrollToItem(at: locationInBacklogIndexPath, at: .centeredHorizontally, animated: false)
+          collectionView.scrollToItem(at: locationInBacklogIndexPath, at: .centeredHorizontally, animated: true)
           self.sectionScrolledTo = true
         }
       }
@@ -211,7 +211,8 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
         return UICollectionViewCell()
       }
       
-      cell.platformOrSectionLabel.text = platforms[indexPath.row].name
+      let platformText = platforms[indexPath.row].name
+      cell.platformOrSectionLabel.text = Platform.displayName(for: platformText)
       return cell
       
     } else if collectionView == self.sectionCollectionView {
@@ -262,6 +263,16 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 150, height: 44)
+    
+    var collectionViewCellSize = CGSize()
+    
+    if collectionView == self.platformCollectionView {
+      collectionViewCellSize.width = 64.0
+    } else if collectionView == self.sectionCollectionView {
+      collectionViewCellSize.width = 130.0
+    }
+    collectionViewCellSize.height = 36.0
+
+    return collectionViewCellSize
   }
 }

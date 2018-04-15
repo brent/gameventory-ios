@@ -406,16 +406,16 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-Ew-P5G">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="251"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lwq-hk-L7n">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lwq-hk-L7n">
                                             <size key="itemSize" width="85" height="120"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="7bb-U2-6Fo" customClass="GameCollectionViewCell" customModule="Gameventory" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10" width="85" height="120"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="120"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="85" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
@@ -1457,7 +1457,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="7pA-V4-I0i"/>
         <segue reference="Tgj-er-C9s"/>
-        <segue reference="yMM-bp-858"/>
+        <segue reference="yBd-sU-WtI"/>
         <segue reference="l77-BV-LLt"/>
     </inferredMetricsTieBreakers>
 </document>

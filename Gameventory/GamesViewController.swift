@@ -302,22 +302,24 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
-    view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 30))
+    view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
     
-    let label = UILabel(frame: CGRect(x: 100, y: 0, width: tableView.frame.size.width - 200, height: 50))
+    let label = UILabel(frame: CGRect(x: 100, y: 0, width: tableView.frame.size.width - 200, height: 30))
     label.text = gameStore.sectionsInBacklog[section].uppercased()
     label.textAlignment = .center
-    label.font = UIFont(name: "SourceSansPro-Semibold", size: 16)
-    label.textColor = UIColor(red: 0.73, green: 0.73, blue: 0.73, alpha: 1.0)
-    
+    label.textColor = UIColor(red: 187.0/255.0, green: 187.0/255.0, blue: 187.0/255.0, alpha: 1.0)
+    // TODO: Fix this
+    // label.font = UIFont(name: "ProximaNovaBold", size: 12.0)
+    label.font = label.font.withSize(12.0)
+
     view.addSubview(label)
     
     return view
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
+    return 30
   }
   
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

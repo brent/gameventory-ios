@@ -29,9 +29,9 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SourceSansPro-Light.ttf</string>
-		<string>SourceSansPro-Regular.ttf</string>
-		<string>SourceSansPro-Semibold.ttf</string>
+		<string>ProximaNovaRegular.otf</string>
+		<string>ProximaNovaSemibold.otf</string>
+		<string>ProximaNovaBold.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

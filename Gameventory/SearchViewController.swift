@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
   var gameStore: GameStore!
   var imageStore: ImageStore!
@@ -144,6 +144,28 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     return games.count
   }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let imageAspectRatioWidth = CGFloat(320)
+    let imageAspectRatioHeight = CGFloat(227)
+    
+    let cellPadding = CGFloat(24)
+    let collectionViewNumColumns = CGFloat(3)
+    
+    let cellWidth = (collectionView.frame.size.width - ((collectionViewNumColumns - CGFloat(1)) * cellPadding)) / collectionViewNumColumns
+    let cellHeight = (cellWidth * imageAspectRatioWidth) / imageAspectRatioHeight
+    
+    return CGSize(width: cellWidth, height: cellHeight)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return CGFloat(12)
+  }
+  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     

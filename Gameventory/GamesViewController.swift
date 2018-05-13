@@ -23,9 +23,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     willSet(newVal) {
       switch newVal {
       case true:
-        updateFollowBtn(withTitle: "unfollow")
+        updateFollowBtn(with: UIImage(named: "user-unfollow-icon"))
       case false:
-        updateFollowBtn(withTitle: "follow")
+        updateFollowBtn(with: UIImage(named:"user-follow-icon"))
       }
     }
   }
@@ -107,9 +107,15 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
   }
   
-  func updateFollowBtn(withTitle title: String) {
+  func updateFollowBtn<T>(with content: T) {
     if otherUser != nil && user.username != otherUser?.username {
-      followButton.setTitle(title, for: [])
+      if let title = content as? String {
+        followButton.setTitle(title, for: [])
+      }
+      
+      if let image = content as? UIImage {
+        followButton.setImage(image, for: .normal)
+      }
     } else {
       followButton.isHidden = true
     }
@@ -119,10 +125,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableView.dataSource = self
     tableView.delegate = self
     
-    let imageView = UIImageView(image: UIImage(named: "navBarLogo"))
-    imageView.contentMode = .scaleAspectFit
-    imageView.clipsToBounds = true
-    navigationItem.titleView = imageView
+    navigationItem.title = ""
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     self.tableView.isHidden = true
@@ -131,6 +134,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     if otherUser != nil {
       settingsBtn.isHidden = true
+      followButton.isHidden = false
+    } else {
+      settingsBtn.isHidden = false
+      followButton.isHidden = true
     }
     
     tableView.estimatedRowHeight = 96.0
@@ -172,9 +179,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
               self.navigationItem.leftBarButtonItem = self.editButtonItem
               
               self.usernameLabel.text? = self.user.username
-              self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames) games"
-              self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int) followers", for: .normal)
-              self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int) following", for: .normal)
+              self.numGamesLabel.text? = "\(self.gameStore.gameventory.totalGames)\ngames"
+              self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int)\nfollowers", for: .normal)
+              self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int)\nfollowing", for: .normal)
               
               self.tableView.reloadData()
             }
@@ -213,9 +220,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.otherUserGameStore!.gameventory = gameventory
             
             self.usernameLabel.text? = self.otherUser!.username
-            self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames) games"
-            self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int) followers", for: .normal)
-            self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int) following", for: .normal)
+            self.numGamesLabel.text? = "\(self.otherUserGameStore!.gameventory.totalGames)\ngames"
+            self.numFollowersBtn.setTitle("\(user["numFollowers"] as! Int)\nfollowers", for: .normal)
+            self.numFollowingBtn.setTitle("\(user["numFollowing"] as! Int)\nfollowing", for: .normal)
             
             self.zeroStateStackView.isHidden = true
             

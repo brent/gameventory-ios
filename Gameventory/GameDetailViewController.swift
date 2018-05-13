@@ -24,9 +24,9 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
     willSet(newVal) {
       switch newVal {
       case true:
-        addOrMoveGameBtn.setTitle("Move", for: [])
+        addOrMoveGameBtn.setTitle("<=>", for: [])
       case false:
-        addOrMoveGameBtn.setTitle("Add", for: [])
+        addOrMoveGameBtn.setTitle("+", for: [])
       }
     }
   }
@@ -57,9 +57,10 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
     coverImg.image = imageStore.image(forKey: String(game.igdbId))
 
     if gameStore.hasGame(game) {
-      addOrMoveGameBtn.setTitle("Move", for: [])
+      addOrMoveGameBtn.setTitle("<=>", for: [])
     } else {
-      addOrMoveGameBtn.setTitle("Add", for: [])
+      addOrMoveGameBtn.setTitle("", for: [])
+      addOrMoveGameBtn.setImage(UIImage(named:"addGameBtn"), for: .normal)
     }
 
     guard let platforms = game.availablePlatforms else {
@@ -67,14 +68,15 @@ class GameDetailViewController: UIViewController, GameBacklogDelegate {
     }
     
     if let selectedPlatform = game.selectedPlatform {
-      platformsLabel.text = selectedPlatform.name
+      platformsLabel.text = Platform.displayName(for: selectedPlatform.name)
     } else {
       var platformsList = ""
       for platform in platforms {
+        let platformName = Platform.displayName(for: platform.name)
         if platformsList.count > 0 {
-          platformsList += ", \(platform.name)"
+          platformsList += ", \(platformName)"
         } else {
-          platformsList += platform.name
+          platformsList += platformName
         }
       }
       

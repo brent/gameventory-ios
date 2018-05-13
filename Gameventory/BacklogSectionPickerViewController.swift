@@ -177,14 +177,14 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
     if collectionView == self.platformCollectionView {
       if self.platformScrolledTo == false {
         if let selectedPlatformIndexPath = self.selectedPlatformIndexPath {
-          collectionView.scrollToItem(at: selectedPlatformIndexPath, at: .centeredHorizontally, animated: true)
+          collectionView.scrollToItem(at: selectedPlatformIndexPath, at: .centeredHorizontally, animated: false)
           self.platformScrolledTo = true
         }
       }
     } else if collectionView == self.sectionCollectionView {
       if self.sectionScrolledTo == false {
         if let locationInBacklogIndexPath = self.locationInBacklogIndexPath {
-          collectionView.scrollToItem(at: locationInBacklogIndexPath, at: .centeredHorizontally, animated: true)
+          collectionView.scrollToItem(at: locationInBacklogIndexPath, at: .centeredHorizontally, animated: false)
           self.sectionScrolledTo = true
         }
       }
@@ -267,9 +267,9 @@ class BacklogSectionPickerViewController: UIViewController, UICollectionViewDele
     var collectionViewCellSize = CGSize()
     
     if collectionView == self.platformCollectionView {
-      collectionViewCellSize.width = 64.0
+      collectionViewCellSize.width = 80.0
     } else if collectionView == self.sectionCollectionView {
-      collectionViewCellSize.width = 130.0
+      collectionViewCellSize.width = 136.0
     }
     collectionViewCellSize.height = 36.0
 

@@ -20,6 +20,9 @@ import UIKit
 @IBDesignable class DesignableImageView: UIImageView {
 }
 
+@IBDesignable class DesignableTextField: UITextField {
+}
+
 extension UIView {
   
   @IBInspectable var cornerRadius: CGFloat {

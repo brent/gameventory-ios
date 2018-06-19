@@ -114,7 +114,6 @@ class GameStore {
   // this should probably be moveGame(to: IndexPath, from:IndexPath)
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int, for user: User) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
-      //updateGameventory(for: user)
       return
     }
 

@@ -114,16 +114,24 @@ class GameStore {
   // this should probably be moveGame(to: IndexPath, from:IndexPath)
   func moveGame(fromSection: Int, fromIndex: Int, toSection: Int, toIndex: Int, for user: User) {
     if (fromSection == toSection) && (fromIndex == toIndex) {
-      updateGameventory(for: user)
+      //updateGameventory(for: user)
       return
     }
 
     let fromSectionName = GameventorySections(rawValue: fromSection)!.string
     var fromGameventorySection = gameventory.value(forKey: fromSectionName) as! [Game]
-    let movedGame = fromGameventorySection[fromIndex]
-    fromGameventorySection.remove(at: fromIndex)
+    
     let toSectionName = GameventorySections(rawValue: toSection)!.string
     var toGameventorySection = gameventory.value(forKey: toSectionName) as! [Game]
+    
+    let movedGame = fromGameventorySection.remove(at: fromIndex)
+
+    for game in toGameventorySection {
+      if game == movedGame {
+        toGameventorySection.remove(at: fromIndex)
+      }
+    }
+    
     toGameventorySection.insert(movedGame, at: toIndex)
     
     gameventory.setValue(fromGameventorySection, forKey: fromSectionName)

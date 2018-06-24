@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Gameventory-local.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Gameventory.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7B7683E320E00B80005986C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7BB9AA581E8DFE0F00FBCC68</key>
 		<dict>
 			<key>primary</key>

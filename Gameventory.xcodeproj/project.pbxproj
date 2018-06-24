@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155CB127F7D98057B1A53B8A /* libPods-GameventoryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C64D0AEED247A404240D358B /* libPods-GameventoryTests.a */; };
+		4F3882AA5C352B3C5874A616 /* libPods-GameventoryUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 755630145FF3F58EAA3168F3 /* libPods-GameventoryUITests.a */; };
 		6DEBDA89B72868E975024258 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
 		7B162F111EDE3F10005312BA /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
 		7B3082B11EFDA6470065E87B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3082B01EFDA6470065E87B /* UserCell.swift */; };
@@ -17,6 +19,40 @@
 		7B60DFBD1EF48DFC00E6D4BD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBC1EF48DFC00E6D4BD /* Event.swift */; };
 		7B60DFBF1EF857F200E6D4BD /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */; };
 		7B60DFC11EF898AD00E6D4BD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */; };
+		7B7683E620E00B80005986C5 /* BacklogSectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5631EAE8FC500CF3360 /* BacklogSectionPickerViewController.swift */; };
+		7B7683E720E00B80005986C5 /* GameventoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */; };
+		7B7683E820E00B80005986C5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3B1E95C5CD001A0F55 /* SearchViewController.swift */; };
+		7B7683E920E00B80005986C5 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8C1E8DFF5900FBCC68 /* GamesViewController.swift */; };
+		7B7683EA20E00B80005986C5 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4E1431EAD5571000CEDBB /* ImageStore.swift */; };
+		7B7683EB20E00B80005986C5 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9770751EA840BD008A78DC /* GameCell.swift */; };
+		7B7683EC20E00B80005986C5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFB41EECBEDB00E6D4BD /* TabBarViewController.swift */; };
+		7B7683ED20E00B80005986C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3F1ED29E7A00AD93B0 /* User.swift */; };
+		7B7683EE20E00B80005986C5 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4E13D1EAA7CDE000CEDBB /* GameDetailViewController.swift */; };
+		7B7683EF20E00B80005986C5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBC1EF48DFC00E6D4BD /* Event.swift */; };
+		7B7683F020E00B80005986C5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3082B01EFDA6470065E87B /* UserCell.swift */; };
+		7B7683F120E00B80005986C5 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC18AB71E8E0933009EF825 /* GameStore.swift */; };
+		7B7683F220E00B80005986C5 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */; };
+		7B7683F320E00B80005986C5 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
+		7B7683F420E00B80005986C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA8E1E8E001500FBCC68 /* Game.swift */; };
+		7B7683F520E00B80005986C5 /* Gameventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B162F101EDE3F10005312BA /* Gameventory.swift */; };
+		7B7683F620E00B80005986C5 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4466E2203A042400FD5B03 /* Platform.swift */; };
+		7B7683F720E00B80005986C5 /* AddGameButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA29973204B41C3006A05DD /* AddGameButtonCollectionViewCell.swift */; };
+		7B7683F820E00B80005986C5 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E412B1FD5E93A0025DFA6 /* GameCollectionViewCell.swift */; };
+		7B7683F920E00B80005986C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB9AA5C1E8DFE0F00FBCC68 /* AppDelegate.swift */; };
+		7B7683FA20E00B80005986C5 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */; };
+		7B7683FB20E00B80005986C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAE274201A4AF300160297 /* SettingsViewController.swift */; };
+		7B7683FC20E00B80005986C5 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B559D3D1E95D0FE001A0F55 /* SearchDataSource.swift */; };
+		7B7683FD20E00B80005986C5 /* GameBacklogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD1D2EE2028EDD9009161DF /* GameBacklogDelegate.swift */; };
+		7B7683FE20E00B80005986C5 /* FollowingFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */; };
+		7B7683FF20E00B80005986C5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAE278201AC0C500160297 /* UIViewExtensions.swift */; };
+		7B76840020E00B80005986C5 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */; };
+		7B76840220E00B80005986C5 /* Pods_Gameventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */; };
+		7B76840420E00B80005986C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */; };
+		7B76840520E00B80005986C5 /* ProximaNovaSemibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BA058472083FE930032CF0F /* ProximaNovaSemibold.otf */; };
+		7B76840620E00B80005986C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA631E8DFE0F00FBCC68 /* Assets.xcassets */; };
+		7B76840720E00B80005986C5 /* ProximaNovaRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BA058492083FE930032CF0F /* ProximaNovaRegular.otf */; };
+		7B76840820E00B80005986C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB9AA601E8DFE0F00FBCC68 /* Main.storyboard */; };
+		7B76840920E00B80005986C5 /* ProximaNovaBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BA058482083FE930032CF0F /* ProximaNovaBold.otf */; };
 		7B8161D81F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */; };
 		7B8E412C1FD5E93A0025DFA6 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8E412B1FD5E93A0025DFA6 /* GameCollectionViewCell.swift */; };
 		7B93F5621EAE89B100CF3360 /* GameSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93F5611EAE89B100CF3360 /* GameSearchResultCell.swift */; };
@@ -43,8 +79,7 @@
 		7BF02F3E1ED294B600AD93B0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3D1ED294B600AD93B0 /* LogInSignUpViewController.swift */; };
 		7BF02F401ED29E7A00AD93B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF02F3F1ED29E7A00AD93B0 /* User.swift */; };
 		7BFA0B1A1EA6DB8700C7319E /* GameventoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */; };
-		7DED25E46F725DE3EEC5F7E9 /* Pods_GameventoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */; };
-		89A36945383FBB9627247550 /* Pods_GameventoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6462824D9DE074369C15B22 /* Pods_GameventoryTests.framework */; };
+		B13A30475D7BA81F5B765297 /* Pods_Gameventory_local.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F1A683E5EB87A7724B37E9 /* Pods_Gameventory_local.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +100,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		095220BCC4B9D71BE80A6519 /* Pods-GameventoryUITests.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.local.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.local.xcconfig"; sourceTree = "<group>"; };
+		178476BB610D2AF294598AE6 /* Pods-GameventoryTests.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.local.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.local.xcconfig"; sourceTree = "<group>"; };
 		1EB38B206DFD484F509BCE02 /* Pods-GameventoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		25F8199207CEC7DFC6F11B4A /* Pods-Gameventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory.release.xcconfig"; sourceTree = "<group>"; };
-		3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameventoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31F1A683E5EB87A7724B37E9 /* Pods_Gameventory_local.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gameventory_local.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43DAB7BC50D7371146DF1665 /* Pods-Gameventory-local.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory-local.local.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory-local/Pods-Gameventory-local.local.xcconfig"; sourceTree = "<group>"; };
 		6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		755630145FF3F58EAA3168F3 /* libPods-GameventoryUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameventoryUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B162F101EDE3F10005312BA /* Gameventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameventory.swift; sourceTree = "<group>"; };
 		7B3082B01EFDA6470065E87B /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7B4466E2203A042400FD5B03 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -79,6 +118,8 @@
 		7B60DFBC1EF48DFC00E6D4BD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7B60DFBE1EF857F200E6D4BD /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		7B60DFC01EF898AD00E6D4BD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		7B76840F20E00B80005986C5 /* Gameventory-local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gameventory-local.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B76841020E00B80005986C5 /* Info-test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-test.plist"; path = "/Users/brentmeyer/Code/gameventory-ios/Info-test.plist"; sourceTree = "<absolute>"; };
 		7B8161D71F8EE4AD00ACAAF8 /* FollowingFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingFollowersViewController.swift; sourceTree = "<group>"; };
 		7B86671E2054AFFF0007A63A /* Gameventory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gameventory.entitlements; sourceTree = "<group>"; };
 		7B8E412B1FD5E93A0025DFA6 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,12 +154,24 @@
 		7BF02F3F1ED29E7A00AD93B0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7BFA0B191EA6DB8700C7319E /* GameventoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameventoryAPI.swift; sourceTree = "<group>"; };
 		96D35584FF421D2DA37CEEA5 /* Pods-Gameventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory.debug.xcconfig"; sourceTree = "<group>"; };
+		B405C4254C316CBE04F1FE04 /* Pods-Gameventory.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory.local.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory.local.xcconfig"; sourceTree = "<group>"; };
 		BEF7E1607C253C9F6EC7B7C5 /* Pods-GameventoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameventoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C64D0AEED247A404240D358B /* libPods-GameventoryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameventoryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gameventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6462824D9DE074369C15B22 /* Pods_GameventoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameventoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA80C66D18D3EE14BF0E7653 /* Pods-Gameventory-local.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory-local.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory-local/Pods-Gameventory-local.release.xcconfig"; sourceTree = "<group>"; };
+		DEBAAABDB38A79733C157754 /* Pods-Gameventory-local.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gameventory-local.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gameventory-local/Pods-Gameventory-local.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7B76840120E00B80005986C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B76840220E00B80005986C5 /* Pods_Gameventory.framework in Frameworks */,
+				B13A30475D7BA81F5B765297 /* Pods_Gameventory_local.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BB9AA561E8DFE0F00FBCC68 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89A36945383FBB9627247550 /* Pods_GameventoryTests.framework in Frameworks */,
+				155CB127F7D98057B1A53B8A /* libPods-GameventoryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DED25E46F725DE3EEC5F7E9 /* Pods_GameventoryUITests.framework in Frameworks */,
+				4F3882AA5C352B3C5874A616 /* libPods-GameventoryUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +268,7 @@
 				7BB9AA591E8DFE0F00FBCC68 /* Gameventory.app */,
 				7BB9AA6D1E8DFE0F00FBCC68 /* GameventoryTests.xctest */,
 				7BB9AA781E8DFE1000FBCC68 /* GameventoryUITests.xctest */,
+				7B76840F20E00B80005986C5 /* Gameventory-local.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +292,7 @@
 				7B93F5691EAEF0C100CF3360 /* Resources */,
 				7BB9AA651E8DFE0F00FBCC68 /* LaunchScreen.storyboard */,
 				7BB9AA681E8DFE0F00FBCC68 /* Info.plist */,
+				7B76841020E00B80005986C5 /* Info-test.plist */,
 			);
 			path = Gameventory;
 			sourceTree = "<group>";
@@ -269,6 +324,12 @@
 				6CCB9B0A891815854E06CF2F /* Pods-GameventoryTests.release.xcconfig */,
 				BEF7E1607C253C9F6EC7B7C5 /* Pods-GameventoryUITests.debug.xcconfig */,
 				6354DA5C10849EA24F5D6E45 /* Pods-GameventoryUITests.release.xcconfig */,
+				B405C4254C316CBE04F1FE04 /* Pods-Gameventory.local.xcconfig */,
+				DEBAAABDB38A79733C157754 /* Pods-Gameventory-local.debug.xcconfig */,
+				CA80C66D18D3EE14BF0E7653 /* Pods-Gameventory-local.release.xcconfig */,
+				43DAB7BC50D7371146DF1665 /* Pods-Gameventory-local.local.xcconfig */,
+				178476BB610D2AF294598AE6 /* Pods-GameventoryTests.local.xcconfig */,
+				095220BCC4B9D71BE80A6519 /* Pods-GameventoryUITests.local.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -277,8 +338,9 @@
 			isa = PBXGroup;
 			children = (
 				C9BF953A45524B0CAA86D575 /* Pods_Gameventory.framework */,
-				E6462824D9DE074369C15B22 /* Pods_GameventoryTests.framework */,
-				3CC2C341348332FADA8FC688 /* Pods_GameventoryUITests.framework */,
+				31F1A683E5EB87A7724B37E9 /* Pods_Gameventory_local.framework */,
+				C64D0AEED247A404240D358B /* libPods-GameventoryTests.a */,
+				755630145FF3F58EAA3168F3 /* libPods-GameventoryUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,6 +348,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7B7683E320E00B80005986C5 /* Gameventory-local */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B76840C20E00B80005986C5 /* Build configuration list for PBXNativeTarget "Gameventory-local" */;
+			buildPhases = (
+				7B7683E420E00B80005986C5 /* [CP] Check Pods Manifest.lock */,
+				7B7683E520E00B80005986C5 /* Sources */,
+				7B76840120E00B80005986C5 /* Frameworks */,
+				7B76840320E00B80005986C5 /* Resources */,
+				7B76840A20E00B80005986C5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gameventory-local";
+			productName = Gameventory;
+			productReference = 7B76840F20E00B80005986C5 /* Gameventory-local.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7BB9AA581E8DFE0F00FBCC68 /* Gameventory */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BB9AA811E8DFE1000FBCC68 /* Build configuration list for PBXNativeTarget "Gameventory" */;
@@ -295,7 +376,6 @@
 				7BB9AA561E8DFE0F00FBCC68 /* Frameworks */,
 				7BB9AA571E8DFE0F00FBCC68 /* Resources */,
 				B3D49CC554166FBB8F8CB0CD /* [CP] Embed Pods Frameworks */,
-				C4081B29970A7FA45B43653B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,8 +394,6 @@
 				7BB9AA691E8DFE0F00FBCC68 /* Sources */,
 				7BB9AA6A1E8DFE0F00FBCC68 /* Frameworks */,
 				7BB9AA6B1E8DFE0F00FBCC68 /* Resources */,
-				9BCD613E888243A0F302A7D4 /* [CP] Embed Pods Frameworks */,
-				B64B26479DED08124EFAE762 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,8 +413,6 @@
 				7BB9AA741E8DFE1000FBCC68 /* Sources */,
 				7BB9AA751E8DFE1000FBCC68 /* Frameworks */,
 				7BB9AA761E8DFE1000FBCC68 /* Resources */,
-				5F043E884DADF00F115E08C6 /* [CP] Embed Pods Frameworks */,
-				D2B66AC884D72819D1FF4E66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,9 +431,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Brent;
 				TargetAttributes = {
+					7B7683E320E00B80005986C5 = {
+						DevelopmentTeam = P43K3F4W3K;
+					};
 					7BB9AA581E8DFE0F00FBCC68 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 6RBNGV4B52;
@@ -396,6 +475,7 @@
 			projectRoot = "";
 			targets = (
 				7BB9AA581E8DFE0F00FBCC68 /* Gameventory */,
+				7B7683E320E00B80005986C5 /* Gameventory-local */,
 				7BB9AA6C1E8DFE0F00FBCC68 /* GameventoryTests */,
 				7BB9AA771E8DFE1000FBCC68 /* GameventoryUITests */,
 			);
@@ -403,6 +483,19 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7B76840320E00B80005986C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B76840420E00B80005986C5 /* LaunchScreen.storyboard in Resources */,
+				7B76840520E00B80005986C5 /* ProximaNovaSemibold.otf in Resources */,
+				7B76840620E00B80005986C5 /* Assets.xcassets in Resources */,
+				7B76840720E00B80005986C5 /* ProximaNovaRegular.otf in Resources */,
+				7B76840820E00B80005986C5 /* Main.storyboard in Resources */,
+				7B76840920E00B80005986C5 /* ProximaNovaBold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BB9AA571E8DFE0F00FBCC68 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,34 +526,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5F043E884DADF00F115E08C6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6AB04AD97CEF466144C27D7D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameventoryTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B7683E420E00B80005986C5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gameventory-local-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B76840A20E00B80005986C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gameventory-local/Pods-Gameventory-local-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gameventory-local/Pods-Gameventory-local-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CCE09DACD1F1ED960476C73 /* [CP] Check Pods Manifest.lock */ = {
@@ -469,13 +588,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameventoryUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		82B1FCFE70E4DB99F504A2F8 /* [CP] Check Pods Manifest.lock */ = {
@@ -484,28 +606,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gameventory-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9BCD613E888243A0F302A7D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B3D49CC554166FBB8F8CB0CD /* [CP] Embed Pods Frameworks */ = {
@@ -514,63 +624,57 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B64B26479DED08124EFAE762 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameventoryTests/Pods-GameventoryTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4081B29970A7FA45B43653B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gameventory/Pods-Gameventory-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2B66AC884D72819D1FF4E66 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameventoryUITests/Pods-GameventoryUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7B7683E520E00B80005986C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B7683E620E00B80005986C5 /* BacklogSectionPickerViewController.swift in Sources */,
+				7B7683E720E00B80005986C5 /* GameventoryAPI.swift in Sources */,
+				7B7683E820E00B80005986C5 /* SearchViewController.swift in Sources */,
+				7B7683E920E00B80005986C5 /* GamesViewController.swift in Sources */,
+				7B7683EA20E00B80005986C5 /* ImageStore.swift in Sources */,
+				7B7683EB20E00B80005986C5 /* GameCell.swift in Sources */,
+				7B7683EC20E00B80005986C5 /* TabBarViewController.swift in Sources */,
+				7B7683ED20E00B80005986C5 /* User.swift in Sources */,
+				7B7683EE20E00B80005986C5 /* GameDetailViewController.swift in Sources */,
+				7B7683EF20E00B80005986C5 /* Event.swift in Sources */,
+				7B7683F020E00B80005986C5 /* UserCell.swift in Sources */,
+				7B7683F120E00B80005986C5 /* GameStore.swift in Sources */,
+				7B7683F220E00B80005986C5 /* LogInSignUpViewController.swift in Sources */,
+				7B7683F320E00B80005986C5 /* GameSearchResultCell.swift in Sources */,
+				7B7683F420E00B80005986C5 /* Game.swift in Sources */,
+				7B7683F520E00B80005986C5 /* Gameventory.swift in Sources */,
+				7B7683F620E00B80005986C5 /* Platform.swift in Sources */,
+				7B7683F720E00B80005986C5 /* AddGameButtonCollectionViewCell.swift in Sources */,
+				7B7683F820E00B80005986C5 /* GameCollectionViewCell.swift in Sources */,
+				7B7683F920E00B80005986C5 /* AppDelegate.swift in Sources */,
+				7B7683FA20E00B80005986C5 /* FeedCell.swift in Sources */,
+				7B7683FB20E00B80005986C5 /* SettingsViewController.swift in Sources */,
+				7B7683FC20E00B80005986C5 /* SearchDataSource.swift in Sources */,
+				7B7683FD20E00B80005986C5 /* GameBacklogDelegate.swift in Sources */,
+				7B7683FE20E00B80005986C5 /* FollowingFollowersViewController.swift in Sources */,
+				7B7683FF20E00B80005986C5 /* UIViewExtensions.swift in Sources */,
+				7B76840020E00B80005986C5 /* SocialViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BB9AA551E8DFE0F00FBCC68 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -656,25 +760,187 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7BB9AA7F1E8DFE1000FBCC68 /* Debug */ = {
+		7B76840D20E00B80005986C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEBAAABDB38A79733C157754 /* Pods-Gameventory-local.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
+				CODE_SIGN_ENTITLEMENTS = Gameventory/Gameventory.entitlements;
+				DEVELOPMENT_TEAM = P43K3F4W3K;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				INFOPLIST_FILE = "Info-test.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.local;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7B76840E20E00B80005986C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA80C66D18D3EE14BF0E7653 /* Pods-Gameventory-local.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
+				CODE_SIGN_ENTITLEMENTS = Gameventory/Gameventory.entitlements;
+				DEVELOPMENT_TEAM = P43K3F4W3K;
+				INFOPLIST_FILE = "Info-test.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.local;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7B76841120E0147C005986C5 /* Local */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT_BASE_URL = "http://localhost:3000";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Local;
+		};
+		7B76841220E0147C005986C5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B405C4254C316CBE04F1FE04 /* Pods-Gameventory.local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gameventory/Gameventory.entitlements;
+				DEVELOPMENT_TEAM = 6RBNGV4B52;
+				INFOPLIST_FILE = Gameventory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Local;
+		};
+		7B76841320E0147C005986C5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43DAB7BC50D7371146DF1665 /* Pods-Gameventory-local.local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-test";
+				CODE_SIGN_ENTITLEMENTS = Gameventory/Gameventory.entitlements;
+				DEVELOPMENT_TEAM = P43K3F4W3K;
+				INFOPLIST_FILE = "Info-test.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.local;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Local;
+		};
+		7B76841420E0147C005986C5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178476BB610D2AF294598AE6 /* Pods-GameventoryTests.local.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = P43K3F4W3K;
+				INFOPLIST_FILE = GameventoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.GameventoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gameventory.app/Gameventory";
+			};
+			name = Local;
+		};
+		7B76841520E0147C005986C5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095220BCC4B9D71BE80A6519 /* Pods-GameventoryUITests.local.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = P43K3F4W3K;
+				INFOPLIST_FILE = GameventoryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.GameventoryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Gameventory;
+			};
+			name = Local;
+		};
+		7BB9AA7F1E8DFE1000FBCC68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT_BASE_URL = "http://localhost:3000";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -711,21 +977,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_ENDPOINT_BASE_URL = "https://inventory.games";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -758,9 +1033,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gameventory/Gameventory.entitlements;
 				DEVELOPMENT_TEAM = 6RBNGV4B52;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -776,7 +1053,8 @@
 				DEVELOPMENT_TEAM = 6RBNGV4B52;
 				INFOPLIST_FILE = Gameventory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.whatbrentdo.Gameventory;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = app.gameventory.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -848,11 +1126,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7B76840C20E00B80005986C5 /* Build configuration list for PBXNativeTarget "Gameventory-local" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B76840D20E00B80005986C5 /* Debug */,
+				7B76840E20E00B80005986C5 /* Release */,
+				7B76841320E0147C005986C5 /* Local */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7BB9AA541E8DFE0F00FBCC68 /* Build configuration list for PBXProject "Gameventory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BB9AA7F1E8DFE1000FBCC68 /* Debug */,
 				7BB9AA801E8DFE1000FBCC68 /* Release */,
+				7B76841120E0147C005986C5 /* Local */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -862,6 +1151,7 @@
 			buildConfigurations = (
 				7BB9AA821E8DFE1000FBCC68 /* Debug */,
 				7BB9AA831E8DFE1000FBCC68 /* Release */,
+				7B76841220E0147C005986C5 /* Local */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -871,6 +1161,7 @@
 			buildConfigurations = (
 				7BB9AA851E8DFE1000FBCC68 /* Debug */,
 				7BB9AA861E8DFE1000FBCC68 /* Release */,
+				7B76841420E0147C005986C5 /* Local */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -880,6 +1171,7 @@
 			buildConfigurations = (
 				7BB9AA881E8DFE1000FBCC68 /* Debug */,
 				7BB9AA891E8DFE1000FBCC68 /* Release */,
+				7B76841520E0147C005986C5 /* Local */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

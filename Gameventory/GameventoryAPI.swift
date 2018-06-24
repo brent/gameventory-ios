@@ -28,12 +28,11 @@ enum GameventoryAPIError: Error {
 }
 
 class GameventoryAPI {
-  private static let baseURLString = "http://localhost:3000"
-  //private static let baseURLString = "https://inventory.games"
+  private static let API_ENDPOINT_BASE_URL = Bundle.main.infoDictionary!["API_ENDPOINT_BASE_URL"] as! String
   private static let apiVersion = "/api/v1"
   
   private class func gameventoryApiUrl(method: Method) -> String {
-    return "\(baseURLString)\(apiVersion)\(method.rawValue)"
+    return "\(API_ENDPOINT_BASE_URL)\(apiVersion)\(method.rawValue)"
   }
   
   private class var gameSearchURL: String {

@@ -1,0 +1,6 @@
+framework module Pods_Gameventory_local {
+  umbrella header "Pods-Gameventory-local-umbrella.h"
+
+  export *
+  module * { export * }
+}

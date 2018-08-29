@@ -16,6 +16,7 @@ enum LogInSignUpResult {
 }
 
 class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
+  @IBOutlet var emailTextField: UITextField!
   @IBOutlet var usernameTextField: UITextField!
   @IBOutlet var passwordTextField: UITextField!
   @IBOutlet var logInSignUpSubmitBtn: UIButton!
@@ -40,6 +41,7 @@ class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
     
     self.usernameTextField.delegate = self
     self.passwordTextField.delegate = self
+    self.emailTextField.delegate = self
   }
   
   @IBAction func logInSignUpSubmitBtnPressed(_ sender: Any) {
@@ -48,12 +50,17 @@ class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
       let password = passwordTextField.text else {
         return
     }
-    
-    let params: Parameters = ["username": username, "password": password]
+
+    var params: Parameters = [
+      "username": username,
+      "password": password
+    ]
 
     var logInSignUpUrl = ""
     if signUpMode {
       logInSignUpUrl = GameventoryAPI.signUpURL()
+      guard let email = emailTextField.text else { return }
+      params.updateValue(email, forKey: "email")
     } else {
       logInSignUpUrl = GameventoryAPI.logInURL()
     }
@@ -128,10 +135,14 @@ class LogInSignUpViewController: UIViewController, UITextFieldDelegate {
     signUpMode = !signUpMode
     
     if signUpMode {
+      emailTextField.superview?.isHidden = false
+
       logInSignUpSubmitBtn.setTitle("Sign up", for: [])
       logInSignUpSwitchLabel.text = "Already have an account?"
       logInSignUpSwitchBtn.setTitle("Log in", for: [])
     } else {
+      emailTextField.superview?.isHidden = true
+
       logInSignUpSubmitBtn.setTitle("Log in", for: [])
       logInSignUpSwitchLabel.text = "Don't have an account?"
       logInSignUpSwitchBtn.setTitle("Sign up", for: [])      

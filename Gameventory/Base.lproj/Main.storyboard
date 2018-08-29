@@ -1232,7 +1232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="LIn-TK-z8n">
-                                <rect key="frame" x="16" y="114" width="343" height="438"/>
+                                <rect key="frame" x="16" y="82" width="343" height="502"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-1U-ejs">
                                         <rect key="frame" x="107.5" y="0.0" width="128" height="128"/>
@@ -1242,13 +1242,55 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="u9r-kF-fmG">
-                                        <rect key="frame" x="0.0" y="192" width="343" height="246"/>
+                                        <rect key="frame" x="0.0" y="192" width="343" height="310"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bjV-cK-DfY">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="172"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="236"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-Sf-FOV" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emg-IE-nTQ" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-Mi-aZX">
+                                                                <rect key="frame" x="0.0" y="11" width="343" height="22"/>
+                                                                <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="D5m-Mi-aZX" firstAttribute="leading" secondItem="emg-IE-nTQ" secondAttribute="leading" id="6jj-ul-w2w"/>
+                                                            <constraint firstAttribute="trailing" secondItem="D5m-Mi-aZX" secondAttribute="trailing" id="Fcg-gh-53R"/>
+                                                            <constraint firstItem="D5m-Mi-aZX" firstAttribute="centerX" secondItem="emg-IE-nTQ" secondAttribute="centerX" id="YGi-Ug-dVR"/>
+                                                            <constraint firstAttribute="height" constant="44" id="ffX-c8-LOP"/>
+                                                            <constraint firstItem="D5m-Mi-aZX" firstAttribute="centerY" secondItem="emg-IE-nTQ" secondAttribute="centerY" id="nYL-ZI-eZs"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-Sf-FOV" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="64" width="343" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1b-4x-3sw">
                                                                 <rect key="frame" x="0.0" y="11" width="343" height="22"/>
@@ -1299,7 +1341,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chs-N1-mNd" customClass="DesignableView" customModule="Gameventory" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="64" width="343" height="44"/>
+                                                        <rect key="frame" x="0.0" y="128" width="343" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVa-d2-nMJ">
                                                                 <rect key="frame" x="0.0" y="11" width="343" height="22"/>
@@ -1341,7 +1383,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8P-xp-d8N" customClass="DesignableButton" customModule="Gameventory" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="128" width="343" height="44"/>
+                                                        <rect key="frame" x="0.0" y="192" width="343" height="44"/>
                                                         <color key="backgroundColor" red="0.63137254899999995" green="0.40784313729999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="1H9-wo-Cfx"/>
@@ -1370,7 +1412,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-VS-vXa">
-                                                <rect key="frame" x="0.0" y="212" width="343" height="34"/>
+                                                <rect key="frame" x="0.0" y="276" width="343" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqH-IM-FJs">
                                                         <rect key="frame" x="0.0" y="7.5" width="181" height="19.5"/>
@@ -1434,6 +1476,7 @@
                     <connections>
                         <outlet property="LogInSignUpSwitchBtn" destination="Plf-qB-Vs8" id="kO0-tu-a7Y"/>
                         <outlet property="LogInSignUpSwitchLabel" destination="jqH-IM-FJs" id="ggO-9q-y0z"/>
+                        <outlet property="emailTextField" destination="D5m-Mi-aZX" id="05L-Ka-CrP"/>
                         <outlet property="logInSignUpSubmitBtn" destination="c8P-xp-d8N" id="zAK-Kn-Zqj"/>
                         <outlet property="passwordTextField" destination="oVa-d2-nMJ" id="SPO-JF-781"/>
                         <outlet property="usernameTextField" destination="t1b-4x-3sw" id="u67-sO-ve3"/>
